@@ -1,0 +1,46 @@
+body {
+    background-image: url(assets/background.png)
+}
+.navbar {
+    text-align: right;
+    background-color: #333333;
+    padding: 14px 16px;
+}
+
+.navbar a {
+    color: #ff0099;
+}
+.logo {
+    float: left;
+    position: relative;
+    bottom: 6px;
+}
+.title, .subtitle, .paragraph, .twiki, .instructionsTitle, .instructionsText {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 260%;
+}
+.subtitle {
+    color: #ff0099;
+}
+.paragraph {
+    font-family: 'Inconsolata', monospace;
+    line-height: 1em;
+}
+.dashes {
+    text-align: center;
+}
+.twiki {
+    font-size: 170%;
+    text-align: center;
+}
+.instructionsTitle {
+    font-size: 140%;   
+}
+.instructionsText {
+    font-family: 'Inconsolata', monospace;
+    line-height: 2em;
+}
