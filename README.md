@@ -1,2 +1,2 @@
 # Leviathan-X
-# This is my Student Repository
+This is my Student Repository
