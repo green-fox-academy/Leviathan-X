@@ -1,0 +1,11 @@
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\bin\Debug\netcoreapp3.1\PrintBigger.exe
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\bin\Debug\netcoreapp3.1\PrintBigger.deps.json
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\bin\Debug\netcoreapp3.1\PrintBigger.runtimeconfig.json
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\bin\Debug\netcoreapp3.1\PrintBigger.runtimeconfig.dev.json
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\bin\Debug\netcoreapp3.1\PrintBigger.dll
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\bin\Debug\netcoreapp3.1\PrintBigger.pdb
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\obj\Debug\netcoreapp3.1\PrintBigger.csprojAssemblyReference.cache
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\obj\Debug\netcoreapp3.1\PrintBigger.AssemblyInfoInputs.cache
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\obj\Debug\netcoreapp3.1\PrintBigger.AssemblyInfo.cs
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\obj\Debug\netcoreapp3.1\PrintBigger.dll
+D:\greenfox\Leviathan-X\week-03\s\PrintBigger\obj\Debug\netcoreapp3.1\PrintBigger.pdb

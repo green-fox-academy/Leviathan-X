@@ -36,9 +36,9 @@ namespace AverageOfInput
             input5 = Console.ReadLine();
             val5 = Convert.ToInt32(input5);
 
-            Console.WriteLine("Loading..");
+            Console.WriteLine("\nLoading..");
             int result = (val1 + val2 + val3 + val4 + val5) / 5;
-            Console.WriteLine("The final result is: " + result);
+            Console.WriteLine("\nThe final result is: " + result);
         }
     }
 }

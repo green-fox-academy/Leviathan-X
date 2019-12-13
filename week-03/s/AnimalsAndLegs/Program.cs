@@ -11,21 +11,21 @@ namespace AnimalsAndLegs
             // The second represents the number of pigs owned by the farmer
             // It should print how many legs all the animals have
 
-            Console.WriteLine("\nThe Leg Counter\nThere's a chicken farm and a pig farm.\n" +
-                "First, enter how many chickens there are: ");
+            Console.Write("\nThe Leg Counter\nThere's a chicken farm and a pig farm." +
+                "\n\nFirst, enter how many chickens there are: ");
             int chick;
             string val1;
             val1 = Console.ReadLine();
             chick = Convert.ToInt32(val1);
             
-            Console.WriteLine("And now, enter how many pigs there are: ");
+            Console.Write("And now, enter how many pigs there are: ");
             int pig;
             string val2;
             val2 = Console.ReadLine();
             pig = Convert.ToInt32(val2);
-            Console.WriteLine("Loading...");
+            Console.WriteLine("\nLoading..");
             int result = (chick * 2) + (pig * 4);
-            Console.WriteLine("There are " + result + " legs on all the farms");
+            Console.WriteLine("\nThere are " + result + " legs on all the farms");
 
         }
     }
