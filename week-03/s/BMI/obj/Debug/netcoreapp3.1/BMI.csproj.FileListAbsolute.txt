@@ -1,0 +1,11 @@
+D:\greenfox\Leviathan-X\week-03\s\BMI\bin\Debug\netcoreapp3.1\BMI.exe
+D:\greenfox\Leviathan-X\week-03\s\BMI\bin\Debug\netcoreapp3.1\BMI.deps.json
+D:\greenfox\Leviathan-X\week-03\s\BMI\bin\Debug\netcoreapp3.1\BMI.runtimeconfig.json
+D:\greenfox\Leviathan-X\week-03\s\BMI\bin\Debug\netcoreapp3.1\BMI.runtimeconfig.dev.json
+D:\greenfox\Leviathan-X\week-03\s\BMI\bin\Debug\netcoreapp3.1\BMI.dll
+D:\greenfox\Leviathan-X\week-03\s\BMI\bin\Debug\netcoreapp3.1\BMI.pdb
+D:\greenfox\Leviathan-X\week-03\s\BMI\obj\Debug\netcoreapp3.1\BMI.csprojAssemblyReference.cache
+D:\greenfox\Leviathan-X\week-03\s\BMI\obj\Debug\netcoreapp3.1\BMI.AssemblyInfoInputs.cache
+D:\greenfox\Leviathan-X\week-03\s\BMI\obj\Debug\netcoreapp3.1\BMI.AssemblyInfo.cs
+D:\greenfox\Leviathan-X\week-03\s\BMI\obj\Debug\netcoreapp3.1\BMI.dll
+D:\greenfox\Leviathan-X\week-03\s\BMI\obj\Debug\netcoreapp3.1\BMI.pdb

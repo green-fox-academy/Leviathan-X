@@ -1,0 +1,11 @@
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\obj\Debug\netcoreapp3.1\HelloUser.csprojAssemblyReference.cache
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\obj\Debug\netcoreapp3.1\HelloUser.AssemblyInfoInputs.cache
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\obj\Debug\netcoreapp3.1\HelloUser.AssemblyInfo.cs
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\bin\Debug\netcoreapp3.1\HelloUser.exe
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\bin\Debug\netcoreapp3.1\HelloUser.deps.json
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\bin\Debug\netcoreapp3.1\HelloUser.runtimeconfig.json
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\bin\Debug\netcoreapp3.1\HelloUser.runtimeconfig.dev.json
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\bin\Debug\netcoreapp3.1\HelloUser.dll
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\bin\Debug\netcoreapp3.1\HelloUser.pdb
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\obj\Debug\netcoreapp3.1\HelloUser.dll
+D:\greenfox\Leviathan-X\week-03\s\HelloUser\obj\Debug\netcoreapp3.1\HelloUser.pdb

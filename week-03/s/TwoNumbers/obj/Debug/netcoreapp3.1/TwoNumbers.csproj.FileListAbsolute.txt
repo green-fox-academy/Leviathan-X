@@ -1,0 +1,11 @@
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\bin\Debug\netcoreapp3.1\TwoNumbers.exe
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\bin\Debug\netcoreapp3.1\TwoNumbers.deps.json
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\bin\Debug\netcoreapp3.1\TwoNumbers.runtimeconfig.json
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\bin\Debug\netcoreapp3.1\TwoNumbers.runtimeconfig.dev.json
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\bin\Debug\netcoreapp3.1\TwoNumbers.dll
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\bin\Debug\netcoreapp3.1\TwoNumbers.pdb
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\obj\Debug\netcoreapp3.1\TwoNumbers.csprojAssemblyReference.cache
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\obj\Debug\netcoreapp3.1\TwoNumbers.AssemblyInfoInputs.cache
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\obj\Debug\netcoreapp3.1\TwoNumbers.AssemblyInfo.cs
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\obj\Debug\netcoreapp3.1\TwoNumbers.dll
+D:\greenfox\Leviathan-X\week-03\s\TwoNumbers\obj\Debug\netcoreapp3.1\TwoNumbers.pdb

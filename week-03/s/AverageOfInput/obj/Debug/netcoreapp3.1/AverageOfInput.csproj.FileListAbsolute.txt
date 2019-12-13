@@ -1,0 +1,11 @@
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\bin\Debug\netcoreapp3.1\AverageOfInput.exe
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\bin\Debug\netcoreapp3.1\AverageOfInput.deps.json
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\bin\Debug\netcoreapp3.1\AverageOfInput.runtimeconfig.json
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\bin\Debug\netcoreapp3.1\AverageOfInput.runtimeconfig.dev.json
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\bin\Debug\netcoreapp3.1\AverageOfInput.dll
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\bin\Debug\netcoreapp3.1\AverageOfInput.pdb
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\obj\Debug\netcoreapp3.1\AverageOfInput.csprojAssemblyReference.cache
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\obj\Debug\netcoreapp3.1\AverageOfInput.AssemblyInfoInputs.cache
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\obj\Debug\netcoreapp3.1\AverageOfInput.AssemblyInfo.cs
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\obj\Debug\netcoreapp3.1\AverageOfInput.dll
+D:\greenfox\Leviathan-X\week-03\s\AverageOfInput\obj\Debug\netcoreapp3.1\AverageOfInput.pdb
