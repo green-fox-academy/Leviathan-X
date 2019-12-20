@@ -29,7 +29,8 @@ namespace BMI
             } else
             {
                 Console.WriteLine("Error!");
-            };
+            }
+
         }
     }
 }
