@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doubling", "Doubling.csproj", "{CEBC5559-0AED-4567-827D-C9F63799F5C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CEBC5559-0AED-4567-827D-C9F63799F5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBC5559-0AED-4567-827D-C9F63799F5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBC5559-0AED-4567-827D-C9F63799F5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBC5559-0AED-4567-827D-C9F63799F5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7175D211-B484-4584-B1D7-60F561D6B74C}
+	EndGlobalSection
+EndGlobal
