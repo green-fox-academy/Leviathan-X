@@ -17,19 +17,24 @@ namespace BMI
 
             double bmi = dobMass / (dobHeight * dobHeight);
             Console.WriteLine("\nYour BMI result is: " + bmi);
+            
             if (bmi < 18.5)
             {
                 Console.WriteLine("You need to grab a sandwich!");
-            } else if (bmi >= 18.5 && bmi <= 25)
+            } 
+            else if (bmi >= 18.5 && bmi <= 25)
             {
                 Console.WriteLine("Your weight is ideal, good job!");
-            } else if (bmi > 25)
+            } 
+            else if (bmi > 25)
             {
                 Console.WriteLine("You need to put down that sandwich!");
-            } else
+            } 
+            else
             {
                 Console.WriteLine("Error!");
             }
+
 
         }
     }
