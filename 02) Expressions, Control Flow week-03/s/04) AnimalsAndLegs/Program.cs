@@ -25,7 +25,7 @@ namespace AnimalsAndLegs
             pig = Convert.ToInt32(val2);
             Console.WriteLine("\nLoading..");
             int result = (chick * 2) + (pig * 4);
-            Console.WriteLine("\nThere are " + result + " legs on all the farms");
+            Console.WriteLine($"\nThere are {result} legs on all the farms");
 
         }
     }

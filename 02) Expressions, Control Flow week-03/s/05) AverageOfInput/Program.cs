@@ -10,7 +10,18 @@ namespace AverageOfInput
             // then it should print the sum and the average of these numbers like:
             //
             // Sum: 22, Average: 4.4
-            Console.WriteLine("Greetings, please enter five variables to calculate their average");
+            Console.WriteLine("Greetings, please enter five variables to calculate their average: ");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            /*
             int val1;
             string input1;
             input1 = Console.ReadLine();
@@ -39,6 +50,7 @@ namespace AverageOfInput
             Console.WriteLine("\nLoading..");
             int result = (val1 + val2 + val3 + val4 + val5) / 5;
             Console.WriteLine("\nThe final result is: " + result);
+            */
         }
     }
 }
