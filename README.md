@@ -5,4 +5,4 @@ I humbly present to you my first beginnings in the art of coding.
 
 Grab yourself some :coffee: and enjoy.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/https://youtu.be/xfr64zoBTAQ/0.jpg)](https://youtu.be/xfr64zoBTAQ)
+[![Click here for further assistance](https://img.youtube.com/vi/xfr64zoBTAQ/0.jpg)](https://youtu.be/xfr64zoBTAQ)
