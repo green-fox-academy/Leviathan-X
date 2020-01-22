@@ -16,7 +16,7 @@ namespace _10__Draw_Pyramid
                 {
                     for (int j = i; j < size; j++)
                     {
-                        Console.Write("d");
+                        Console.Write(" ");
                     }
                     for (int k = 1; k < (i * 2); k++)
                     {
@@ -28,27 +28,7 @@ namespace _10__Draw_Pyramid
                 cont = Console.ReadLine();
 
             } while (cont == "y");
-            /*
-            int v = size;
-
-            //size = How how many lines
-            for (int i = 0; i < size; i++)
-            {
-                //Loop to print spaces
-                for (int j = 1; j < v; j++)
-                {
-                    Console.Write(" ");
-                }
-                v -= 1;
-
-                //Loop to print stars
-                for (int t = 1; t < i * 2; t++)
-                {
-                    Console.Write("*");
-                }
-                //Create a new Line
-                Console.WriteLine();
-            }*/
+            
         }
     }
 }

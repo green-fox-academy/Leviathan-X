@@ -1,38 +1,55 @@
 ﻿using System;
 
-namespace _11__Draw_Diamond
+namespace _14__Draw_Diamond
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("\nSet a number for a size of the Pyramid: ");
-            int size = Int32.Parse(Console.ReadLine());
+            string consent = "y";
+            do
+            {
+                Console.Write("Enter your value: ");
+                int num = Int32.Parse(Console.ReadLine());
+                Console.WriteLine();
 
-            for (int i = 0; i <= size; i++)
-            {
-                for (int j = i; j < size; j++)
+                // First Pyramid
+                for (int i = 1; i <= num; i++)
                 {
-                    Console.Write("d");
+                    for (int j = i; j < num; j++)
+                    {
+                        Console.Write(" ");
+                    }
+
+                    for (int k = 1; k < i * 2; k++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
                 }
-                for (int k = 1; k < (i * 2); k++)
+
+                // Second Pyramid
+                int count = 1;
+                for (int i = 1; i <= num - 1; i++)
                 {
-                    Console.Write("*");
+                    for (int j = 1; j <= count; j++)
+                    {
+                        Console.Write(" ");
+                    }
+
+                    count++;
+
+                    for (int k = 1; k <= 2 * (num - i) - 1; k++)
+                    {
+                        Console.Write("*");
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
-            }
-            for (int i = 0; i <= size; i++)
-            {
-                for (int j = i; j < size; j++)
-                {
-                    Console.Write("d");
-                }
-                for (int k = 1; k < (i * 2); k++)
-                {
-                    Console.Write("*");
-                }
-                Console.WriteLine();
-            }
+
+                Console.Write("\nContinue? (y/n): ");
+                consent = Console.ReadLine();
+            } while (consent == "y");
+        
         }
     }
 }
