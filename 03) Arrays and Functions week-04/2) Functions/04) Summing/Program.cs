@@ -10,6 +10,7 @@ namespace _04__Summing
             for (int i = 0; i <= input; i++)
             {
                 sum += i;
+                if (i != input) Console.WriteLine(sum);
             }
             return sum;
         }
