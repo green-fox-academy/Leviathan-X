@@ -39,7 +39,6 @@ namespace _05__Factorio
             } while (numCorrect == "no");
             return num;
         }
-
         static void Main(string[] args)
         {
             // - Create a function called `Factorio`
