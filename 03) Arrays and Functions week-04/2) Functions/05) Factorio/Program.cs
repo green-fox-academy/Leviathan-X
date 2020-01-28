@@ -12,10 +12,10 @@ namespace _05__Factorio
             for (int i = 1; i < input; i++)
             {
                 facto *= i;
-                Console.WriteLine($"{i} \t* {facto2} \t\t\t\t = {facto}");
+                Console.WriteLine($"{i} \t* {facto2:N0} \t\t\t\t = {facto:N0}");
                 facto2 = facto;
             }
-            Console.WriteLine($"\n\nThe factorial of {input}! is {facto}.");
+            Console.WriteLine($"\n\nThe factorial of {input}! is: {facto:N0}.");
         }
         private static long UserInput()
         {
