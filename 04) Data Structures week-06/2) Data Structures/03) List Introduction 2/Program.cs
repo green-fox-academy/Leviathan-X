@@ -45,7 +45,7 @@ namespace _03__List_Introduction_2
 
             // Add Passion Fruit and Pomelo to List B in a single statement
             list_B.Add("Passion Fruit");
-            list_B.Add("Pomelo");                   // DUNNO MAN
+            list_B.Add("Pomelo");                       // DUNNO MAN
 
             // Print out the 3rd element from List A
             Console.WriteLine($"\n3rd element from List A: {list_A[2]}");
