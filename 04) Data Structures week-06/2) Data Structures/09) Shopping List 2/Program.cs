@@ -25,21 +25,21 @@ namespace _09__Shopping_List_2
             database.Add("Onion", 1.10);
 
             Dictionary<string, double> bob = new Dictionary<string, double>();
-            bob.Add("Milk", 3);             // 3.21
-            bob.Add("Rice", 2);             // 3.18
-            bob.Add("Eggs", 2);             // 6,28
-            bob.Add("Cheese", 1);           // 12.60
-            bob.Add("Chicken Breasts", 4);  // 37,6
-            bob.Add("Apples", 1);           // 2.31
-            bob.Add("Tomato", 2);           // 5.16
-            bob.Add("Potato", 1);           // 1,75
+            bob.Add("Milk", 3);                 // 3.21
+            bob.Add("Rice", 2);                 // 3.18
+            bob.Add("Eggs", 2);                 // 6.28
+            bob.Add("Cheese", 1);               // 12.60
+            bob.Add("Chicken Breasts", 4);      // 37.6
+            bob.Add("Apples", 1);               // 2.31
+            bob.Add("Tomato", 2);               // 5.16
+            bob.Add("Potato", 1);               // 1.75
 
             Dictionary<string, double> alice = new Dictionary<string, double>();
-            alice.Add("Rice", 1);
-            alice.Add("Eggs", 5);
-            alice.Add("Chicken Breasts", 2);
-            alice.Add("Apples", 1);
-            alice.Add("Tomato", 10);
+            alice.Add("Rice", 1);               // 1.59
+            alice.Add("Eggs", 5);               // 15.7
+            alice.Add("Chicken Breasts", 2);    // 18.8
+            alice.Add("Apples", 1);             // 2.31
+            alice.Add("Tomato", 10);            // 25.8
 
             // How much does Bob pay?
             Console.WriteLine($"\nBob has to pay in total: {HowMuch(database, bob)}");
@@ -57,15 +57,15 @@ namespace _09__Shopping_List_2
             // Who buys more different products?
             if (bob.Count == alice.Count)
             {
-                Console.WriteLine("\nBob and Alice buy the same amount of different products.");
+                Console.WriteLine($"\nBob and Alice buy the same amount of different products, {bob.Count} = {alice.Count}.");
             } 
             else if (bob.Count > alice.Count)
             {
-                Console.WriteLine("\nBob buys more different products than Alice.");
+                Console.WriteLine($"\nBob buys more different products than Alice, {bob.Count} > {alice.Count}.");
             }
             else if (bob.Count < alice.Count)
             {
-                Console.WriteLine("\nAlice buys more different products than Bob.");
+                Console.WriteLine($"\nAlice buys more different products than Bob, {alice.Count} > {bob.Count}.");
             }
 
             // Who buys more products? (piece)
@@ -99,15 +99,15 @@ namespace _09__Shopping_List_2
                         {
                             if (item1.Value > item2.Value)
                             {
-                                Console.WriteLine($"\nBob buys more rice than Alice, {item1.Value} > {item2.Value}");
+                                Console.WriteLine($"\nBob buys more rice than Alice, {item1.Value} > {item2.Value}.");
                             }
                             else if (item1.Value < item2.Value)
                             {
-                                Console.WriteLine($"\nAlice buys more rice than Bob, {item2.Value} > {item1.Value}");
+                                Console.WriteLine($"\nAlice buys more rice than Bob, {item2.Value} > {item1.Value}.");
                             }
                             else if (item1.Value > item2.Value)
                             {
-                                Console.WriteLine($"\nBob and Alice buy the same amount of rice, {item1.Value} = {item2.Value}");
+                                Console.WriteLine($"\nBob and Alice buy the same amount of rice, {item1.Value} = {item2.Value}.");
                             }
                             else { Console.WriteLine("\nError!"); };
                         }
@@ -136,15 +136,15 @@ namespace _09__Shopping_List_2
                         {
                             if (item1.Value > item2.Value)
                             {
-                                Console.WriteLine($"\nBob buys more potatoes than Alice, {item1.Value} > {item2.Value}");
+                                Console.WriteLine($"\nBob buys more potatoes than Alice, {item1.Value} > {item2.Value}.");
                             }
                             else if (item1.Value < item2.Value)
                             {
-                                Console.WriteLine($"\nAlice buys more potatoes than Bob, {item2.Value} > {item1.Value}");
+                                Console.WriteLine($"\nAlice buys more potatoes than Bob, {item2.Value} > {item1.Value}.");
                             }
                             else if (item1.Value > item2.Value)
                             {
-                                Console.WriteLine($"\nBob and Alice buy the same amount of potatoes, {item1.Value} = {item2.Value}");
+                                Console.WriteLine($"\nBob and Alice buy the same amount of potatoes, {item1.Value} = {item2.Value}.");
                             }
                             else { Console.WriteLine("\nError!"); };
                         }
@@ -182,15 +182,15 @@ namespace _09__Shopping_List_2
 
             if ((list1[list1.Count - 1]) > (list2[list2.Count - 1]))
             {
-                Console.WriteLine($"\nBob buys more pieces of a product than Alice, {list1[list1.Count - 1]} > {list2[list2.Count - 1]}");
+                Console.WriteLine($"\nBob buys more pieces of a product than Alice, {list1[list1.Count - 1]} > {list2[list2.Count - 1]}.");
             }
             else if ((list1[list1.Count - 1]) < (list2[list2.Count - 1]))
             {
-                Console.WriteLine($"\nAlice buys more pieces of a product than Bob, {list2[list2.Count - 1]} > {list1[list1.Count - 1]}");
+                Console.WriteLine($"\nAlice buys more pieces of a product than Bob, {list2[list2.Count - 1]} > {list1[list1.Count - 1]}.");
             }
             else if ((list1[list1.Count - 1]) == (list2[list2.Count - 1]))
             {
-                Console.WriteLine($"\nBob and Alice both buy the same amount of pieces of a product, {list1[list1.Count - 1]} = {list2[list2.Count - 1]}");
+                Console.WriteLine($"\nBob and Alice both buy the same amount of pieces of a product, {list1[list1.Count - 1]} = {list2[list2.Count - 1]}.");
             } 
             else
             {
@@ -200,3 +200,4 @@ namespace _09__Shopping_List_2
         }
     }
 }
+
