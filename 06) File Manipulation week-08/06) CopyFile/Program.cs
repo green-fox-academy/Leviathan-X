@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using System.Collections.Generic;
 
 namespace _06__CopyFile
 {
@@ -69,6 +69,8 @@ namespace _06__CopyFile
                 catch (Exception)
                 {
                     Console.WriteLine($"\nError! Unable to write file: {input2}");
+                    Console.Write("\nProcess finished: ");
+                    return false;
                 }
             }
             catch (Exception)
