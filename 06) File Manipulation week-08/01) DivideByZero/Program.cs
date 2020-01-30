@@ -35,7 +35,6 @@ namespace _01__DivideByZero
                     consent = (Console.ReadLine());
                 }
             } while(consent == "y");
-
         }
         static void Divider (int div)
         {
@@ -46,7 +45,7 @@ namespace _01__DivideByZero
                 }
                 catch (DivideByZeroException)
                 {
-                    Console.WriteLine("Failure - Can't divide by zero! Please try again.");
+                    Console.WriteLine("\nFailure - Can't divide by zero! Please try again.");
                 }
         }
     }
