@@ -29,10 +29,11 @@ namespace _03__Count_Lines
                         line = readThis.ReadLine();
                         if (line !=null) num++;
                     }
+                    readThis.Close();
                     return num;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Console.Write("Error! Could not find file. Output: ");
                 return 0;
