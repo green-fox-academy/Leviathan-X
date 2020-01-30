@@ -44,8 +44,15 @@ namespace _03__List_Introduction_2
             Console.WriteLine($"\nIndex of Durian from List B: {list_B.IndexOf("Durian")}");
 
             // Add Passion Fruit and Pomelo to List B in a single statement
-            list_B.Add("Passion Fruit");
-            list_B.Add("Pomelo");                       // DUNNO MAN
+            // ?? List<string> list_B = new List<string>(new string[]{"Passion Fruit", "Pomelo"});
+            // list_B.Add("Passion Fruit");
+            // list_B.Add("Pomelo");
+            list_B.AddRange("Passion Fruit", "Pomelo");
+
+            foreach (var item in list_B)
+            {
+                Console.WriteLine(item);
+            }
 
             // Print out the 3rd element from List A
             Console.WriteLine($"\n3rd element from List A: {list_A[2]}");
