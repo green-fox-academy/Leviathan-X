@@ -56,6 +56,8 @@ namespace _06__CopyFile
                 }
                 readThis.Close();
                 try
+                    // The Try-Catch at this StreamWriter is pretty much redundant, 
+                    // if it doesn't find the file, it just creates a new one.
                 {
                     using (StreamWriter writeThis = new StreamWriter(input2))
                     {
