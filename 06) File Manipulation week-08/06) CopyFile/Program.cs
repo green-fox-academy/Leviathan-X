@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace _06__CopyFile
@@ -14,17 +15,17 @@ namespace _06__CopyFile
             string text1 = @"HolyScripture.txt";
             string text2 = @"Script.txt";
 
-            ReadAndWrite(text1, text2);
-
+            Console.WriteLine(ReadAndWrite(text1, text2));
         }
         static bool ReadAndWrite (string input1, string input2)
         {
-            bool progress;
-            string text = "";
             try
             {
                 using StreamReader readThis = new StreamReader(input1);
                 string str = "";
+
+                List<string> oldText = new List<string>();
+                
                 Console.WriteLine("\nFirst text \n");
 
                 while (str != null)
@@ -33,7 +34,24 @@ namespace _06__CopyFile
                     if (str != null)
                     {
                         Console.WriteLine(str);
-                        text += str;
+                        oldText.Add(str);
+
+                        //try
+                        //{
+                        //    using (StreamWriter writeThis = new StreamWriter(input2))
+                        //    {
+                        //        writeThis.WriteLine(str);
+                        //    }
+                        //}
+                        //catch (Exception)
+                        //{
+                        //    Console.WriteLine($"\nError! Unable to write file: {input2}");
+                        //}
+                        // This doesn't work because:   
+                        // Each iteration it writes on the same first line, and rewrites the previous string,
+                        // at the end of the iteration the only thing in the textfile2 is the last line of textfile1.
+                        // That's why I had to create the List<> oldText.
+                        //
                     }
                 }
                 readThis.Close();
@@ -41,9 +59,12 @@ namespace _06__CopyFile
                 {
                     using (StreamWriter writeThis = new StreamWriter(input2))
                     {
-                        writeThis.WriteLine(text);
+                        foreach (var newText in oldText)
+                        {
+                            writeThis.WriteLine(newText);
+                        }
+                    writeThis.Close();
                     }
-
                 }
                 catch (Exception)
                 {
@@ -53,9 +74,11 @@ namespace _06__CopyFile
             catch (Exception)
             {
                 Console.WriteLine($"\nError! Unable to write file: {input1}");
-                return progress = false;
+                Console.Write("\nProcess finished: ");
+                return false;
             }
-            return progress = true;
+            Console.Write("\nProcess finished: ");
+            return true;
         }
     }
 }
