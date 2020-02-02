@@ -26,7 +26,7 @@ namespace _06__CopyFile
 
                 List<string> oldText = new List<string>();
                 
-                Console.WriteLine("\nFirst text \n");
+                Console.WriteLine("\nInput Text: \n");
 
                 while (str != null)
                 {
@@ -55,20 +55,30 @@ namespace _06__CopyFile
                     }
                 }
                 readThis.Close();
-                try
-                    // The Try-Catch at this StreamWriter is pretty much redundant, 
-                    // if it doesn't find the file, it just creates a new one.
-                {
-                    using (StreamWriter writeThis = new StreamWriter(input2))
+                if (File.Exists(input2))
+                { 
+                    try
+                        // The Try-Catch at this StreamWriter is pretty much redundant, 
+                        // if it doesn't find the file, it just creates a new one.
+                        // UPDATE - Fixed with: if (File.Exists())
                     {
-                        foreach (var newText in oldText)
+                        using (StreamWriter writeThis = new StreamWriter(input2))
                         {
-                            writeThis.WriteLine(newText);
+                            foreach (var newText in oldText)
+                            {
+                                writeThis.WriteLine(newText);
+                            }
+                        writeThis.Close();
                         }
-                    writeThis.Close();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine($"\nError! Unable to write file: {input2}");
+                        Console.Write("\nProcess finished: ");
+                        return false;
                     }
                 }
-                catch (Exception)
+                else
                 {
                     Console.WriteLine($"\nError! Unable to write file: {input2}");
                     Console.Write("\nProcess finished: ");
