@@ -23,9 +23,9 @@ namespace _06__Pokemon
             
             List<Pokemon> Choice = InitializePokemon();
 
-            foreach (var item in Choice)
+            foreach (var pokemon in Choice)
             {
-                if (item.IsEffectiveAgainst(wildPokemon)) Console.WriteLine($"\n\"I choose you, {item.Name}!\"");
+                if (pokemon.IsEffectiveAgainst(wildPokemon)) Console.WriteLine($"\n\"I choose you, {pokemon.Name}!\"");
             }
         }
 
