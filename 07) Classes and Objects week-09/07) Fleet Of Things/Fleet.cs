@@ -23,12 +23,12 @@ namespace _07__Fleet_Of_Things
 
         public void PrintThings()
         {
-            int num = 1;
             Console.WriteLine($"\nHere's all the things that {name} have to do!");
             //for (int i = 0; i < this.things.Count; i++)
             //{
             //    Console.WriteLine($"{i + 1}. [] {this.things[i]}");
             //}
+            int num = 1;
             foreach (var item in this.things)
             {
                 Console.WriteLine($"{num++}. [{item.Status()}] {item.GetName()}");
