@@ -27,5 +27,10 @@ namespace _07__Fleet_Of_Things
             }
             else return " "; 
         }
+
+        public string GetName()
+        {
+            return name;
+        }
     }
 }

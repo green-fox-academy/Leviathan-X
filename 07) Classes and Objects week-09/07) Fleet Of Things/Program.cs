@@ -38,7 +38,6 @@ namespace _07__Fleet_Of_Things
             num3.Complete();
             num4.Complete();
 
-            Console.WriteLine(num3.Status());
             pirates.PrintThings();
 
         }
