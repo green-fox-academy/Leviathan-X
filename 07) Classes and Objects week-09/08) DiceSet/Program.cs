@@ -12,11 +12,9 @@ namespace _08__DiceSet
             // You can reroll with reroll()
             // Your task is to roll the dice until all of the dice are 6
 
+            Console.WriteLine("\nWelcome to the Dice Roll!\nYou've got 6 dice, roll 'em until all of them are six!");            //diceSet.DaGame();
 
-            DiceSet diceSet = new DiceSet();
-            Console.WriteLine("\nWelcome to the Dice Roll!\nYou've got 6 dice, roll 'em until all of them are six!");
-
-            diceSet.DaGame();
+            DaGame.Start();
 
         }
     }
