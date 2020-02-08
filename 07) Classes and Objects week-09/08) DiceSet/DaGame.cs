@@ -16,7 +16,7 @@ namespace _08__DiceSet
                 Console.WriteLine($"\n** Roll number {num} **");
 
                 // - I wanted to put this code in its own class but couldn't get around diceSet.GetCurrent()
-                // - UPDATE: ISSUE SOLVED = Just instantiate in the new class
+                // - UPDATE: ISSUE SOLVED = Just instantiate in the new class + the method should be static
                 Console.WriteLine("\nStatus: ");
                 Console.WriteLine($"\nDice 1: {dices.GetCurrent(0)}");
                 Console.WriteLine($"\nDice 2: {dices.GetCurrent(1)}");
@@ -38,7 +38,7 @@ namespace _08__DiceSet
                 else if (userInput == ConsoleKey.R) //|| userInput == "R")
                 {
                     Console.Write("\nWhich dice to roll?\n\nYour choice: ");
-                    // Mishi: "Instead of switch use parse. Copypasting is never good."
+                    // Mishi: "Instead of switch, use parse. Copypasting is never good."
                     //string userChoice = Console.ReadLine();
                     try
                     {
