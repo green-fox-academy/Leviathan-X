@@ -6,14 +6,16 @@ namespace _08__DiceSet
 {
     class DaGame
     {
+        public static int rerollsNum = 0;
         public static void Start()
         {
+            HighScore diceScore = new HighScore();
+
             DiceSet dices = new DiceSet();
-            int num = 0;
             string consent = "Let's roll!";
             do
             {
-                Console.WriteLine($"\n** Roll number {num} **");
+                Console.WriteLine($"\n** Roll number {rerollsNum} **\n\nHigh Score: {diceScore.Get()}");
 
                 // - I wanted to put this code in its own class but couldn't get around diceSet.GetCurrent()
                 // - UPDATE: ISSUE SOLVED = Just instantiate in the new class + the method should be static
@@ -33,7 +35,7 @@ namespace _08__DiceSet
                 {
                     dices.Roll();
                     Console.WriteLine("\n\n-- Dices have been rolled! --");
-                    num++;
+                    rerollsNum++;
                 }
                 else if (userInput == ConsoleKey.R) //|| userInput == "R")
                 {
@@ -88,7 +90,7 @@ namespace _08__DiceSet
                     //        Console.WriteLine("Error! Wrong input!\nPlease choose between the N, R or Q buttons.");
                     //        break;
                     //}
-                    num++;
+                    rerollsNum++;
                 }
                 else if (userInput == ConsoleKey.Q) //|| userInput == "Q")
                 {

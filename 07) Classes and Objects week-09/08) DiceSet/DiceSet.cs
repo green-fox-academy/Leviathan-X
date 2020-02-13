@@ -6,6 +6,7 @@ namespace _08__DiceSet
 {
     class DiceSet
     {
+        private HighScore diceScore = new HighScore();
         private Random randomValue = new Random();
         private int[] dice = new int[6];
 
@@ -58,8 +59,11 @@ namespace _08__DiceSet
                     "\n\t*****************************************************" +
                     "\n\t*****************************************************" +
                     "\n\t*****************************************************\n");
+                
+                DaGame.rerollsNum = 0;
             }
             num = 0;
         }
+
     }
 }
