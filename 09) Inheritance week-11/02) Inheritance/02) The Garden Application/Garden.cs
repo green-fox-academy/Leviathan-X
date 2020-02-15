@@ -14,6 +14,11 @@ namespace _02__The_Garden_Application
             name = Name;
             plants = new List<Plant>();
         }
+        
+        public void Add(Plant plant)
+        {
+            plants.Add(plant);
+        }
 
         public void Watering(int water)
         {
