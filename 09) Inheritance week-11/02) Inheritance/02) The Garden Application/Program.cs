@@ -19,6 +19,10 @@ namespace _02__The_Garden_Application
             theGarden.Add(Torange);
 
             theGarden.StatusOfAll();
+            
+            theGarden.Watering(40);
+
+            theGarden.StatusOfAll();
         }
     }
 }
