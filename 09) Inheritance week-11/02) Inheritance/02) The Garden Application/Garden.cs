@@ -6,12 +6,10 @@ namespace _02__The_Garden_Application
 {
     class Garden
     {
-        private string name;
         List<Plant> plants;
 
-        public Garden(string Name)
+        public Garden()
         {
-            name = Name;
             plants = new List<Plant>();
         }
         
@@ -36,8 +34,12 @@ namespace _02__The_Garden_Application
 
             for (int i = 0; i < plants.Count; i++)
             {
-                plants[i].Feed(waterDiv);
+                if(plants[i].Fed() == false)
+                {
+                    plants[i].Feed(waterDiv);
+                }
             }
         }
+
     }
 }

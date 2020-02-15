@@ -9,12 +9,12 @@ namespace _02__The_Garden_Application
         
         public Flower(string Color) :base(Color)
         {
-
+            MaxWater = 5f;
         }
 
         public override void Status()
         {
-            if (WaterAmount <= 5)
+            if (WaterAmount <= MaxWater)
             {
                 Console.WriteLine($"\nThe {color} flower needs water!");
             }
@@ -28,5 +28,6 @@ namespace _02__The_Garden_Application
         {
             WaterAmount += (waterInput/100) * 75;
         }
+
     }
 }

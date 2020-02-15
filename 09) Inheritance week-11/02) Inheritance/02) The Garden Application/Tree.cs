@@ -8,12 +8,12 @@ namespace _02__The_Garden_Application
     {
         public Tree(string Color) :base(Color)
         {
-
+            MaxWater = 10f;
         }
 
         public override void Status()
         {
-            if (WaterAmount < 10)
+            if (WaterAmount < MaxWater)
             {
                 Console.WriteLine($"\nThe {color} tree needs water!");
             }
@@ -27,5 +27,6 @@ namespace _02__The_Garden_Application
         {
             WaterAmount += (waterInput/100) * 40;
         }
+
     }
 }
