@@ -23,9 +23,9 @@ namespace _02__The_Garden_Application
             }
         }
 
-        public override void Feed(int waterInput)
+        public override void Feed(float waterInput)
         {
-            WaterAmount += waterInput;
+            WaterAmount += (waterInput/100) * 40;
         }
     }
 }

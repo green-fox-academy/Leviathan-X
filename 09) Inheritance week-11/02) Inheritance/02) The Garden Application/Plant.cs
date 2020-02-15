@@ -26,7 +26,7 @@ namespace _02__The_Garden_Application
             }
         }
         
-        public virtual void Feed(int waterInput)
+        public virtual void Feed(float waterInput)
         {
             WaterAmount += waterInput;
         }
