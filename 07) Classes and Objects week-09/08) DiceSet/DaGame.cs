@@ -7,27 +7,40 @@ namespace _08__DiceSet
     class DaGame
     {
         public static int rerollsNum = 0;
+        public static int highScore;
+
         public static void Start()
         {
-            HighScore diceScore = new HighScore();
-
             DiceSet dices = new DiceSet();
             string consent = "Let's roll!";
             do
             {
-                Console.WriteLine($"\n** Roll number {rerollsNum} **\n\nHigh Score: {diceScore.Get()}");
+                Console.WriteLine($"\n** Roll number {rerollsNum} **\n\nHigh Score: {highScore}");
 
                 // - I wanted to put this code in its own class but couldn't get around diceSet.GetCurrent()
                 // - UPDATE: ISSUE SOLVED = Just instantiate in the new class + the method should be static
-                Console.WriteLine("\nStatus: ");
-                Console.WriteLine($"\nDice 1: {dices.GetCurrent(0)}");
-                Console.WriteLine($"\nDice 2: {dices.GetCurrent(1)}");
-                Console.WriteLine($"\nDice 3: {dices.GetCurrent(2)}");
-                Console.WriteLine($"\nDice 4: {dices.GetCurrent(3)}");
-                Console.WriteLine($"\nDice 5: {dices.GetCurrent(4)}");
-                Console.WriteLine($"\nDice 6: {dices.GetCurrent(5)}");
+                
+                dices.StatusShow();
 
-                dices.Win();
+                if(dices.CheckWin())
+                {
+                    Console.WriteLine("\n\nCongratulations!");
+                    bool lockedLoop = true;
+                    do
+                    {
+                        Console.Write($"\nPress N to continue: ");
+                        var winnerInput = Console.ReadKey().Key;
+                        if (winnerInput == ConsoleKey.N)
+                        {
+                            dices.Roll();
+                            Console.WriteLine("\n\n-- Dices have been rolled! --");
+                            lockedLoop = false;
+                        }
+                    } while (lockedLoop == true);
+                    dices.StatusReset();
+                    dices.StatusShow();
+                }
+
                 Console.Write("\nYour options:\nPress N - Roll 'em all!\nPress R - Roll a dice\nPress Q - Quit game\n\nYour choice: ");
                 var userInput = Console.ReadKey().Key;
 
@@ -94,8 +107,8 @@ namespace _08__DiceSet
                 }
                 else if (userInput == ConsoleKey.Q) //|| userInput == "Q")
                 {
-                    Console.Write("\nExit game:\nAre you sure? (y/n): ");
-                    consent = Console.ReadLine(); ;
+                    Console.Write("\n\nExit game:\nAre you sure? (y/n): ");
+                    consent = Console.ReadLine(); 
                 }
                 else
                 {
@@ -103,5 +116,6 @@ namespace _08__DiceSet
                 }
             } while (consent == "n" || consent == "N" || consent == "Let's roll!");
         }
+
     }
 }
