@@ -6,6 +6,7 @@ namespace _02__The_Garden_Application
 {
     class Flower : Plant
     {
+        
         public Flower(string Color) :base(Color)
         {
 
@@ -21,6 +22,11 @@ namespace _02__The_Garden_Application
             {
                 Console.WriteLine($"\nThe {color} flower doesn't need water.");
             }
+        }
+
+        public override void Feed(int waterInput)
+        {
+            WaterAmount += waterInput;
         }
     }
 }

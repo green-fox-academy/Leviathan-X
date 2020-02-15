@@ -29,7 +29,7 @@ namespace _02__The_Garden_Application
 
         public void Watering(int waterInput)
         {
-            Console.WriteLine($"\nWatering with {waterInput}");
+            Console.WriteLine($"\n\nWatering with {waterInput}");
 
             float waterDiv = waterInput / plants.Count;
 

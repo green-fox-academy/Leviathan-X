@@ -7,10 +7,11 @@ namespace _02__The_Garden_Application
     class Plant
     {
         protected string color;
-        public float WaterAmount { get { return WaterAmount = 0f; } private set { } }
+        public float WaterAmount; //{ get { return WaterAmount = 0f; } private set { } }
         public Plant(string Color)
         {
             color = Color;
+            WaterAmount = 0f;
         }
 
         public virtual void Status()
@@ -23,6 +24,11 @@ namespace _02__The_Garden_Application
             {
                 Console.WriteLine($"\nThe {color} plant doesn't need water.");
             }
-        } 
+        }
+        
+        public virtual void Feed(int waterInput)
+        {
+            WaterAmount += waterInput;
+        }
     }
 }
