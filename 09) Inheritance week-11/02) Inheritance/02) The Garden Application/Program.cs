@@ -13,6 +13,12 @@ namespace _02__The_Garden_Application
             Flower Fblue = new Flower("blue");
             theGarden.Add(Fblue);
 
+            Tree Tpurple = new Tree("purple");
+            theGarden.Add(Tpurple);
+            Tree Torange = new Tree("orange");
+            theGarden.Add(Torange);
+
+
         }
     }
 }
