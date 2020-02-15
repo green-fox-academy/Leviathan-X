@@ -4,8 +4,11 @@ using System.Text;
 
 namespace _02__The_Garden_Application
 {
-    class Tree
+    class Tree : Plant
     {
+        public Tree(string Color) :base(Color)
+        {
 
+        }
     }
 }
