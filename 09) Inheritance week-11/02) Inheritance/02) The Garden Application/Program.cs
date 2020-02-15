@@ -26,6 +26,8 @@ namespace _02__The_Garden_Application
             theGarden.Watering(70);
             theGarden.StatusOfAll();
 
+            Console.WriteLine("\nNazdar Dáňo");
+
         }
     }
 }
