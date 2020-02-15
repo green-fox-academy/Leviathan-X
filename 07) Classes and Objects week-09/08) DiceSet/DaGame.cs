@@ -24,7 +24,7 @@ namespace _08__DiceSet
 
                 if(dices.CheckWin())
                 {
-                    Console.WriteLine("\n\nCongratulations!");
+                    Console.WriteLine("\n\nCongratulations! See if you can beat your own High Score!");
                     bool lockedLoop = true;
                     do
                     {
