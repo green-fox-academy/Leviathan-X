@@ -7,14 +7,12 @@ namespace _02__The_Garden_Application
     class Garden
     {
         private string name;
-        List<Flower> flowers;
-        List<Tree> trees;
+        List<Plant> plants;
 
         public Garden(string Name)
         {
             name = Name;
-            flowers = new List<Flower>();
-            trees = new List<Tree>();
+            plants = new List<Plant>();
         }
 
         public void Watering(int water)
