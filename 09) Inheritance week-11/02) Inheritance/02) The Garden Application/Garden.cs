@@ -20,8 +20,10 @@ namespace _02__The_Garden_Application
             plants.Add(plant);
         }
 
-        public void Watering(int water)
+        public void Watering(int waterInput)
         {
+            float waterDiv = waterInput / plants.Count;
+            
             if ()
         }
     }
