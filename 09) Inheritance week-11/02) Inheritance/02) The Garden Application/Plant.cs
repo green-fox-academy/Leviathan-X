@@ -15,13 +15,13 @@ namespace _02__The_Garden_Application
 
         public virtual void Status()
         {
-            if (WaterAmount <= 6)
+            if (WaterAmount <= 7)
             {
-                Console.WriteLine($"\nThe plant {color} needs water!");
+                Console.WriteLine($"\nThe {color} plant needs water!");
             } 
             else
             {
-                Console.WriteLine($"\nThe plant {color} doesn't need water.");
+                Console.WriteLine($"\nThe {color} plant doesn't need water.");
             }
         } 
     }

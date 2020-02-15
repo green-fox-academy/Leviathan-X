@@ -10,5 +10,17 @@ namespace _02__The_Garden_Application
         {
 
         }
+
+        public override void Status()
+        {
+            if (WaterAmount <= 5)
+            {
+                Console.WriteLine($"\nThe {color} flower needs water!");
+            }
+            else
+            {
+                Console.WriteLine($"\nThe {color} flower doesn't need water.");
+            }
+        }
     }
 }
