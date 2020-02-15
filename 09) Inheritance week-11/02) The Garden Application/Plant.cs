@@ -7,7 +7,7 @@ namespace _02__The_Garden_Application
     class Plant
     {
         protected string color;
-        protected float waterAmount = 0f;
+        public float WaterAmount { get { return WaterAmount = 0f; } private set { } }
         public Plant(string Color)
         {
             color = Color;
@@ -15,7 +15,7 @@ namespace _02__The_Garden_Application
 
         public virtual void Status()
         {
-            if (waterAmount <= 6)
+            if (WaterAmount <= 6)
             {
                 Console.WriteLine($"\nThe plant {color} needs water!");
             } 
