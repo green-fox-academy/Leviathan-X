@@ -19,12 +19,22 @@ namespace _02__The_Garden_Application
         {
             plants.Add(plant);
         }
+        public void StatusOfAll()
+        {
+            for (int i = 0; i < plants.Count; i++)
+            {
+                plants[i].Status();
+            }
+        }
 
         public void Watering(int waterInput)
         {
             float waterDiv = waterInput / plants.Count;
-            
-            if ()
+
+            for (int i = 0; i < plants.Count; i++)
+            {
+                //plants[i].
+            }
         }
     }
 }

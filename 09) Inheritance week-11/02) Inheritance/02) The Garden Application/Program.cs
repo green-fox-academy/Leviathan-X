@@ -18,7 +18,7 @@ namespace _02__The_Garden_Application
             Tree Torange = new Tree("orange");
             theGarden.Add(Torange);
 
-
+            theGarden.StatusOfAll();
         }
     }
 }
