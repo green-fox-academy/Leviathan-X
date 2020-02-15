@@ -21,8 +21,11 @@ namespace _02__The_Garden_Application
             theGarden.StatusOfAll();
             
             theGarden.Watering(40);
-
             theGarden.StatusOfAll();
+
+            theGarden.Watering(70);
+            theGarden.StatusOfAll();
+
         }
     }
 }
