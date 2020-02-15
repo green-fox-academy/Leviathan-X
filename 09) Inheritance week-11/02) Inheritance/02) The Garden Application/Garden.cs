@@ -19,6 +19,7 @@ namespace _02__The_Garden_Application
         {
             plants.Add(plant);
         }
+
         public void StatusOfAll()
         {
             for (int i = 0; i < plants.Count; i++)
@@ -31,11 +32,11 @@ namespace _02__The_Garden_Application
         {
             Console.WriteLine($"\n\nWatering with {WaterInput}");
 
-            float waterDiv = WaterInput / plants.Count;
+            float waterDiv = (float) WaterInput / plants.Count;
 
             for (int i = 0; i < plants.Count; i++)
             {
-                plants[i].Feed(WaterInput);
+                plants[i].Feed(waterDiv);
             }
         }
     }

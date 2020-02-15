@@ -22,5 +22,10 @@ namespace _02__The_Garden_Application
                 Console.WriteLine($"\nThe {color} tree doesn't need water.");
             }
         }
+
+        public override void Feed(int waterInput)
+        {
+            WaterAmount += waterInput;
+        }
     }
 }
