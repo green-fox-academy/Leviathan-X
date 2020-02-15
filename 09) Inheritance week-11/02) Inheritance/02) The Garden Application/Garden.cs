@@ -27,15 +27,15 @@ namespace _02__The_Garden_Application
             }
         }
 
-        public void Watering(int waterInput)
+        public void Watering(int WaterInput)
         {
-            Console.WriteLine($"\n\nWatering with {waterInput}");
+            Console.WriteLine($"\n\nWatering with {WaterInput}");
 
-            float waterDiv = waterInput / plants.Count;
+            float waterDiv = WaterInput / plants.Count;
 
             for (int i = 0; i < plants.Count; i++)
             {
-                //plants[i].
+                plants[i].Feed(WaterInput);
             }
         }
     }
