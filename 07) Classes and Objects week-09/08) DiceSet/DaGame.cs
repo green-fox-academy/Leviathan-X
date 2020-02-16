@@ -24,7 +24,7 @@ namespace _08__DiceSet
 
                 if(dices.CheckWin())
                 {
-                    Console.WriteLine("\n\nCongratulations! See if you can beat your own High Score!");
+                    Console.WriteLine("\n\nCongratulations!");
                     bool lockedLoop = true;
                     do
                     {
@@ -37,6 +37,8 @@ namespace _08__DiceSet
                             lockedLoop = false;
                         }
                     } while (lockedLoop == true);
+                    
+                    Console.WriteLine($"\n** Roll number {rerollsNum} **\n\nHigh Score: {highScore}");
                     dices.StatusReset();
                     dices.StatusShow();
                 }
