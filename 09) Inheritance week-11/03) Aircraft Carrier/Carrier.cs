@@ -8,16 +8,16 @@ namespace _03__Aircraft_Carrier
     {
         List<Aircraft> aircrafts;
         string name;
-        int ammoStorage;
+        int carrierAmmoStorage;
         private int HP;
 
-        public Carrier(string Name, int AmmoStorage)
+        public Carrier(string Name, int CarrierAmmoStorage)
         {
             name = Name;
             aircrafts = new List<Aircraft>();
-            ammoStorage = AmmoStorage;
+            carrierAmmoStorage = CarrierAmmoStorage;
             HP = 0;
-            Console.WriteLine($"\nThe {name} carrier is sighted roaming the sky!\nAmmo Storage: {ammoStorage}");
+            Console.WriteLine($"\nThe {name} carrier is sighted roaming the sky!\nAmmo Storage: {carrierAmmoStorage}");
         }
 
         public void Add(Aircraft aircraft)
@@ -30,47 +30,34 @@ namespace _03__Aircraft_Carrier
         public void Fill()
         {
             Console.WriteLine($"\nThe {name} carrier attempts to refill its aircraft units..\nLoading..");
-            //int ammoRedistribute = ammoStorage;
-            int ammoLeft = 0;
-            if (ammoStorage > 0)
+            try
             {
-                if (ammoStorage % aircrafts.Count != 0)
+                if (carrierAmmoStorage > 0)
                 {
-                    Console.WriteLine($"Not enough ammo for all aircraft units! Giving priority to the F35 aircraft.");
-                    //ammoRedistribute /= aircrafts.Count;
-                    foreach (var plane in aircrafts)
+                    for (int i = 0; i < aircrafts.Count; i++)
                     {
-                        if(plane.isPriority() == true)
-                        {
-                            ammoStorage += plane.Refill(ammoStorage);
-                        }
+                        if (aircrafts[i].isPriority() == true) carrierAmmoStorage = aircrafts[i].Refill(carrierAmmoStorage);
                     }
-                    foreach (var plane in aircrafts)
+                    
+                    if (carrierAmmoStorage > 0)
                     {
-                        if (plane.isPriority() == false)
+                        for (int i = 0; i < aircrafts.Count; i++)
                         {
-                            ammoStorage += plane.Refill(ammoStorage);
+                            if (aircrafts[i].isPriority() == false) carrierAmmoStorage = aircrafts[i].Refill(carrierAmmoStorage);
                         }
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Enough ammo for all aircraft units. Equally redistributing to all aircraft units to fight communism.");
-                    //ammoRedistribute /= aircrafts.Count;
-                    
-                    foreach (var plane in aircrafts)
-                    {
-                        ammoStorage += plane.Refill(ammoStorage);
-                    }
+                    throw new Exception("\nError!\nNo amount in carrier Ammo Storage!");
                 }
             }
-            else
+            catch (Exception e)
             {
-                throw new Exception ("\nError!\nNo amount in carrier Ammo Storage!");
+                Console.WriteLine($"\n{e.Message}");
             }
 
-            ammoStorage += ammoLeft;
-            Console.WriteLine($"\nProcess of carrier filling complete.\nThe new {name} Ammo Storage: {ammoStorage} ");
+            Console.WriteLine($"\nProcess of carrier filling complete.\nThe new {name} Ammo Storage: {carrierAmmoStorage} ");
         }
 
         public void Fight(Carrier enemyCarrier)
@@ -91,7 +78,7 @@ namespace _03__Aircraft_Carrier
         {
             if(HP > 0)
             {
-                Console.WriteLine($"\nThe {name} Carrier Status:\nHP: {HP}hp\nAircraft count: {aircrafts.Count}\nAmmo Storage: {ammoStorage}\nTotal Damage Potential: {TotalBaseDmg()}hp");
+                Console.WriteLine($"\nThe {name} Carrier Status:\nHP: {HP}hp\nAircraft count: {aircrafts.Count}\nAmmo Storage: {carrierAmmoStorage}\nTotal Damage Potential: {TotalBaseDmg()}hp");
             }
             else
             {
