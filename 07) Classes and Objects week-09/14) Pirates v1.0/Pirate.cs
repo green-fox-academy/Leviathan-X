@@ -118,7 +118,7 @@ namespace _14__Pirates
             }
             else
             {
-                Console.WriteLine("\nBut hey, you can't fight a corpse now, can ya?");
+                Console.WriteLine("\nBut hey, you can't fight a corpse, now can ya?");
             }
         }
 
