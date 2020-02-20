@@ -6,6 +6,7 @@ namespace _14__Pirates_v1._0
     {
         static void Main(string[] args)
         {
+            
             Console.WriteLine("\n---- Arr! Welcome ta de Pirate Wars! ----");
 
             Pirate billy = new Pirate("Billy", true);
@@ -20,6 +21,23 @@ namespace _14__Pirates_v1._0
 
             anneMarie.ShipStatus();
 
+            Pirate matheas = new Pirate("Matheas", true);
+
+            Ship bombarda = new Ship("Bombarda", matheas);
+            bombarda.FillShip();
+
+            matheas.DrinkSomeRum();
+            matheas.DrinkSomeRum();
+
+            bombarda.BrawlBreakOut();
+
+            bombarda.ShipStatus();
+
+            BattleApp battle1 = new BattleApp(anneMarie, bombarda);
+
+            battle1.BeginBattle();
+
+            
         }
     }
 }

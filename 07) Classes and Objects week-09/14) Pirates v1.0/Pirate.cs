@@ -8,9 +8,9 @@ namespace _14__Pirates_v1._0
     {
         private string captainName;
         private bool passOut = false;
-        public bool alive { get; private set; } = true;
         private bool captain;
 
+        public bool alive { get; private set; } = true;
         public int perMil { get; private set; } = 0;
         public static int passedOutTotal { get; private set; } = 0;
         public static int deadTotal { get; private set; } = 0;
@@ -24,7 +24,7 @@ namespace _14__Pirates_v1._0
         public void DrinkSomeRum()
         {
             perMil++;
-            Console.WriteLine($"\nThe pirate {captainName} says: \"GLO GLO GLO!\"");
+            if (captain) Console.WriteLine($"\nThe pirate {captainName} says: \"GLO GLO GLO!\"");
         }
 
         public void HowsItGoingMate()
@@ -94,7 +94,6 @@ namespace _14__Pirates_v1._0
                 }
             }
         }
-
 
     }
 }
