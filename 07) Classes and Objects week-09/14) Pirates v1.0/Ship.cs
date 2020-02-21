@@ -31,10 +31,23 @@ namespace _14__Pirates_v1._0
             }
         }
 
+        public int CheckAliveCrew()
+        {
+            int aliveNum = 0;
+            for (int i = 0; i < crew.Count; i++)
+            {
+                if (this.crew[i].Alive)
+                {
+                    aliveNum++;
+                }
+            }
+            return aliveNum;
+        }
+
         public void ShipStatus()
         {
             Console.WriteLine($"\n\n * * * *\nThe {shipName} Ship Status: \n\nCaptain's Consumed Rum: {captain.PerMil} per Mil\nCrew Passed Out: {Pirate.PassedOutTotal}/{crew.Count}" +
-                $"\nCrew Casualties: {Pirate.DeadTotal}/{crew.Count}");
+                $"\nCrew Alive: {CheckAliveCrew()}/{crew.Count}");
         }
 
         public void BrawlBreakOut()
@@ -100,7 +113,7 @@ namespace _14__Pirates_v1._0
 
         public void LoseBattle()
         {
-            int casualties = randomValue.Next(2, crew.Count);
+            int casualties = randomValue.Next(0, crew.Count);
             int i = 0;
             foreach (var pirate in crew)
             {
@@ -110,7 +123,6 @@ namespace _14__Pirates_v1._0
             }
             Console.WriteLine($"The crew of {shipName} suffer {casualties} casualties.");
         }
-
 
     }
 }

@@ -6,38 +6,53 @@ namespace _14__Pirates_v1._0
 {
     class Armada
     {
-        List<Ship> attackShips;
-        int size;
+        private List<Ship> warShips;
+        private int size;
+        private string warName;
 
-        public Armada(int Size)
+        public Armada(string WarName, int Size)
         {
-            attackShips = new List<Ship>();
+            warShips = new List<Ship>();
             size = Size;
-        }
+            warName = WarName;
 
-        public void AddShip(Ship ship)
-        {
-            if (attackShips.Count < size)
+            int j = 1;
+            for (int i = 1; i <= size; i++)
             {
-                attackShips.Add(ship);
-            }
-            else if (attackShips.Count >= size)
-            {
-                Console.WriteLine("\nCan't add more ships to this Armada! Change it's size!");
+                warShips.Add(new Ship(i.ToString(), new Pirate(j.ToString(), true)));
+                j++;
             }
         }
 
         public bool War(Armada enemyArmada)
         {
             
+            int ourParty = 0;
+            int theirParty = 0;
 
+            while (warShips.Count - 1 != ourParty && enemyArmada.warShips.Count - 1 != theirParty)
+            {
+                if (warShips[ourParty].Battle(enemyArmada.warShips[theirParty]))
+                {
+                    Console.WriteLine($"\nThe {warName} Armada ship destroys the {enemyArmada.warName} ship!");
+                    theirParty++;
+                }
+                else
+                {
+                    Console.WriteLine($"\nThe {enemyArmada.warName} Armada ship destroys the {warName} ship!");
+                    ourParty++;
+                }
+            }
 
-
-            return true;
+            if(warShips.Count - 1 == ourParty)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
-
-       
-
 
     }
 }

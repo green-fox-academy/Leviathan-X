@@ -13,7 +13,6 @@ namespace _14__Pirates_v1._0
         public bool Alive { get; private set; } = true;
         public int PerMil { get; private set; } = 0;
         public static int PassedOutTotal { get; private set; } = 0;
-        public static int DeadTotal { get; private set; } = 0;
 
         public Pirate(string CaptainName,  bool Captain)
         {
@@ -51,13 +50,11 @@ namespace _14__Pirates_v1._0
         public void Die()
         {
             Alive = false;
-            DeadTotal++;
         }
 
         public static void Brawl(Pirate aggressor, Pirate defendant)
         {
             PassedOutTotal = 0;
-            DeadTotal = 0;
 
             Random randomValue = new Random();
 

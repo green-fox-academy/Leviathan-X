@@ -19,5 +19,6 @@ namespace _14__Pirates_v1._0
         {
             Attacker.Battle(Defender);
         }
+
     }
 }
