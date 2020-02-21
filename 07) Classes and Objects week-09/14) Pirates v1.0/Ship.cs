@@ -33,40 +33,41 @@ namespace _14__Pirates_v1._0
 
         public void ShipStatus()
         {
-            Console.WriteLine($"\n\n * * * *\nThe {shipName} Ship Status: \n\nCaptain's Consumed Rum: {captain.perMil} per Mil\nCrew Passed Out: {Pirate.passedOutTotal}/{crew.Count}" +
-                $"\nCrew Casualties: {Pirate.deadTotal}/{crew.Count}");
+            Console.WriteLine($"\n\n * * * *\nThe {shipName} Ship Status: \n\nCaptain's Consumed Rum: {captain.PerMil} per Mil\nCrew Passed Out: {Pirate.PassedOutTotal}/{crew.Count}" +
+                $"\nCrew Casualties: {Pirate.DeadTotal}/{crew.Count}");
         }
 
         public void BrawlBreakOut()
         {
-            int fate = randomValue.Next(1, crew.Count);
+            Console.WriteLine($"\n-- A brawl breaks out on the {shipName} ship! --");
 
-            Pirate.Brawl(crew[fate], crew[fate]);
+
+            int fate = randomValue.Next(1, crew.Count);
+            int fate2 = randomValue.Next(1, crew.Count);
+
+            Pirate.Brawl(crew[fate], crew[fate2]);
         }
 
         public bool Battle (Ship enemyShip)
         {
             Console.WriteLine($"\n\n-- The {shipName} ship sets its sight on the {enemyShip.shipName} ship! --");
 
-            int ourCount = crew.Count;
-            int enemyCount = enemyShip.crew.Count;
-
             int weAlive = 0;
             int theyAlive = 0;
 
             foreach (var ourPirate in crew)
             {
-                if (ourPirate.alive) weAlive++;
+                if (ourPirate.Alive) weAlive++;
 
             }
             foreach (var enemyPirate in enemyShip.crew)
             {
-                if (enemyPirate.alive) theyAlive++;
+                if (enemyPirate.Alive) theyAlive++;
 
             }
 
-            int ourScore = (weAlive - captain.perMil);
-            int enemyScore = (theyAlive - enemyShip.captain.perMil);
+            int ourScore = (weAlive - captain.PerMil);
+            int enemyScore = (theyAlive - enemyShip.captain.PerMil);
 
             if(ourScore > enemyScore)
             {
@@ -99,11 +100,11 @@ namespace _14__Pirates_v1._0
 
         public void LoseBattle()
         {
-            int casualties = randomValue.Next(1, crew.Count);
+            int casualties = randomValue.Next(2, crew.Count);
             int i = 0;
             foreach (var pirate in crew)
             {
-                if (pirate.alive) pirate.Die();
+                if (pirate.Alive) pirate.Die();
                 i++;
                 if (i == casualties) break;
             }

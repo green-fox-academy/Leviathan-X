@@ -6,18 +6,18 @@ namespace _14__Pirates_v1._0
 {
     class BattleApp
     {
-        private Ship attacker;
-        private Ship defender;
+        public Ship Attacker { get; private set; }
+        public Ship Defender { get; private set; }
 
-        public BattleApp(Ship Attacker, Ship Defender)
+        public BattleApp(Ship attacker, Ship defender)
         {
-            attacker = Attacker;
-            defender = Defender;
+            Attacker = attacker;
+            Defender = defender;
         }
 
         public void BeginBattle()
         {
-            attacker.Battle(defender);
+            Attacker.Battle(Defender);
         }
     }
 }

@@ -10,10 +10,10 @@ namespace _14__Pirates_v1._0
         private bool passOut = false;
         private bool captain;
 
-        public bool alive { get; private set; } = true;
-        public int perMil { get; private set; } = 0;
-        public static int passedOutTotal { get; private set; } = 0;
-        public static int deadTotal { get; private set; } = 0;
+        public bool Alive { get; private set; } = true;
+        public int PerMil { get; private set; } = 0;
+        public static int PassedOutTotal { get; private set; } = 0;
+        public static int DeadTotal { get; private set; } = 0;
 
         public Pirate(string CaptainName,  bool Captain)
         {
@@ -23,16 +23,16 @@ namespace _14__Pirates_v1._0
 
         public void DrinkSomeRum()
         {
-            perMil++;
+            PerMil++;
             if (captain) Console.WriteLine($"\nThe pirate {captainName} says: \"GLO GLO GLO!\"");
         }
 
         public void HowsItGoingMate()
         {
             Console.WriteLine("\nHow's it going, pirate?");
-            if (alive)
+            if (Alive)
             {
-                if (perMil < 5)
+                if (PerMil < 5)
                 {
                     Console.WriteLine("\nPour me anudder!");
                 }
@@ -50,13 +50,14 @@ namespace _14__Pirates_v1._0
 
         public void Die()
         {
-            alive = false;
-            deadTotal++;
+            Alive = false;
+            DeadTotal++;
         }
 
         public static void Brawl(Pirate aggressor, Pirate defendant)
         {
-            Console.WriteLine("\n-- A brawl breaks out on the ship! --");
+            PassedOutTotal = 0;
+            DeadTotal = 0;
 
             Random randomValue = new Random();
 
@@ -68,7 +69,7 @@ namespace _14__Pirates_v1._0
             {
                 Console.WriteLine("\nCan't really fight if one of 'em is passed out, can they?");
             }
-            else if (aggressor.alive == false || defendant.alive == false)
+            else if (aggressor.Alive == false || defendant.Alive == false)
             {
                 Console.WriteLine("\nBut hey, you can't fight a corpse, now can ya?");
             }
@@ -89,7 +90,7 @@ namespace _14__Pirates_v1._0
                         Console.WriteLine("Both pirates fight for a while, then they fall on eachother and pass out.");
                         aggressor.passOut = true;
                         defendant.passOut = true;
-                        passedOutTotal += 2;
+                        PassedOutTotal += 2;
                         break;
                 }
             }

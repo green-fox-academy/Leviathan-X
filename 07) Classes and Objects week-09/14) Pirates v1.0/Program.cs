@@ -37,7 +37,38 @@ namespace _14__Pirates_v1._0
 
             battle1.BeginBattle();
 
+            Pirate scotty = new Pirate("Scotty", true);
+            Ship greenMermaid = new Ship("Green Mermaid", scotty);
+            greenMermaid.FillShip();
+            scotty.DrinkSomeRum();
+            scotty.DrinkSomeRum();
+
+            Pirate panzer = new Pirate("Panzer", true);
+            Ship kommandant = new Ship("Kommandant", panzer);
+            kommandant.FillShip();
+            panzer.DrinkSomeRum();
+            panzer.DrinkSomeRum();
+
+            Pirate skull = new Pirate("Skull", true);
+            Ship deathEater = new Ship("Death Eater", skull);
+            deathEater.FillShip();
+            skull.DrinkSomeRum();
+            skull.DrinkSomeRum();
+
+            greenMermaid.BrawlBreakOut();
+            greenMermaid.ShipStatus();
             
+            kommandant.BrawlBreakOut();
+            kommandant.ShipStatus();
+            
+            deathEater.BrawlBreakOut();
+            deathEater.ShipStatus();
+
+            Console.WriteLine("\n\n----- Armada Wars a'brewin'! -----");
+            Armada warParty1 = new Armada(2);
+
+
+
         }
     }
 }
