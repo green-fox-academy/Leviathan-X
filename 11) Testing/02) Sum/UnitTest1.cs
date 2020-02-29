@@ -35,16 +35,21 @@ namespace _02__Sum
         // Putting "Input" in it doesn't work!! 
         // Probably on purpose, because they don't want it to be dependent
 
-        //[InlineData(0, null )]
         [InlineData(1, new int[] { 1 })]
         [InlineData(0, new int[] { })]
+        //[InlineData(0, null)]
+
 
         public void TestMethod1(int outputInt, int[] outputList)
         {
-            if (outputList == null) outputList[0] = 0;
-
             Assert.Equal(outputInt, summie.Sum(outputList.ToList()));
         }
 
+        List<int> nullio = null;
+        [Fact]
+        public void TestMethod2()
+        {
+            Assert.Equal(0, summie.Sum(nullio));
+        }
     }
 }
