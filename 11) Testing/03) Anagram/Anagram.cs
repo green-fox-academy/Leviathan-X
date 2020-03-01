@@ -26,7 +26,7 @@ namespace _03__Anagram
 
         private bool SortInput()
         {
-            Word1 = Word1.Replace(" ", string.Empty);
+            Word1 = Word1.Replace(" ", string.Empty);   // "Word1.Trim()" doesn't do anything for some reason.
             Word2 = Word2.Replace(" ", string.Empty);
 
             Word1 = Word1.ToLower();
