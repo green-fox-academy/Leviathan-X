@@ -6,4 +6,10 @@
     <RootNamespace>_03__Anagram</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Anagram Tests\**" />
+    <EmbeddedResource Remove="Anagram Tests\**" />
+    <None Remove="Anagram Tests\**" />
+  </ItemGroup>
+
 </Project>
