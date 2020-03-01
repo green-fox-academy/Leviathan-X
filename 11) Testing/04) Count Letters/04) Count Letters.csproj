@@ -6,4 +6,10 @@
     <RootNamespace>_04__Count_Letters</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Count Letters Test\**" />
+    <EmbeddedResource Remove="Count Letters Test\**" />
+    <None Remove="Count Letters Test\**" />
+  </ItemGroup>
+
 </Project>

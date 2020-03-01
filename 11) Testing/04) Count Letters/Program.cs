@@ -27,8 +27,9 @@ namespace _04__Count_Letters
 
         static void Main(string[] args)
         {
-            string nonsense = "Dude, you've got a really dirty mind. What's wrong with you?";
-            Dictionary<char, int> myWonderfulDic = StartCount(nonsense);
+            string input = "Dude, you've got a really dirty mind. What's wrong with you?";
+            Dictionary<char, int> myWonderfulDic = StartCount(input);
+            Console.WriteLine($"\nInput: \"{input}\"");
             
             Console.WriteLine("\nCloser Look At myDic:" +
                 "\nKey is for Letter, Value is for Number Of Times Used.\n");
