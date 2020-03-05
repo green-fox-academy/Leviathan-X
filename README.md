@@ -11,4 +11,5 @@ Grab yourself some :coffee: and enjoy.
 | col 3 is                     | right-aligned |
 | col 2 is                     | centered      |
 | zebra stripes                | are neat      |
+<br/>
 [Click here for further assistance](https://youtu.be/dQw4w9WgXcQ)
