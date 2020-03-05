@@ -1,4 +1,4 @@
-# Repository of Igor Immanuel Orlov :suspect:
+# Repository of Igor Immanuel Orlov
 <strong>Part-time student of the esteemed Green Fox Academy.</strong>
 
 I humbly present to you my first beginnings in the art of coding.
