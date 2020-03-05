@@ -6,4 +6,4 @@ I humbly present to you my first beginnings in the art of coding.
 Grab yourself some :coffee: and enjoy.
 <br/><br/>
 
-:loud_sound: For further assistance, check out my [wiki](https://github.com/green-fox-academy/Leviathan-X/wiki).
+:point_right: For further assistance, check out my [wiki](https://github.com/green-fox-academy/Leviathan-X/wiki).
