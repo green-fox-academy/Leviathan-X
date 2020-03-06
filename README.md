@@ -8,7 +8,7 @@ Grab yourself some :coffee: and enjoy.
 
 | Check out some of my cool stuff:  | :boom: |
 |------------|----|
-| Dice Set  | [Click!](https://github.com/green-fox-academy/Leviathan-X/tree/master/Cool%20Stuff/DiceSet)  |
+| Dice Set  | [Click!](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
 | Rex Regio | Coming soon |
 | Pirate Wars | Coming soon |
 | ToDo App | [Clickerino](https://github.com/Leviathan-X/todo-app)|
