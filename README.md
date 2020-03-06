@@ -6,7 +6,7 @@ I humbly present to you my first beginnings in the art of coding.
 Grab yourself some :coffee: and enjoy.
 <br/><br/>
 
-| Check out some of my cool stuff:  | 
+| :boom: Check out some of my cool stuff:  | 
 |------------|
 | [Dice Set](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
 | Rex Regio - Coming soon |
