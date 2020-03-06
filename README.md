@@ -6,11 +6,11 @@ I humbly present to you my first beginnings in the art of coding.
 Grab yourself some :coffee: and enjoy.
 <br/><br/>
 
-| :boom: Check out some of my cool stuff:  | 
-|------------|
-| [Dice Set](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
-| Rex Regio - Coming soon |
-| Pirate Wars - Coming soon |
-| [ToDo App](https://github.com/Leviathan-X/todo-app)|
+| Check out some of my cool stuff:  | :boom: |
+|------------|----|
+| Dice Set  | [Click!](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
+| Rex Regio | Coming soon |
+| Pirate Wars | Coming soon |
+| ToDo App | [Clickerino](https://github.com/Leviathan-X/todo-app)|
 
 :point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams
