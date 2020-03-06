@@ -13,4 +13,4 @@ Grab yourself some :coffee: and enjoy.
 | Pirate Wars | Coming soon |
 | ToDo App | [Clickerino](https://github.com/Leviathan-X/todo-app)|
 
-:point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams.
+:point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams
