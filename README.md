@@ -14,4 +14,4 @@ Grab yourself some :coffee: and enjoy.
 | ToDo App | [Clickerino](https://github.com/Leviathan-X/todo-app)|
 | Secret cheat sheet for exams |  [Boom!](https://youtu.be/dQw4w9WgXcQ) |
 
-:point_right: A cool [video](https://youtu.be/hZ4KyLCf4H0), that I use as a reminder.
+:point_right: A cool [video](https://youtu.be/hZ4KyLCf4H0) that I use as a reminder.
