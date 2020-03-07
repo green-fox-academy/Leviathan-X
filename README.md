@@ -12,5 +12,6 @@ Grab yourself some :coffee: and enjoy.
 | Rex Regio | Coming soon |
 | Pirate Wars | Coming soon |
 | ToDo App | [Clickerino](https://github.com/Leviathan-X/todo-app)|
+| Wanderer | [Oink](https://github.com/Leviathan-X/wanderer-cs)
 
 :point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams
