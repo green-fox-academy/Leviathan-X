@@ -13,7 +13,7 @@ Grab yourself some :coffee: and enjoy.
 
 <br/>
 
-| My Fun Stuff:  | :suspect: |
+| My Fun Projects:  | :suspect: |
 |------------|----|
 | Dice Set  | [Oink](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
 | Rex Regio | Coming soon |
