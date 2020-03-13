@@ -8,8 +8,8 @@ Grab yourself some :coffee: and enjoy.
 
 | My GFA Projects:  | :mortar_board: |
 |------------|----|
-| ToDo App | [Click!](https://github.com/Leviathan-X/todo-app)|
-| Wanderer | [Clickerino](https://github.com/Leviathan-X/wanderer-cs)|
+| ToDo App |[Click!](https://github.com/Leviathan-X/todo-app)|
+| Wanderer |[Clickerino](https://github.com/Leviathan-X/wanderer-cs)|
 
 <br/>
 
