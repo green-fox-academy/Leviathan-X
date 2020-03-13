@@ -6,12 +6,17 @@ I humbly present to you my first beginnings in the art of coding.
 Grab yourself some :coffee: and enjoy.
 <br/><br/>
 
-| Check out some of my cool stuff:  | :boom: |
+| My GFA Projects:  | :mortar_board: |
 |------------|----|
-| Dice Set  | [Click!](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
+| ToDo App | [Click!](https://github.com/Leviathan-X/todo-app)|
+| Wanderer | [Clickerino](https://github.com/Leviathan-X/wanderer-cs)|
+
+<br/>
+
+| My Fun Stuff:  | :boom: |
+|------------|----|
+| Dice Set  | [Oink](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
 | Rex Regio | Coming soon |
 | Pirate Wars | Coming soon |
-| ToDo App | [Clickerino](https://github.com/Leviathan-X/todo-app)|
-| Wanderer | [Oink](https://github.com/Leviathan-X/wanderer-cs)
 
 :point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams
