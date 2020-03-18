@@ -15,8 +15,8 @@ namespace FileIO
 
         static void Main(string[] args)
         {
-            string path1 = @"C:\Users\Leviathan\Desktop\C# Recap\00) Trial Exam\Count Words\TextFile1.txt";
-            string path2 = @"C:\Users\Leviathan\Desktop\C# Recap\00) Trial Exam\Count Words\TextFile2.txt";
+            string path1 = @"D:\greenfox\Leviathan-X\00_Trial_Exam\Count Words\TextFile1.txt";
+            string path2 = @"D:\greenfox\Leviathan-X\00_Trial_Exam\Count Words\TextFile2.txt";
 
             WordCount(path1, path2);
         }
