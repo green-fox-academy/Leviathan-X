@@ -15,8 +15,8 @@ namespace FileIO
 
         static void Main(string[] args)
         {
-            string path1 = @"C:\Users\Leviathan\Desktop\ExampleExam\FileIO\TextFile1.txt";
-            string path2 = @"C:\Users\Leviathan\Desktop\ExampleExam\FileIO\TextFile2.txt";
+            string path1 = @"C:\Users\Leviathan\Desktop\C# Recap\00) Trial Exam\Count Words\TextFile1.txt";
+            string path2 = @"C:\Users\Leviathan\Desktop\C# Recap\00) Trial Exam\Count Words\TextFile2.txt";
 
             WordCount(path1, path2);
         }
@@ -31,9 +31,9 @@ namespace FileIO
 
                 foreach (var line in lines)
                 {
-                    words.AddRange(line.Split(' '));
+                    words.AddRange(line.ToLower().Replace(",", "").Replace(".", "").Split(' '));
                 }
-                
+
                 Dictionary<string, int> wordCount = new Dictionary<string, int>();
                 
                 foreach (var word in words)
@@ -48,15 +48,15 @@ namespace FileIO
                     }
                 }
 
-                string content = "";
-                foreach (KeyValuePair<string, int> entry in wordCount)
+                string output = "";
+                foreach (KeyValuePair<string, int> pair in wordCount)
                 {
-                    if (entry.Key != "")
+                    if (pair.Key != "")
                     {
-                        content += $"{entry.Key} {entry.Value}\n";
+                        output += $"{pair.Key} {pair.Value}\n";
                     }
                 }
-                File.WriteAllText(newPath, content);
+                File.WriteAllText(newPath, output);
                 Console.WriteLine("\nDone!");
             }
             catch
