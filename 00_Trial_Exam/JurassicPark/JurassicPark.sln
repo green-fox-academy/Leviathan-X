@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JurassicPark", "JurassicPark.csproj", "{746D6272-3AE4-4C65-A1B4-1AAE8BE57D41}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{746D6272-3AE4-4C65-A1B4-1AAE8BE57D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{746D6272-3AE4-4C65-A1B4-1AAE8BE57D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{746D6272-3AE4-4C65-A1B4-1AAE8BE57D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{746D6272-3AE4-4C65-A1B4-1AAE8BE57D41}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {567AD8B6-118D-4651-80CC-0C389D6461A3}
+	EndGlobalSection
+EndGlobal
