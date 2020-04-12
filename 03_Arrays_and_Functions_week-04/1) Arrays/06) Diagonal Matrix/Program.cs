@@ -6,23 +6,25 @@ namespace _21__Diagonal_Matrix
     {
         static void Main(string[] args)
         {
-            int[,] array2D = new int[4, 4]
-            {
-                {1, 0, 0, 0},
-                {0, 1, 0, 0},
-                {0, 0, 1, 0},
-                {0, 0, 0, 1}
-            };
+            int[,] matrix = new int[4, 4];
 
-            for (int i = 0; i < array2D.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < array2D.GetLength(1); j++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    Console.Write(array2D[i, j]);
+                    if (i == j) matrix[i, j] = 1;
+                    else matrix[i, j] = 0;
+                }
+            }
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j]);
                 }
                 Console.WriteLine();
             }
-
         }
     }
 }
