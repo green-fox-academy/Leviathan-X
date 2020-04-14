@@ -40,8 +40,8 @@ namespace Rex_Regio
                 "kingdom of Regio, for a dragon has slayed the king! \nWith no heirs left, " +
                 "the crown will belong to the man who shall slay the foul beast.\"" +
                 $"\n\n{PlayerName}: \"So I've heard. I trust the word has spread far enough, " +
-                "and worthy challengers have shown up.\"\n\nOxphor: \"The champions have assembled " +
-                $"before you, wise one. They are ready to meet you, {PlayerName}.\nSo, are you ready?\"");
+                "and worthy challengers have shown up.\"\n\nOxphor: \"The champions have already been " +
+                $"assembled, wise one. They are ready to meet you, {PlayerName}.\nSo, are you ready?\"");
 
             bool wait = true;
             do

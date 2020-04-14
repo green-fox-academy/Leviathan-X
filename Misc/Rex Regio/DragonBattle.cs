@@ -40,25 +40,25 @@ namespace Rex_Regio
             Console.WriteLine(
                 "\n\nOn the top of the mountain lies a valley. The valley contains: " +
                 "\n1. Rocky mountain top" +
-                "\n   Small stones and tough terrain everywhere. There is smoke and fire coming out of the cracks." +
+                "\n   Boulders and tough terrain everywhere. There is smoke and fire coming out of the mountain cracks." +
                 "\n2. Abandoned fishing village" +
                 "\n   Light, slippery and wet terrain. Old, empty buildings right next to a crystal lake." +
-                "\n3. Set of trees" +
-                "\n   Forming a cool shade, this small forest is an ideal hiding ground.");
+                "\n3. Small forest" +
+                "\n   Forming a cool shade, this set of trees is an ideal hiding ground.");
 
             Console.WriteLine("\nYou stop. An experienced advisor that you are, you know that this is the time to assess the situation. You look to your champion." +
                 "\nThe dragon, once sensing he encountered a mighty foe, he'll try to switch positions to better his fighting tactics." +
                 "\nAnd in response, so shall we have to change our tactics. You look at your champion sternly.");
 
             Console.WriteLine("\nChecking your champion's backpack, you find: " +
-                "\n0. Enchanted shield" +
+                "\n0. Enchanted Glass Shield" +
                 "\n   This is a must have against a dragon. Your champion will have his shield equipped for the whole duration of this battle." +
                 "\n1. Bastard Longsword" +
                 "\n   A light, yet powerful weapon. A useful combination with the shield." +
                 "\n2. Silver Battle-Axe" +
                 "\n   As heavy as they come. The shield will not be as effective, but the damage will be undeniable." +
                 "\n3. Set of Iron Spears" +
-                "\n   Nothing special about it. Forged with maximum efficiency in mind, solely to be thrown at a long range.");
+                "\n   Nothing special about these. Forged with maximum efficiency in mind, solely to be thrown at a long range.");
 
             bool wait2 = true;
             do
