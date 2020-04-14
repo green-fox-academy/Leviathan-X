@@ -15,8 +15,8 @@ namespace Rex_Regio
             do
             {
                 // The Game
-                GameSource.PlayerIntro();
-                GameSource.ChampIntro();
+                GameSource.PlayerNameInput();
+                GameSource.ChampChoiceInput();
                 
                 // Aftermath
                 Console.Write($"\nWould you like to play a new game, {GameSource.GetPlayerName()}? " +

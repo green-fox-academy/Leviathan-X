@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace Rex_Regio
@@ -10,7 +11,6 @@ namespace Rex_Regio
 
         static GameSource()
         {
-        
         }
 
         public static string GetPlayerName()
@@ -18,8 +18,16 @@ namespace Rex_Regio
             return PlayerName;
         }
 
+        public static string GetChampName()
+        {
+            if (ChampMenu.ChampChoiceOutput == 1) return "Magnus";
+            else if (ChampMenu.ChampChoiceOutput == 2) return "Legibus";
+            else if (ChampMenu.ChampChoiceOutput == 3) return "Mysterio";
+            else throw new Exception("\n\n--Error!\nOutput Champion name invalid!");
+        }
+
         // Player Introduction
-        public static void PlayerIntro()
+        public static void PlayerNameInput()
         {
             Console.Write("\n\nHooded figure: \"What is your name, stranger?\"\n\nYou: " +
                 "\"Greetings. My name is ");
@@ -38,7 +46,7 @@ namespace Rex_Regio
             bool wait = true;
             do
             {
-                Console.WriteLine("\n\n(Press Enter) ");
+                Console.Write("\n\n(Press Enter) ");
                 var consent = Console.ReadKey().Key;
                 if (consent == ConsoleKey.Enter)
                 {
@@ -53,9 +61,23 @@ namespace Rex_Regio
         }
 
         // The Champions Introduction
-        public static void ChampIntro()
+        public static void ChampChoiceInput()
         {
-            ChampIntroMenu.Input();
+            ChampMenu.Input();
+            switch (ChampMenu.ChampChoiceOutput)
+            {
+                case 1:
+                    new DragonBattle(1);
+                    break;
+                case 2:
+                    new DragonBattle(2);
+                    break;
+                case 3:
+                    new DragonBattle(3);
+                    break;
+                default:
+                    throw new Exception("\n\n--Error!\nChampion choice is invalid!");
+            }
         }
     }
 }
