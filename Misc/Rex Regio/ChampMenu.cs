@@ -4,10 +4,6 @@ using System.Text;
 
 namespace Rex_Regio
 {
-    abstract class Menu
-    {
-    }
-
     static class ChampMenu
     {
         public static int Status = 0;
@@ -26,9 +22,9 @@ namespace Rex_Regio
                     bool activeBio1 = true;
                     do
                     {
-                        XL.ArrowBeforeSpace();
+                        XL.LongSpace();
                         MagnusBio();
-                        XL.ArrowAfterSpace();
+                        XL.ShortSpace();
                         userInput = Console.ReadKey().Key;
                         activeBio1 = false;
                     } while (activeBio1 == true);
@@ -51,9 +47,9 @@ namespace Rex_Regio
                             bool activeBio2 = true;
                             do
                             {
-                                XL.ArrowBeforeSpace();
+                                XL.LongSpace();
                                 LegibusBio();
-                                XL.ArrowAfterSpace();
+                                XL.ShortSpace();
                                 userInput = Console.ReadKey().Key;
                                 activeBio2 = false;
                             } while (activeBio2 == true);
@@ -77,9 +73,9 @@ namespace Rex_Regio
                                     bool activeBio3 = true;
                                     do
                                     {
-                                        XL.ArrowBeforeSpace();
+                                        XL.LongSpace();
                                         MysterioBio();
-                                        XL.ArrowAfterSpace();
+                                        XL.ShortSpace();
                                         userInput = Console.ReadKey().Key;
                                         activeBio3 = false;
                                     } while (activeBio3 == true);
@@ -94,25 +90,25 @@ namespace Rex_Regio
             bool spelling = false;
             do
             {
-                XL.ArrowBeforeSpace();
+                XL.LongSpace();
                 Console.Write("\n_Choose your champion!\n(Write the name of Magnus/Legibus/Mysterio): ");
                 string champName = Console.ReadLine();
 
-                if (champName == "Magnus" || champName == "magnus")
+                if (champName.ToLower() == "magnus")
                 {
                     Console.WriteLine("\n\n-- You have chosen the Bear of the North --\n");
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------\n");
                     spelling = true;
                     ChampChoiceOutput = 1;
                 }
-                else if ((champName == "Legibus") || (champName == "legibus"))
+                else if (champName.ToLower() == "legibus")
                 {
                     Console.WriteLine("\n\n-- You have chosen the Viper of the West --\n");
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------\n");
                     spelling = true;
                     ChampChoiceOutput = 2;
                 }
-                else if ((champName == "Mysterio") || (champName == "mysterio"))
+                else if (champName.ToLower() == "mysterio")
                 {
                     Console.WriteLine("\n\n-- You have chosen the Owl of the South. --\n");
                     Console.WriteLine("-----------------------------------------------------------------------------------------------------------------\n");
@@ -128,7 +124,7 @@ namespace Rex_Regio
        
         private static void MagnusArrow()
         {
-            XL.ArrowBeforeSpace();
+            XL.LongSpace();
             Console.WriteLine("\n\t----------------------------------------------------------------------------------------------------------------");
             Console.WriteLine(
                 "\n\t--> \t-= Magnus the Wild" +
@@ -145,12 +141,12 @@ namespace Rex_Regio
                 "\n\t(Press Enter for details)" +
                 "\n\t(Press Escape to choose your champion)");
             Console.WriteLine("\n\t----------------------------------------------------------------------------------------------------------------");
-            XL.ArrowAfterSpace();
+            XL.ShortSpace();
             Status = 1;
         }
         private static void LegibusArrow()
         {
-            XL.ArrowBeforeSpace();
+            XL.LongSpace();
             Console.WriteLine("\n\t----------------------------------------------------------------------------------------------------------------");
             Console.WriteLine(
                 "\n\t\t-= Magnus the Wild" +
@@ -167,12 +163,12 @@ namespace Rex_Regio
                 "\n\t(Press Enter for details)" +
                 "\n\t(Press Escape to choose your champion)");
             Console.WriteLine("\n\t----------------------------------------------------------------------------------------------------------------");
-            XL.ArrowAfterSpace();
+            XL.ShortSpace();
             Status = 2;
         }
         private static void MysterioArrow()
         {
-            XL.ArrowBeforeSpace();
+            XL.LongSpace();
             Console.WriteLine("\n\t----------------------------------------------------------------------------------------------------------------");
             Console.WriteLine(
                 "\n\t\t-= Magnus the Wild" +
@@ -189,7 +185,7 @@ namespace Rex_Regio
                 "\n\t(Press Enter for details)" +
                 "\n\t(Press Escape to choose your champion)");
             Console.WriteLine("\n\t----------------------------------------------------------------------------------------------------------------");
-            XL.ArrowAfterSpace();
+            XL.ShortSpace();
             Status = 3;
         }
         private static void MagnusBio()

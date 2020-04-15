@@ -29,10 +29,16 @@ namespace Rex_Regio
         // Player Introduction
         public static void PlayerNameInput()
         {
-            Console.Write("\n\nHooded figure: \"What is your name, stranger?\"\n\nYou: " +
+            Console.Write("Hooded figure: \"What is your name, stranger?\"\n\nYou: " +
                 "\"Greetings. My name is ");
             PlayerName = Console.ReadLine();
+
+            if (PlayerName.Contains(".") || PlayerName.Contains(",") || PlayerName.Contains("!")
+                || PlayerName.Contains("?") || PlayerName.Contains(":") || PlayerName.Contains("/")) 
+                PlayerName = "Player";
+            else if (PlayerName.Contains("_")) PlayerName = PlayerName.Replace("_", " ");
             if (PlayerName.Trim() == "") PlayerName = "Player";
+            
             Console.WriteLine("and I've come to your land to mentor a champion.\"");
             Console.Write("\nHooded figure: \"How wonderful! I've heard of your coming. " +
                 $"You're just what we need, {PlayerName}.\nMy name is Oxphor, a humble councilman of our people.\"" +
@@ -47,7 +53,7 @@ namespace Rex_Regio
             do
             {
                 Console.Write("\n\n(Press Enter) ");
-                var consent = Console.ReadKey().Key;
+                var consent = Console.ReadKey(true).Key;
                 if (consent == ConsoleKey.Enter)
                 {
                     Console.WriteLine($"\nOxphor: \"Verily! {PlayerName}, please meet the brave champions.\"");
@@ -67,13 +73,13 @@ namespace Rex_Regio
             switch (ChampMenu.ChampChoiceOutput)
             {
                 case 1:
-                    new DragonBattle(1);
+                    new DragonEncounter(1);
                     break;
                 case 2:
-                    new DragonBattle(2);
+                    new DragonEncounter(2);
                     break;
                 case 3:
-                    new DragonBattle(3);
+                    new DragonEncounter(3);
                     break;
                 default:
                     throw new Exception("\n\n--Error!\nChampion choice is invalid!");

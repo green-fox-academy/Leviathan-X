@@ -8,7 +8,7 @@ namespace Rex_Regio
         {
             // Game Intro
             Console.WriteLine();
-            Intro.Begin();
+            GameIntro.Begin();
 
             // New Game Instances Loop
             bool consent;
@@ -19,15 +19,16 @@ namespace Rex_Regio
                 GameSource.ChampChoiceInput();
                 
                 // Aftermath
-                Console.Write($"\nWould you like to play a new game, {GameSource.GetPlayerName()}? " +
-                    $"\nIf so, press Enter: ");
-                var userInput = Console.ReadKey().Key;
+                Console.WriteLine($"\nWould you like to play again, {GameSource.GetPlayerName()}? " +
+                    $"\n(Press Enter for a new game)");
+                var userInput = Console.ReadKey(true).Key;
                 if (userInput == ConsoleKey.Enter) consent = true;
                 else consent = false;
+                Console.WriteLine(Environment.NewLine);
             }
             while (consent == true);
-            Console.WriteLine($"\n\n\n_Safe travels, {GameSource.GetPlayerName()}.\n\nCreated by: -= Igor Immanuel Orlov =-");
-            Console.ReadKey();
+            Console.WriteLine($"\n\n\nSafe travels, {GameSource.GetPlayerName()}.\n\nCreated by: -= Igor Immanuel Orlov =-");
+            Console.ReadKey(true);
         }
     }
 }

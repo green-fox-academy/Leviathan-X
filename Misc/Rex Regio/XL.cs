@@ -6,7 +6,7 @@ namespace Rex_Regio
 {
     static class XL
     {
-        public static void ArrowBeforeSpace()
+        public static void LongSpace()
         {
             for (int i = 0; i < 40; i++)
             {
@@ -14,7 +14,7 @@ namespace Rex_Regio
             }
         }
 
-        public static void ArrowAfterSpace()
+        public static void ShortSpace()
         {
             for (int i = 0; i < 10; i++)
             {
