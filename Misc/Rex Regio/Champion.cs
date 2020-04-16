@@ -4,17 +4,38 @@ using System.Text;
 
 namespace Rex_Regio
 {
-    abstract class Champion
+    class Champion
     {
-        protected int Health;
         protected int Attack;
+        protected int Health;
         protected int Defense;
         protected int Stamina;
         protected int Potions;
 
         public Champion()
         {
+        }
 
+        public string GetStats()
+        {
+            return "\n\n- Stats:" +
+                $"\n\tHealth:         {Health}" +
+                $"\n\tAttack:         {Attack}" +
+                $"\n\tDefense:        {Defense}" +
+                $"\n\tStamina:        {Stamina}" +
+                $"\n\tHealth Potions: {Potions} (350hp)";
+        }
+
+        public static void blankStats(int ChampNum)
+        {
+            Champion blankMagnus = new Magnus();
+            Champion blankLegibus = new Legibus();
+            Champion blankMysterio = new Mysterio();
+
+            if (ChampNum == 1) Console.WriteLine(blankMagnus.GetStats());
+            else if (ChampNum == 2) Console.WriteLine(blankLegibus.GetStats());
+            else if (ChampNum == 3) Console.WriteLine(blankMysterio.GetStats());
+            else throw new Exception("Blank Champion number is invalid!");
         }
     }
 
@@ -34,7 +55,7 @@ namespace Rex_Regio
     {
         public Legibus()
         {
-            Health = 800;
+            Health = 850;
             Attack = 120;
             Defense = 80;
             Stamina = 120;

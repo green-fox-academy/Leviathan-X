@@ -9,6 +9,10 @@ namespace Rex_Regio
         public static int Status = 0;
         public static int ChampChoiceOutput = 0;
 
+        static ChampMenu()
+        {
+        }
+
         public static void Input()
         {
             Console.CursorVisible = false;
@@ -146,6 +150,7 @@ namespace Rex_Regio
             XL.ShortSpace();
             Status = 1;
         }
+
         private static void LegibusArrow()
         {
             XL.LongSpace();
@@ -168,6 +173,7 @@ namespace Rex_Regio
             XL.ShortSpace();
             Status = 2;
         }
+
         private static void MysterioArrow()
         {
             XL.LongSpace();
@@ -190,6 +196,7 @@ namespace Rex_Regio
             XL.ShortSpace();
             Status = 3;
         }
+
         private static void MagnusBio()
         {
             Console.WriteLine(
@@ -202,15 +209,11 @@ namespace Rex_Regio
                 "a family with a rightful claim to the throne, yet they had to unjustly \nflee the kingdom and hide from " +
                 "persecution in the darkest woods. They say that those, who have survived the many dangers, became nothing " +
                 "but feral beasts, \nbarely clinging onto their last shreds of humanity. The eyes of Magnus radiate " +
-                "coldness, yet there are hints of sadness within. \nThis man has seen much, and he knows loss." +
-                "\n\n- Stats:" +
-                "\n\tHealth:         1.200hp" +
-                "\n\tAttack:         80%" +
-                "\n\tDefense:        120%" +
-                "\n\tStamina:        80%" +
-                "\n\tHealth Potions: 2 (350hp)" +
-                "\n\n(Press any key to continue)");
+                "coldness, yet there are hints of sadness within. \nThis man has seen much, and he knows loss.");
+            Champion.blankStats(1);
+            Console.WriteLine("\n\n(Press any key to continue)");
         }
+
         private static void LegibusBio()
         {
             Console.WriteLine(
@@ -226,15 +229,11 @@ namespace Rex_Regio
                 "wishes to put an end to all of this. But he can't do so alone. He needs a kingdom to have behind " +
                 "his back, in order to have the slightest chance against his cruel father. \nWhen it comes to battle, " +
                 "he wishes to prove he has his father's talent. But he chooses to fight for something he believes in, " +
-                "no matter the slim chance. \nOtherwise, he wouldn't be able to live at all.\n" +
-                "\n- Stats:" +
-                "\nHealth:         850hp" +
-                "\nAttack:         120%" +
-                "\nDefense:        80%" +
-                "\nStamina:        120%" +
-                "\nHealth Potions: 4 (350hp)" +
-                "\n\n(Press any key to continue)");
+                "no matter the slim chance. \nOtherwise, he wouldn't be able to live at all.");
+            Champion.blankStats(2);
+            Console.WriteLine("\n\n(Press any key to continue)");
         }
+
         private static void MysterioBio()
         {
             Console.WriteLine(
@@ -249,14 +248,9 @@ namespace Rex_Regio
                 "for he is practical, and he is useful, especially to those, who know how to reward him. He wears a peculiar amulet " +
                 "around his neck. \nSometimes it glows with a faint red light, and Mysterio seems to clench it with pain. Some say it is the " +
                 "amulet of the Dark Gods, which was stolen from \nthe Forbidden Temple in the south a few short years ago. " +
-                "Nobody knows, nobody wants to know.\n" +
-                "\n-Stats:" +
-                "\nHealth:         450hp" +
-                "\nAttack:         200%" +
-                "\nDefense:        40%" +
-                "\nStamina:        100%" +
-                "\nHealth Potions: 6 (350hp)" +
-                "\n\n(Press any key to continue)");
+                "Nobody knows, nobody wants to know.");
+            Champion.blankStats(3);
+            Console.WriteLine("\n\n(Press any key to continue)");
         }
     }
 }
