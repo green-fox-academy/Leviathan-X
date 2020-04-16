@@ -11,6 +11,7 @@ namespace Rex_Regio
 
         public static void Input()
         {
+            Console.CursorVisible = false;
             bool selectReady = false;
             do
             {
@@ -91,6 +92,7 @@ namespace Rex_Regio
             do
             {
                 XL.LongSpace();
+                Console.CursorVisible = true;
                 Console.Write("\n_Choose your champion!\n(Write the name of Magnus/Legibus/Mysterio): ");
                 string champName = Console.ReadLine();
 
@@ -212,11 +214,21 @@ namespace Rex_Regio
         private static void LegibusBio()
         {
             Console.WriteLine(
-                "\n\n-= Legibus II" +
+            "\n-= Legibus II" +
                 "\n\n- Bio: " +
-                "\n\t" +
+                "\nAcross the western mountains lies a kingdom that spreads far and wide. " +
+                "The old king, Legibus I, is famed for his military genius and his love of further expansion. \n" +
+                "Long had he wished to set his vast armies east, and now, when he can claim an entire " +
+                "kingdom just by the death of one dragon, he does not hesitate. \nHe sends his most " +
+                "promising son to do the deed. A slender, broad shouldered young man, with blonde hair and " +
+                "a wild spark in his blue eyes. \nBut Legibus the II has other plans. He witnessed how the armies " +
+                "of his father plundered and ravaged villages and cities, he has seen what his father condones. \nHe " +
+                "wishes to put an end to all of this. But he can't do so alone. He needs a kingdom to have behind " +
+                "his back, in order to have the slightest chance against his cruel father. \nWhen it comes to battle, " +
+                "he wishes to prove he has his father's talent. But he chooses to fight for something he believes in, " +
+                "no matter the slim chance. \nOtherwise, he wouldn't be able to live at all.\n" +
                 "\n- Stats:" +
-                "\nHealth:         1.000hp" +
+                "\nHealth:         850hp" +
                 "\nAttack:         120%" +
                 "\nDefense:        80%" +
                 "\nStamina:        120%" +
@@ -226,9 +238,18 @@ namespace Rex_Regio
         private static void MysterioBio()
         {
             Console.WriteLine(
-                "\n\n-= Mysterio Dark Eyes" +
+                "\n-= Mysterio Dark Eyes" +
                 "\n\n- Bio: " +
-                "\n\t" +
+                "\nThe south is a land of mystery and conjecture. Nobody trusts the southerners. It is the place " +
+                "where Mysterio claims he comes from. \nBlack hair, shady eyes, short stubble, he doesn't like to talk much, " +
+                "he'd much rather do something, as he says. He has demonstrated great feats of wizardry, \nand although some believe " +
+                "that these are nothing but cheap tricks, he does inspire awe and admiration. His only true passion is knowledge, " +
+                "which he is sometimes \ninclined to share with councilmen, whispering in their ear. Many would see him banished, " +
+                "but it seems he holds favor amongst the most influential people in the kingdom, \nwho hold a protective hand over him, " +
+                "for he is practical, and he is useful, especially to those, who know how to reward him. He wears a peculiar amulet " +
+                "around his neck. \nSometimes it glows with a faint red light, and Mysterio seems to clench it with pain. Some say it is the " +
+                "amulet of the Dark Gods, which was stolen from \nthe Forbidden Temple in the south a few short years ago. " +
+                "Nobody knows, nobody wants to know.\n" +
                 "\n-Stats:" +
                 "\nHealth:         450hp" +
                 "\nAttack:         200%" +

@@ -19,7 +19,7 @@ namespace Rex_Regio
                 GameSource.ChampChoiceInput();
                 
                 // Aftermath
-                Console.WriteLine($"\nWould you like to play again, {GameSource.GetPlayerName()}? " +
+                Console.WriteLine($"\n\nWould you like to play again, {GameSource.GetPlayerName()}? " +
                     $"\n(Press Enter for a new game)");
                 var userInput = Console.ReadKey(true).Key;
                 if (userInput == ConsoleKey.Enter) consent = true;

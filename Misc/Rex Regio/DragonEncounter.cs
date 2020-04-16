@@ -64,9 +64,17 @@ namespace Rex_Regio
                 "\n3. Set of Iron Spears" +
                 "\n   Nothing special about these. Forged with maximum efficiency in mind, solely to be thrown at a long range.");
 
-            Console.WriteLine("\n" + //Description of dragon and his 3 attacks (light, heavy, ranged)
-                ""); 
-
+            Console.WriteLine("\nAs you finish your inventory check, you stumble across a dusty old tome." + //Description of dragon and his 3 attacks (light, heavy, ranged)
+                "\nYou know this book well. It is the old edition of the world famous \"Dragon Encyclopedia.\"" +
+                "\nAs you list through it, and you remember the testimonies of the townsfolk, the dragon you shall now face is most definitely the Red Spear-Head." +
+                "\n\nYou assume its probable behaviour: " +
+                "\n1. Razor Claws" +
+                "\n   In itself a powerful blow, the dragon will use its claws on its front limbs to do a quick and deadly retaliation." +
+                "\n2. Spear of Doom" +
+                "\n   The dragon with its massive strength uses a huge horn on its head to kill, but also to make way through mountains." +
+                "\n3. Lava Rain" +
+                "\n   This fire ball marks death for the dragon's prey. Only the Enchanted Glass Shield can withstand the scorching heat.");
+        
             bool wait2 = true;
             do
             {
@@ -100,6 +108,15 @@ namespace Rex_Regio
                     Console.WriteLine("\n\nYou pour yourself some wine. Your champion picks his nose.");
                 }
             } while (wait2 == true);
+
+            Console.WriteLine("\nSo the battle begins.");
+            bool wait3 = true;
+            do
+            {
+                Console.Write("\n(Press Enter to continue)");
+                var consent2 = Console.ReadKey(true).Key;
+                if (consent2 == ConsoleKey.Enter) wait3 = false;
+            } while (wait3 == true);
 
         }
     }
