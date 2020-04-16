@@ -4,16 +4,32 @@ using System.Text;
 
 namespace Rex_Regio
 {
-    class Champion
+    abstract class Champion
     {
         protected int Attack;
         protected int Health;
         protected int Defense;
         protected int Stamina;
         protected int Potions;
+        protected string Weapon;
+        protected string Location;
 
         public Champion()
         {
+        }
+
+        public virtual void Init()
+        {
+            Health = 0;
+            Attack = 0;
+            Defense = 0;
+            Stamina = 0;
+            Potions = 0;
+        }
+
+        public void ChangeLocation(string Input)
+        {
+            Location = Input;
         }
 
         public string GetStats()
@@ -43,6 +59,11 @@ namespace Rex_Regio
     {
         public Magnus()
         {
+            Init();
+        }
+
+        public override void Init()
+        {
             Health = 1200;
             Attack = 80;
             Defense = 120;
@@ -55,6 +76,11 @@ namespace Rex_Regio
     {
         public Legibus()
         {
+            Init();
+        }
+
+        public override void Init()
+        {
             Health = 850;
             Attack = 120;
             Defense = 80;
@@ -66,6 +92,11 @@ namespace Rex_Regio
     class Mysterio : Champion
     {
         public Mysterio()
+        {
+            Init();
+        }
+
+        public override void Init()
         {
             Health = 450;
             Attack = 200;

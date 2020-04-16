@@ -7,6 +7,9 @@ namespace Rex_Regio
     class BattleSource
     {
         private int ChampChoice;
+        private Champion playerMagnus = new Magnus();
+        private Champion playerLegibus = new Legibus();
+        private Champion playerMysterio = new Mysterio();
 
         public BattleSource(int ChampChoice)
         {
@@ -15,11 +18,12 @@ namespace Rex_Regio
 
         public void Start()
         {
-            if (ChampChoice == 1) new Magnus();
-            else if (ChampChoice == 2) new Legibus();
-            else if (ChampChoice == 3) new Mysterio();
+            if (ChampChoice == 1) playerMagnus.Init();
+            else if (ChampChoice == 2) playerLegibus.Init();
+            else if (ChampChoice == 3) playerMysterio.Init();
             else throw new Exception("\n\n--Error!\nChampion choice output is invalid!");
             
+
         }
     }
 }
