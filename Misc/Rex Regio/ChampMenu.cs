@@ -92,11 +92,11 @@ namespace Rex_Regio
                 } 
             } while (selectReady == false);
 
+            Console.CursorVisible = true;
             bool spelling = false;
             do
             {
                 XL.LongSpace();
-                Console.CursorVisible = true;
                 Console.Write("\n_Choose your champion!\n(Write the name of Magnus/Legibus/Mysterio): ");
                 string champName = Console.ReadLine();
 

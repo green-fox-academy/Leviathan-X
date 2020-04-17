@@ -29,16 +29,21 @@ namespace Rex_Regio
         // Player Introduction
         public static void PlayerNameInput()
         {
+            Console.CursorVisible = true;
             Console.Write("Hooded figure: \"What is your name, stranger?\"\n\nYou: " +
                 "\"Greetings. My name is ");
             PlayerName = Console.ReadLine();
 
             if (PlayerName.Contains(".") || PlayerName.Contains(",") || PlayerName.Contains("!")
-                || PlayerName.Contains("?") || PlayerName.Contains(":") || PlayerName.Contains("/")) 
+                || PlayerName.Contains("?") || PlayerName.Contains(":") || PlayerName.Contains("/")
+                || PlayerName.Contains("(") || PlayerName.Contains(")")) 
                 PlayerName = "Player";
             else if (PlayerName.Contains("_")) PlayerName = PlayerName.Replace("_", " ");
-            if (PlayerName.Trim() == "") PlayerName = "Player";
-            
+            if (PlayerName.Trim() == "") PlayerName = "Player";             
+            char capital = char.ToUpper(PlayerName[0]);
+            PlayerName = capital.ToString() + PlayerName.Substring(1);
+            if (PlayerName.Contains(" ")) PlayerName = PlayerName.Substring(0, PlayerName.IndexOf(" "));
+
             Console.WriteLine("and I've come to your land to mentor a champion.\"");
             Console.Write("\nHooded figure: \"How wonderful! I've heard of your coming. " +
                 $"You're just what we need, {PlayerName}.\nMy name is Oxphor, a humble councilman of our people.\"" +

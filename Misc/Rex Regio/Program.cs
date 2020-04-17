@@ -17,6 +17,7 @@ namespace Rex_Regio
                 // The Game
                 GameSource.PlayerNameInput();
                 GameSource.ChampChoiceInput();
+                new BattleSource(ChampMenu.ChampChoiceOutput);
                 
                 // Aftermath
                 Console.WriteLine($"\n\nWould you like to play again, {GameSource.GetPlayerName()}? " +

@@ -16,6 +16,7 @@ namespace Rex_Regio
 
         public Champion()
         {
+            Init();
         }
 
         public virtual void Init()
@@ -32,12 +33,36 @@ namespace Rex_Regio
             Location = Input;
         }
 
+        public int PlayAttack()
+        {
+            int Damage = Attack;
+            return Damage;
+        }
+
+        public void ReactAttack(int Damage)
+        {
+            Health -= Damage;
+        }
+
+        public bool CheckIfAlive()
+        {
+            if (Health > 0) return true;
+            else return false;
+        }
+
+        public int[] GetStatsInterface()
+        {
+            int[] stats = { Health, Attack, Defense, Stamina, Potions };
+            return stats;
+        }
+
+        // Default Stats for Intro
         public string GetStats()
         {
             return "\n\n- Stats:" +
                 $"\n\tHealth:         {Health}" +
-                $"\n\tAttack:         {Attack}" +
-                $"\n\tDefense:        {Defense}" +
+                $"\n\tBase Attack:    {Attack}" +
+                $"\n\tBase Defense:   {Defense}" +
                 $"\n\tStamina:        {Stamina}" +
                 $"\n\tHealth Potions: {Potions} (350hp)";
         }

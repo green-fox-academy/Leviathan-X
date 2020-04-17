@@ -13,7 +13,6 @@ namespace Rex_Regio
         {
             this.ChampChoice = ChampChoice;
             FightPrep();
-            new DragonBattle(ChampChoice);
         }
 
         private void FightPrep()
@@ -117,7 +116,7 @@ namespace Rex_Regio
                 var consent2 = Console.ReadKey(true).Key;
                 if (consent2 == ConsoleKey.Enter) wait3 = false;
             } while (wait3 == true);
-
+            XL.LongSpace();
         }
     }
 }

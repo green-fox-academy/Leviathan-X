@@ -36,7 +36,6 @@ namespace Rex_Regio
 
             Console.WriteLine("\n\n Press any key to continue");
             Console.ReadKey();
-            Console.CursorVisible = true;
         }
 
         private static void IntroPic()
