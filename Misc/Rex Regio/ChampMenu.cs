@@ -210,7 +210,7 @@ namespace Rex_Regio
                 "persecution in the darkest woods. They say that those, who have survived the many dangers, became nothing " +
                 "but feral beasts, \nbarely clinging onto their last shreds of humanity. The eyes of Magnus radiate " +
                 "coldness, yet there are hints of sadness within. \nThis man has seen much, and he knows loss.");
-            Champion.blankStats(1);
+            Champion.BlankStats(1);
             Console.WriteLine("\n\n(Press any key to continue)");
         }
 
@@ -230,7 +230,7 @@ namespace Rex_Regio
                 "his back, in order to have the slightest chance against his cruel father. \nWhen it comes to battle, " +
                 "he wishes to prove he has his father's talent. But he chooses to fight for something he believes in, " +
                 "no matter the slim chance. \nOtherwise, he wouldn't be able to live at all.");
-            Champion.blankStats(2);
+            Champion.BlankStats(2);
             Console.WriteLine("\n\n(Press any key to continue)");
         }
 
@@ -249,7 +249,7 @@ namespace Rex_Regio
                 "around his neck. \nSometimes it glows with a faint red light, and Mysterio seems to clench it with pain. Some say it is the " +
                 "amulet of the Dark Gods, which was stolen from \nthe Forbidden Temple in the south a few short years ago. " +
                 "Nobody knows, nobody wants to know.");
-            Champion.blankStats(3);
+            Champion.BlankStats(3);
             Console.WriteLine("\n\n(Press any key to continue)");
         }
     }

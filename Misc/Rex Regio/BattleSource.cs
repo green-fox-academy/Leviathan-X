@@ -34,30 +34,68 @@ namespace Rex_Regio
         public void Start()
         {
             ThePlayer().Init();
+            ThePlayer().ApplyBuffs();
             TheDragon.Init();
-            
-            // The Battle
+            TheDragon.ApplyBuffs();
+            Console.CursorVisible = false;
+
+            // ---- The Battle
             bool gameOver = false;
             do
             {
+                // -- Player Turn
                 TurnNumber = 3;
                 do
                 {
                     PlayerTurn = true;
                     DisplayInterface();
                     Console.WriteLine("\n" +
-                        "\n--------------" +
-                        "\n-= Manual" +
-                        "\n'Enter' to attack (1 move)" +
-                        "\n'Tab' to switch weapon (1 move)" +
-                        "\n'P' to drink potion (1 move)" +
-                        "\n'S' to change location (2 moves)" +
-                        "\n'R' to rest (all moves left)");
+                        "\n\t--------------" +
+                        "\n\t-= Manual" +
+                        "\n\t'Enter' to attack (1 turn)" +
+                        "\n\t'P' to drink potion (1 turn)" +
+                        "\n\t'Tab' to switch weapons (1 turn)" +
+                        "\n\t'Space' to change location (2 turns)" +
+                        "\n\t'R' to rest (Use all turns, +100hp per turn)");
                     var userInput = Console.ReadKey(true).Key;
                     if (userInput == ConsoleKey.Enter) 
                     {
-                        PlayerAttacks();
+                        if (PlayerStats[6] == DragonStats[10])
+                        {
+                            TheDragon.ReactAttack(PlayerStats[8]);
+                            TurnNumber--;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n--Can't attack! Must be in the same location!");
+                        }
+                    }
+                    else if (userInput == ConsoleKey.P)
+                    {
+                        ThePlayer().DrinkPotion();
                         TurnNumber--;
+                    }
+                    else if (userInput == ConsoleKey.Tab)
+                    {
+                        ThePlayer().SwitchWeapon();
+                        ThePlayer().ApplyBuffs();
+                        TurnNumber--;
+                    }
+                    else if (userInput == ConsoleKey.Spacebar)
+                    {
+                        if (TurnNumber < 2) Console.WriteLine("\n--Not enough turns to switch location!");
+                        else
+                        {
+                            ThePlayer().SwitchLocation();
+                            ThePlayer().ApplyBuffs();
+                            TurnNumber--;
+                            TurnNumber--;
+                        }
+                    }
+                    else if (userInput == ConsoleKey.R)
+                    {
+                        ThePlayer().Rest(TurnNumber);
+                        TurnNumber = 0;
                     }
                     else if (userInput == ConsoleKey.Escape) gameOver = true;
 
@@ -65,13 +103,14 @@ namespace Rex_Regio
                 } while (TurnNumber > 0);
                 if (TheDragon.CheckIfAlive() == false) break;
 
+                // -- Dragon Turn
                 TurnNumber = 3;
                 do
                 {
                     PlayerTurn = false;
                     DisplayInterface();
                     System.Threading.Thread.Sleep(2500);
-                    DragonAttacks();
+                    ThePlayer().ReactAttack(DragonStats[6]);
 
                     if (ThePlayer().CheckIfAlive() == false) break;
                     TurnNumber--;
@@ -90,20 +129,10 @@ namespace Rex_Regio
             else throw new Exception("\n\nError!\nShow Turn invalid value!");
         }
 
-        // Bare Abilites ---------------------------------------------
-        public void DragonAttacks()
-        {
-            ThePlayer().ReactAttack(TheDragon.PlayAttack());
-        }
-
-        public void PlayerAttacks()
-        {
-            TheDragon.ReactAttack(ThePlayer().PlayAttack());
-        }
-
         // The Interface ---------------------------------------------
         public void DisplayInterface()
         {
+            XL.LongSpace();
             LoadInterfacePlayerStats();
             LoadInterfaceDragonStats();
             InterfaceUI();
@@ -113,18 +142,18 @@ namespace Rex_Regio
         {
             var output = new[]
             {
-                $"\n---------------------------------------------------------------------------------------------------------------------\n",
-                $"DRAGON                                           TURN                                           {champName.ToUpper()}\n" +
-                $"                                                {ShowTurn()} ({TurnNumber}x)\n",
-                $"Health: {DragonStats[0]}\t\t\t\t\t\t\t\t\t\t\tHealth: {PlayerStats[0]}\n",
-                $"Attack: {DragonStats[1]}\t\t\t\t\t\t\t\t\t\t\tAttack: {PlayerStats[1]}\n",
-                $"Defense: {DragonStats[2]}\t\t\t\t\t\t\t\t\t\t\tDefense: {PlayerStats[2]}\n",
-                $"Stamina: {DragonStats[3]}\t\t\t\t\t\t\t\t\t\t\tStamina: {PlayerStats[3]}\n",
-                $"Location: huts_\t\t\t\t\t\t\t\t\t\t\tLocation: rocks\n",
-                $"Stance: fire_\t\t\t\t\t\t\t\t\t\t\tWeapon: battle-axe\n" +
-                $"Anger: {DragonStats[4]}\t\t\t\t\t\t\t\t\t\t\tPotions: {PlayerStats[4]}\n",
-                $"\n" +
-                $"Log:\n\n",
+                $"\n\t---------------------------------------------------------------------------------------------------------------------\n",
+                $"\tDRAGON                                           TURN                                           {champName.ToUpper()}\n" +
+                $"\t                                                {ShowTurn()} ({TurnNumber}x)\n",
+                $"\tHealth: {DragonStats[5]}/{DragonStats[0]}\t\t\t\t\t\t\t\t\t\tHealth: {PlayerStats[0]}/{PlayerStats[7]}\n",
+                $"\tAttack: {DragonStats[6]}/{DragonStats[1]}\t\t\t\t\t\t\t\t\t\t\tAttack: {PlayerStats[8]}/{PlayerStats[1]}\n",
+                $"\tDefence: {DragonStats[7]}/{DragonStats[2]}\t\t\t\t\t\t\t\t\t\tDefence: {PlayerStats[9]}/{PlayerStats[2]}\n",
+                $"\tStamina: {DragonStats[8]}/{DragonStats[3]}\t\t\t\t\t\t\t\t\t\tStamina: {PlayerStats[10]}/{PlayerStats[3]}\n",
+                $"\tLocation: {ShowLocationDragon()}\t\t\t\t\t\t\t\t\t\t\tLocation: {ShowLocationPlayer()}\n",
+                $"\tStance: {ShowStance()}\t\t\t\t\t\t\t\t\t\t\tWeapon: {ShowWeapon()}\n" +
+                $"\tAnger: {DragonStats[4]}%\t\t\t\t\t\t\t\t\t\t\tPotions: {PlayerStats[4]}\n",
+                $"\t\n" +
+                $"\tLog:\n\n",
             };
 
             foreach (var line in output)
@@ -141,6 +170,40 @@ namespace Rex_Regio
         public void LoadInterfaceDragonStats()
         {
             DragonStats = TheDragon.GetStatsInterface();
+        }
+
+        // The Interface -- Player Stats
+        public string ShowWeapon()
+        {
+            if (PlayerStats[5] == 1) return "Longsword";
+            else if (PlayerStats[5] == 2) return "Battle-Axe";
+            else if (PlayerStats[5] == 3) return "Spears";
+            else throw new Exception("\n\n--Error!\nShow weapon in interface has invalid value!");
+        }
+
+        public string ShowLocationPlayer()
+        {
+            if (PlayerStats[6] == 1) return "Rocks";
+            else if (PlayerStats[6] == 2) return "Huts";
+            else if (PlayerStats[6] == 3) return "Trees";
+            else throw new Exception("\n\n--Error!\nShow player location in interface has invalid value!");
+        }
+
+        // The Interface -- Dragon Stats
+        public string ShowStance()
+        {
+            if (DragonStats[9] == 1) return "Claws";
+            else if (DragonStats[9] == 2) return "Spear";
+            else if (DragonStats[9] == 3) return "Fire";
+            else throw new Exception("\n\n--Error!\nShow stance in interface has invalid value!");
+        }
+
+        public string ShowLocationDragon()
+        {
+            if (DragonStats[10] == 1) return "Rocks";
+            else if (DragonStats[10] == 2) return "Huts";
+            else if (DragonStats[10] == 3) return "Trees";
+            else throw new Exception("\n\n--Error!\nShow dragon location in interface has invalid value!");
         }
 
         // The Player Champion Choice ---------------------------------------------

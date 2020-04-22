@@ -77,6 +77,12 @@ namespace Rex_Regio
                 Output += " ";
             }
             Output += "-= Welcome to Rex Regio =-";
+            Output += Environment.NewLine;
+            for (int j = 0; j < 84; j++)
+            {
+                Output += " ";
+            }
+            Output += "v. 1.1";
             Output += Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine;
             for (int j = 0; j < 67; j++)
             {
