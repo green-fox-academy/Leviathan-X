@@ -84,18 +84,56 @@ namespace Rex_Regio
             CurrentDefence += WeaponsBuffDefence + LocationBuffDefence;
         }
 
-        // Basic React to Attack
+        // Basic Play Attack & React to Attack
+        public void PlayAttack(int DragonDefence)
+        {
+            Log.PlayerAttack(Weapon, CurrentAttack, GetStaminaPenalty(), DragonDefence);
+        }
+
         public void ReactAttack(int Damage)
         {
-            CurrentHealth -= Damage;
+            if (Damage - CurrentDefence <= 0) Console.WriteLine("\n--No damage done to the Player!");
+            else CurrentHealth -= Damage - CurrentDefence;
+        }
+
+        // Calculate Stamina Penalty from Ini. Attack
+        public bool StaminaPenaltyCalc()
+        {
+            bool canAttack;
+
+            int StaminaPenalty = GetStaminaPenalty();
+
+            if (CurrentStamina - StaminaPenalty < 0)
+            {
+                Console.WriteLine("\n--Not enough stamina to attack!");
+                canAttack = false;
+            }
+            else
+            {
+                CurrentStamina -= StaminaPenalty;
+                canAttack = true;
+            }
+            return canAttack;
+        }
+
+        public int GetStaminaPenalty()
+        {
+            int StaminaPenalty;
+            if (Weapon == 1) StaminaPenalty = 10;
+            else if (Weapon == 2) StaminaPenalty = 20;
+            else if (Weapon == 3) StaminaPenalty = 40;
+            else throw new Exception("\n--Error!\nPlayer stamina penalty has invalid value!");
+            return StaminaPenalty;
         }
 
         // Drink Potion
         public void DrinkPotion()
         {
+            int PotionHealth = 350;
             Potions -= 1;
-            if (CurrentHealth + 350 >= MaxHealth) CurrentHealth = MaxHealth;
-            else CurrentHealth += 350;
+            if (CurrentHealth + PotionHealth >= MaxHealth) CurrentHealth = MaxHealth;
+            else CurrentHealth += PotionHealth;
+            Log.PlayerPotion(PotionHealth);
         }
 
         // Switch Weapon Mechanism
@@ -147,10 +185,12 @@ namespace Rex_Regio
                     } while (activeArrow1 == true && twiceNestedLoop == true);
                 }
             } while (selectDone == false);
+            Log.PlayerNewWeapon(Weapon);
         }
 
         private void SwitchToLongsword()
         {
+            XL.LongSpace();
             Console.WriteLine("\n\nChoose your weapon:" +
                 "\n-->\tBastard Longsword (Standard Attack, +Defense)" +
                 "\n\tSilver Battle-Axe (+Attack, -Defense)" +
@@ -159,6 +199,7 @@ namespace Rex_Regio
         }
         private void SwitchToBattleAxe()
         {
+            XL.LongSpace();
             Console.WriteLine("\n\nChoose your weapon:" +
                 "\n\tBastard Longsword (Standard Attack, +Defense)" +
                 "\n-->\tSilver Battle-Axe (+Attack, -Defense)" +
@@ -167,6 +208,7 @@ namespace Rex_Regio
         }
         private void SwitchToSpears()
         {
+            XL.LongSpace();
             Console.WriteLine("\n\nChoose your weapon:" +
                 "\n\tBastard Longsword (Standard Attack, +Defense)" +
                 "\n\tSilver Battle-Axe (+Attack, -Defense)" +
@@ -223,26 +265,30 @@ namespace Rex_Regio
                     } while (activeArrow1 == true && twiceNestedLoop == true);
                 }
             } while (selectDone == false);
+            Log.PlayerNewLocation(Location);
         }
 
         private void SwitchToRocks()
         {
+            XL.LongSpace();
             Console.WriteLine("\n\nChoose your location:" +
                 "\n-->\tRocky Mountain Top (-Attack, +Defense)" +
                 "\n\tAbandoned Fishing Village (+Attack, -Defense)" +
-                "\n\tSmall Forest (Can't Attack, +Defense)" +
+                "\n\tSmall Forest (Can't Attack, ++Defense)" +
                 "\n(Press Enter to choose)");
         }
         private void SwitchToHuts()
         {
+            XL.LongSpace();
             Console.WriteLine("\n\nChoose your location:" +
                 "\n\tRocky Mountain Top (-Attack, +Defense)" +
                 "\n-->\tAbandoned Fishing Village (+Attack, -Defense)" +
-                "\n\tSmall Forest (Can't Attack, +Defense)" +
+                "\n\tSmall Forest (Can't Attack, ++Defense)" +
                 "\n(Press Enter to choose)");
         }
         private void SwitchToTrees()
         {
+            XL.LongSpace();
             Console.WriteLine("\n\nChoose your location:" +
                 "\n\tRocky Mountain Top (-Attack, +Defense)" +
                 "\n\tAbandoned Fishing Village (+Attack, -Defense)" +
@@ -256,6 +302,11 @@ namespace Rex_Regio
             int RestHP = 100;
             if (CurrentHealth + (RestHP * Turns) > MaxHealth) CurrentHealth = MaxHealth;
             else CurrentHealth += RestHP * Turns;
+
+            int RestStamina = 30;
+            if (CurrentStamina + (RestStamina * Turns) > BaseStamina) CurrentStamina = BaseStamina;
+            else CurrentStamina += RestStamina * Turns;
+            Log.PlayerRest(Turns, RestHP, RestStamina);
         }
 
         // Check Alive Status
@@ -331,7 +382,7 @@ namespace Rex_Regio
 
         public override void Init()
         {
-            CurrentHealth = 850;
+            CurrentHealth = 900;
             MaxHealth = CurrentHealth;
             BaseAttack = 120;
             CurrentAttack = BaseAttack;
@@ -354,7 +405,7 @@ namespace Rex_Regio
 
         public override void Init()
         {
-            CurrentHealth = 450;
+            CurrentHealth = 600;
             MaxHealth = CurrentHealth;
             BaseAttack = 200;
             CurrentAttack = BaseAttack;

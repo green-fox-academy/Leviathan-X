@@ -14,7 +14,7 @@ namespace Rex_Regio
         private int CurrentDefence;
         private int BaseStamina;
         private int CurrentStamina;
-        private int Anger;
+        private int FuryPercent;
         private int Stance;
         private int Location;
 
@@ -30,11 +30,11 @@ namespace Rex_Regio
             CurrentHealth = MaxHealth;
             BaseAttack = 140;
             CurrentAttack = BaseAttack;
-            BaseDefence = 140;
+            BaseDefence = 20;
             CurrentDefence = BaseDefence;
-            BaseStamina = 150;
+            BaseStamina = 240;
             CurrentStamina = BaseStamina;
-            Anger = 0;
+            FuryPercent = 0;
             Stance = 1;
             Location = 1;
         }
@@ -80,39 +80,74 @@ namespace Rex_Regio
             }
             else throw new Exception("\n--Error!\nDragon attack invalid location input!");
 
-            int AngerDamage = GetAngerDamage();
-
-            CurrentAttack += StanceBuffsAttack + LocationBuffsAttack + AngerDamage;
+            CurrentAttack += StanceBuffsAttack + LocationBuffsAttack + GetFuryDamage();
             CurrentDefence += StanceBuffDefence + LocationBuffDefence;
         }
 
-        public int GetAngerDamage()
+        public int GetFuryDamage()
         {
-            int AngerDamage;
-            if (Anger == 0) AngerDamage = 0;
-            else if (Anger <= 20) AngerDamage = 5;
-            else if (Anger <= 50 && Anger > 20) AngerDamage = 10;
-            else if (Anger <= 80 && Anger > 50) AngerDamage = 15;
-            else if (Anger <= 100 && Anger > 80) AngerDamage = 20;
+            int FuryDamage;
+            if (FuryPercent == 0) FuryDamage = 0;
+            else if (FuryPercent <= 20) FuryDamage = 5;
+            else if (FuryPercent <= 50 && FuryPercent > 20) FuryDamage = 10;
+            else if (FuryPercent <= 80 && FuryPercent > 50) FuryDamage = 15;
+            else if (FuryPercent <= 100 && FuryPercent > 80) FuryDamage = 20;
             else throw new Exception("\n--Error!\nDragon anger damage invalid input!");
 
-            return AngerDamage;
+            return FuryDamage;
         }
 
-        // Basic React to Attack
+        // Basic Play Attack & React to Attack
+        public void PlayAttack(int PlayerDefence)
+        {
+            Log.DragonAttack(Stance, CurrentAttack, GetStaminaPenalty(), GetFuryDamage(), PlayerDefence);
+        }
+
         public void ReactAttack(int Damage)
         {
-            CurrentHealth -= Damage;
-            if (CurrentHealth == MaxHealth) Anger = 0;
-            else if (PercentCalc(CurrentHealth) > 80 && PercentCalc(CurrentHealth) < 100) Anger = 20;
-            else if (PercentCalc(CurrentHealth) > 60 && PercentCalc(CurrentHealth) < 80) Anger = 40;
-            else if (PercentCalc(CurrentHealth) > 40 && PercentCalc(CurrentHealth) < 60) Anger = 60;
-            else if (PercentCalc(CurrentHealth) > 20 && PercentCalc(CurrentHealth) < 40) Anger = 80;
-            else if (PercentCalc(CurrentHealth) > 0 && PercentCalc(CurrentHealth) < 20) Anger = 100;
+            if (Damage - CurrentDefence <= 0) Console.WriteLine("\n--No damage done to the Dragon!");
+            else CurrentHealth -= Damage - CurrentDefence;
+
+            if (CurrentHealth == MaxHealth) FuryPercent = 0;
+            else if (PercentCalc(CurrentHealth) > 80 && PercentCalc(CurrentHealth) < 100) FuryPercent = 20;
+            else if (PercentCalc(CurrentHealth) > 60 && PercentCalc(CurrentHealth) < 80) FuryPercent = 40;
+            else if (PercentCalc(CurrentHealth) > 40 && PercentCalc(CurrentHealth) < 60) FuryPercent = 60;
+            else if (PercentCalc(CurrentHealth) > 20 && PercentCalc(CurrentHealth) < 40) FuryPercent = 80;
+            else if (PercentCalc(CurrentHealth) > 0 && PercentCalc(CurrentHealth) < 20) FuryPercent = 100;
         }
         private int PercentCalc(int input)
         {
             return (input * 100) / MaxHealth;
+        }
+
+        // Calculate Stamina Penalty from Ini. Attack
+        public bool StaminaPenaltyCalc()
+        {
+            bool canAttack;
+
+            int StaminaPenalty = GetStaminaPenalty();
+
+            if (CurrentStamina - StaminaPenalty < 0) 
+            {
+                Console.WriteLine("\n--Not enough stamina to attack!");
+                canAttack = false;
+            }
+            else
+            {
+                CurrentStamina -= StaminaPenalty;
+                canAttack = true;
+            }
+            return canAttack;
+        }
+
+        public int GetStaminaPenalty()
+        {
+            int StaminaPenalty;
+            if (Stance == 1) StaminaPenalty = 20;
+            else if (Stance == 2) StaminaPenalty = 40;
+            else if (Stance == 3) StaminaPenalty = 80;
+            else throw new Exception("\n--Error!\nDragon stamina penalty has invalid value!");
+            return StaminaPenalty;
         }
 
         // Switch Stance Mechanism
@@ -122,6 +157,8 @@ namespace Rex_Regio
             else if (input == 2) Stance = 2;
             else if (input == 3) Stance = 3;
             else throw new Exception("\n\n--Error!\nWrong input in switch stance!");
+
+            Log.DragonNewStance(input);
         }
 
         // Switch Location Mechanism
@@ -131,6 +168,8 @@ namespace Rex_Regio
             else if (input == 2) Location = 2;
             else if (input == 3) Location = 3;
             else throw new Exception("\n\n--Error!\nWrong input in switch location!");
+
+            Log.DragonNewLocation(input);
         }
 
         // Rest 
@@ -139,6 +178,12 @@ namespace Rex_Regio
             int RestHP = 70;
             if (CurrentHealth + (RestHP * Turns) > MaxHealth) CurrentHealth = MaxHealth;
             else CurrentHealth += RestHP * Turns;
+
+            int RestStamina = 40;
+            if (CurrentStamina + (RestStamina * Turns) > BaseStamina) CurrentStamina = BaseStamina;
+            else CurrentStamina += RestStamina * Turns;
+
+            Log.DragonRest(Turns, RestHP, RestStamina);
         }
 
         // Check Alive Status
@@ -151,7 +196,7 @@ namespace Rex_Regio
         // Send Statistics to Player Interface
         public int[] GetStatsInterface()
         {
-            int[] stats = { MaxHealth, BaseAttack, BaseDefence, BaseStamina, Anger,
+            int[] stats = { MaxHealth, BaseAttack, BaseDefence, BaseStamina, FuryPercent,
             CurrentHealth, CurrentAttack, CurrentDefence, CurrentStamina, Stance, Location };
             return stats;
         }

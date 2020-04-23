@@ -252,5 +252,13 @@ namespace Rex_Regio
             Champion.BlankStats(3);
             Console.WriteLine("\n\n(Press any key to continue)");
         }
+
+        public static string GetChampName()
+        {
+            if (ChampChoiceOutput == 1) return "Magnus";
+            else if (ChampChoiceOutput == 2) return "Legibus";
+            else if (ChampChoiceOutput == 3) return "Mysterio";
+            else return "Faggot";//throw new Exception("\n\n-- Error!\nChampion choice output is invalid!");
+        }
     }
 }

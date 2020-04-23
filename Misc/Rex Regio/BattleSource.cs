@@ -22,48 +22,59 @@ namespace Rex_Regio
         public BattleSource(int ChampChoiceInput)
         {
             ChampChoice = ChampChoiceInput;
-            if (ChampChoice == 1) champName = "Magnus";
-            else if (ChampChoice == 2) champName = "Legibus";
-            else if (ChampChoice == 3) champName = "Mysterio";
-            else throw new Exception("\n\n-- Error!\nChampion choice input is invalid!");
-
+            champName = ChampMenu.GetChampName();
+            
             Start();
         }
 
         // The Game Battle Source ---------------------------------------------
         public void Start()
         {
+            Log.ResetAllText();
+            Log.Ini();
             ThePlayer().Init();
             ThePlayer().ApplyBuffs();
             TheDragon.Init();
             TheDragon.ApplyBuffs();
             Console.CursorVisible = false;
 
-            // ---- The Battle
+            // -------- The Battle
             bool gameOver = false;
             do
             {
-                // -- Player Turn
+                // ---- Player Turn
                 TurnNumber = 3;
                 do
                 {
                     PlayerTurn = true;
                     DisplayInterface();
                     Console.WriteLine("\n" +
-                        "\n\t--------------" +
-                        "\n\t-= Manual" +
-                        "\n\t'Enter' to attack (1 turn)" +
-                        "\n\t'P' to drink potion (1 turn)" +
-                        "\n\t'Tab' to switch weapons (1 turn)" +
-                        "\n\t'Space' to change location (2 turns)" +
-                        "\n\t'R' to rest (Use all turns, +100hp per turn)");
+                        "\n--------------" +
+                        "\n-= Manual" +
+                        "\n'Enter' to attack (1 turn)" +
+                        "\n'P' to drink potion (1 turn)" +
+                        "\n'Tab' to switch weapons (1 turn)" +
+                        "\n'Space' to change location (2 turns)" +
+                        "\n'R' to rest (All turns left)" +
+                        "\n'L' to see the entire Log (0 turns)");
                     var userInput = Console.ReadKey(true).Key;
                     if (userInput == ConsoleKey.Enter) 
                     {
+                        // If both are in the same location
                         if (PlayerStats[6] == DragonStats[10])
                         {
-                            TheDragon.ReactAttack(PlayerStats[8]);
-                            TurnNumber--;
+                            // If player has enough stamina
+                            if(ThePlayer().StaminaPenaltyCalc())
+                            {
+                                // Procede with the attack
+                                TheDragon.ReactAttack(PlayerStats[8]);
+                                ThePlayer().PlayAttack(DragonStats[7]);
+                                TurnNumber--;
+                            }
+                            else
+                            {
+                                Log.PlayerNoStamina();
+                            }
                         }
                         else
                         {
@@ -97,20 +108,44 @@ namespace Rex_Regio
                         ThePlayer().Rest(TurnNumber);
                         TurnNumber = 0;
                     }
+                    else if (userInput == ConsoleKey.L)
+                    {
+                        Log.LoadBig();
+                    }
                     else if (userInput == ConsoleKey.Escape) gameOver = true;
 
                     if (TheDragon.CheckIfAlive() == false) break;
                 } while (TurnNumber > 0);
                 if (TheDragon.CheckIfAlive() == false) break;
 
-                // -- Dragon Turn
+                // ---- Dragon Turn
                 TurnNumber = 3;
                 do
                 {
                     PlayerTurn = false;
                     DisplayInterface();
                     System.Threading.Thread.Sleep(2500);
-                    ThePlayer().ReactAttack(DragonStats[6]);
+
+                    // -- Dragon "AI"
+
+                    // - If both are at Rocks
+                    //if (DragonStats[10] == 1 && PlayerStats[6] == 1)
+                    //{
+                    //    if (DragonStats[9] != 2) 
+                    //    {
+                    //        TheDragon.SwitchStance(2);
+                    //        TheDragon.ApplyBuffs();
+                    //        TurnNumber--;
+                    //    }
+                    //}
+
+                    // Default Behavior
+                    if (TheDragon.StaminaPenaltyCalc())
+                    {
+                        ThePlayer().ReactAttack(DragonStats[6]);
+                        TheDragon.PlayAttack(PlayerStats[9]);
+                    }
+                    else TheDragon.Rest(TurnNumber);
 
                     if (ThePlayer().CheckIfAlive() == false) break;
                     TurnNumber--;
@@ -126,7 +161,7 @@ namespace Rex_Regio
         {
             if (PlayerTurn == true) return "You";
             else if (PlayerTurn == false) return "Dragon";
-            else throw new Exception("\n\nError!\nShow Turn invalid value!");
+            else throw new Exception("\n\nError!\nShow Turn has invalid value!");
         }
 
         // The Interface ---------------------------------------------
@@ -142,24 +177,25 @@ namespace Rex_Regio
         {
             var output = new[]
             {
-                $"\n\t---------------------------------------------------------------------------------------------------------------------\n",
-                $"\tDRAGON                                           TURN                                           {champName.ToUpper()}\n" +
-                $"\t                                                {ShowTurn()} ({TurnNumber}x)\n",
-                $"\tHealth: {DragonStats[5]}/{DragonStats[0]}\t\t\t\t\t\t\t\t\t\tHealth: {PlayerStats[0]}/{PlayerStats[7]}\n",
-                $"\tAttack: {DragonStats[6]}/{DragonStats[1]}\t\t\t\t\t\t\t\t\t\t\tAttack: {PlayerStats[8]}/{PlayerStats[1]}\n",
-                $"\tDefence: {DragonStats[7]}/{DragonStats[2]}\t\t\t\t\t\t\t\t\t\tDefence: {PlayerStats[9]}/{PlayerStats[2]}\n",
-                $"\tStamina: {DragonStats[8]}/{DragonStats[3]}\t\t\t\t\t\t\t\t\t\tStamina: {PlayerStats[10]}/{PlayerStats[3]}\n",
-                $"\tLocation: {ShowLocationDragon()}\t\t\t\t\t\t\t\t\t\t\tLocation: {ShowLocationPlayer()}\n",
-                $"\tStance: {ShowStance()}\t\t\t\t\t\t\t\t\t\t\tWeapon: {ShowWeapon()}\n" +
-                $"\tAnger: {DragonStats[4]}%\t\t\t\t\t\t\t\t\t\t\tPotions: {PlayerStats[4]}\n",
-                $"\t\n" +
-                $"\tLog:\n\n",
+                $"\n---------------------------------------------------------------------------------------------------------------------\n",
+                $"DRAGON                                           TURN                                           {champName.ToUpper()}\n" +
+                $"                                                {ShowTurn()} ({TurnNumber}x)\n",
+                $"Health: {DragonStats[5]}/{DragonStats[0]}   \t\t\t\t\t\t\t\t\t\tHealth: {PlayerStats[0]}/{PlayerStats[7]}\n",
+                $"Attack: {DragonStats[6]}/{DragonStats[1]}\t\t\t\t\t\t\t\t\t\t\tAttack: {PlayerStats[8]}/{PlayerStats[1]}\n",
+                $"Defence: {DragonStats[7]}/{DragonStats[2]}\t\t\t\t\t\t\t\t\t\t\tDefence: {PlayerStats[9]}/{PlayerStats[2]}\n",
+                $"Stamina: {DragonStats[8]}/{DragonStats[3]}  \t\t\t\t\t\t\t\t\t\tStamina: {PlayerStats[10]}/{PlayerStats[3]}\n",
+                $"Location: {ShowLocationDragon()}\t\t\t\t\t\t\t\t\t\t\tLocation: {ShowLocationPlayer()}\n",
+                $"Stance: {ShowStance()}\t\t\t\t\t\t\t\t\t\t\tWeapon: {ShowWeapon()}\n" +
+                $"Fury: {DragonStats[4]}%\t\t\t\t\t\t\t\t\t\t\tPotions: {PlayerStats[4]}\n",
+                $"\n" +
+                $"Log:\n",
             };
 
             foreach (var line in output)
             {
                 Console.Write(line);
             }
+            Log.LoadSmall();
         }
 
         public void LoadInterfacePlayerStats()
