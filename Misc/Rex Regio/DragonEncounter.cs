@@ -65,11 +65,11 @@ namespace Rex_Regio
 
             Console.WriteLine("\nAs you finish your inventory check, you stumble across a dusty old tome." + //Description of dragon and his 3 attacks (light, heavy, ranged)
                 "\nYou know this book well. It is the old edition of the world famous \"Dragon Encyclopedia.\"" +
-                "\nAs you list through it, and you remember the testimonies of the townsfolk, the dragon you shall now face is most definitely the Red Spear-Head." +
+                "\nAs you list through it, and you remember the testimonies of the townsfolk, the dragon you shall now face is most definitely the Red Doom-Spike." +
                 "\n\nYou assume its probable behaviour: " +
                 "\n1. Razor Claws" +
                 "\n   In itself a powerful blow, the dragon will use its claws on its front limbs to do a quick and deadly retaliation." +
-                "\n2. Spear of Doom" +
+                "\n2. Doom Spike" +
                 "\n   The dragon with its massive strength uses a huge horn on its head to kill, but also to make way through mountains." +
                 "\n3. Lava Rain" +
                 "\n   This fire ball marks death for the dragon's prey. Only the Enchanted Glass Shield can withstand the scorching heat.");

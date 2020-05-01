@@ -258,7 +258,7 @@ namespace Rex_Regio
             if (ChampChoiceOutput == 1) return "Magnus";
             else if (ChampChoiceOutput == 2) return "Legibus";
             else if (ChampChoiceOutput == 3) return "Mysterio";
-            else return "Faggot";//throw new Exception("\n\n-- Error!\nChampion choice output is invalid!");
+            else throw new Exception("\n\n-- Error!\nChampion choice output is invalid!");
         }
     }
 }

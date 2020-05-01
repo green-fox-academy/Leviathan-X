@@ -118,7 +118,11 @@ namespace Rex_Regio
 
         public static void DragonRest(int Turns, int RestHP, int RestStamina)
         {
-            File.AppendAllText(LogPath, $"\nDragon rests for {Turns} turns, " +
+            if (Turns > 1)
+                File.AppendAllText(LogPath, $"\nDragon rests for {Turns} turns, " +
+                $"for each turn gains {RestHP}hp and {RestStamina} Stamina.");
+            else
+                File.AppendAllText(LogPath, $"\nDragon rests for {Turns} turn, " +
                 $"for each turn gains {RestHP}hp and {RestStamina} Stamina.");
         }
 
@@ -168,7 +172,11 @@ namespace Rex_Regio
 
         public static void PlayerRest(int Turns, int RestHP, int RestStamina)
         {
-            File.AppendAllText(LogPath, $"\n{ChampMenu.GetChampName()} rests for {Turns} turns, " +
+            if (Turns > 1)
+                File.AppendAllText(LogPath, $"\n{ChampMenu.GetChampName()} rests for {Turns} turns, " +
+                $"for each turn gains {RestHP}hp and {RestStamina} Stamina.");
+            else
+                File.AppendAllText(LogPath, $"\n{ChampMenu.GetChampName()} rests for {Turns} turn, " +
                 $"for each turn gains {RestHP}hp and {RestStamina} Stamina.");
         }
 
@@ -176,6 +184,12 @@ namespace Rex_Regio
         {
             File.AppendAllText(LogPath, $"\n{ChampMenu.GetChampName()} doesn't have enough energy " +
                 $"to finish the attack!");
+        }
+
+        public static void PlayerDiffLocation()
+        {
+            File.AppendAllText(LogPath, $"\n{ChampMenu.GetChampName()} can't melee attack! The dragon " +
+                $"is in a different location!");
         }
     }
 }

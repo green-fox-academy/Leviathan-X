@@ -12,6 +12,8 @@ namespace Rex_Regio
         private Champion playerMysterio = new Mysterio();
         private string champName;
         private Dragon TheDragon = new Dragon();
+        private Random DragonBrains = new Random();
+        private int DragonStategy;
 
         private int[] PlayerStats;
         private int[] DragonStats;
@@ -61,14 +63,14 @@ namespace Rex_Regio
                     if (userInput == ConsoleKey.Enter) 
                     {
                         // If both are in the same location
-                        if (PlayerStats[6] == DragonStats[10])
+                        if (PlayerStats[9] == DragonStats[9])
                         {
                             // If player has enough stamina
                             if(ThePlayer().StaminaPenaltyCalc())
                             {
                                 // Procede with the attack
-                                TheDragon.ReactAttack(PlayerStats[8]);
-                                ThePlayer().PlayAttack(DragonStats[7]);
+                                TheDragon.ReactAttack(PlayerStats[5]);
+                                ThePlayer().PlayAttack(DragonStats[6]);
                                 TurnNumber--;
                             }
                             else
@@ -76,8 +78,21 @@ namespace Rex_Regio
                                 Log.PlayerNoStamina();
                             }
                         }
+                        // If player has Spears equipped
+                        else if (PlayerStats[8] == 3)
+                        {
+                            if (ThePlayer().StaminaPenaltyCalc())
+                            {
+                                TheDragon.ReactAttack(PlayerStats[5]);
+                                ThePlayer().PlayAttack(DragonStats[6]);
+                                TurnNumber--;
+                            }
+                            else Log.PlayerNoStamina();
+                        }
+                        // If player doesn't have Spears equipped
                         else
                         {
+                            Log.PlayerDiffLocation();
                             Console.WriteLine("\n--Can't attack! Must be in the same location!");
                         }
                     }
@@ -120,6 +135,7 @@ namespace Rex_Regio
 
                 // ---- Dragon Turn
                 TurnNumber = 3;
+                DragonStategy = 3;
                 do
                 {
                     PlayerTurn = false;
@@ -128,29 +144,83 @@ namespace Rex_Regio
 
                     // -- Dragon "AI"
 
-                    // - If both are at Rocks
-                    //if (DragonStats[10] == 1 && PlayerStats[6] == 1)
+                    //// If both at Rocks 
+                    //if (DragonStats[9] == PlayerStats[9])
                     //{
-                    //    if (DragonStats[9] != 2) 
+                    //    //If Spike is not equipped
+                    //    if (DragonStats[8] != 2)
                     //    {
                     //        TheDragon.SwitchStance(2);
-                    //        TheDragon.ApplyBuffs();
                     //        TurnNumber--;
+                    //    }
+                    //    if (TheDragon.StaminaPenaltyCalc())
+                    //    {
+                    //        ThePlayer().ReactAttack(DragonStats[5]);
+                    //        TheDragon.PlayAttack(PlayerStats[6]);
+                    //        TurnNumber--;
+                    //    }
+                    //    else
+                    //    {
+                    //        TheDragon.Rest(TurnNumber);
+                    //        TurnNumber--;
+                    //    }
+
+                    //}
+
+                    //// If just player at Rocks
+                    //if (PlayerStats[9] == 1 && DragonStats[9] != 1)
+                    //{
+                    //    if (DragonStats[8] != 3)
+                    //    {
+                    //        int decision = DragonBrains.Next(1, 11);
+                    //        if (decision > 6)
+                    //        {
+                    //            TheDragon.SwitchStance(3);
+                    //            TurnNumber--;
+                    //        }
+                    //        else
+                    //        {
+                    //            TheDragon.SwitchLocation(1);
+                    //            TurnNumber--;
+                    //        }
+                    //    }
+                    //    if (DragonStats[8] == 3)
+                    //    {
+                    //        if (TheDragon.StaminaPenaltyCalc())
+                    //        {
+                    //            ThePlayer().ReactAttack(DragonStats[5]);
+                    //            TheDragon.PlayAttack(PlayerStats[6]);
+                    //            TurnNumber--;
+                    //        }
+                    //        else
+                    //        {
+                    //            TheDragon.Rest(TurnNumber);
+                    //            TurnNumber--;
+                    //        }
                     //    }
                     //}
 
-                    // Default Behavior
+                    //// If both at Huts
+                    //if(PlayerStats[9] == 2 && DragonStats[9] == 2)
+                    //{
+
+                    //}
+
+                    // Default Primitive Behavior
                     if (TheDragon.StaminaPenaltyCalc())
                     {
-                        ThePlayer().ReactAttack(DragonStats[6]);
-                        TheDragon.PlayAttack(PlayerStats[9]);
+                        ThePlayer().ReactAttack(DragonStats[5]);
+                        TheDragon.PlayAttack(PlayerStats[6]);
                     }
                     else TheDragon.Rest(TurnNumber);
+                    TurnNumber--;
+
 
                     if (ThePlayer().CheckIfAlive() == false) break;
-                    TurnNumber--;
                 } while (TurnNumber > 0);
-                if (ThePlayer().CheckIfAlive() == false) break;
+
+                if (ThePlayer().CheckIfAlive() == false) gameOver = true;
+                if (TheDragon.CheckIfAlive() == false) gameOver = true;
             } while (gameOver == false);
             DisplayInterface();
             Console.WriteLine("\n\nGAME OVER!");
@@ -180,13 +250,13 @@ namespace Rex_Regio
                 $"\n---------------------------------------------------------------------------------------------------------------------\n",
                 $"DRAGON                                           TURN                                           {champName.ToUpper()}\n" +
                 $"                                                {ShowTurn()} ({TurnNumber}x)\n",
-                $"Health: {DragonStats[5]}/{DragonStats[0]}   \t\t\t\t\t\t\t\t\t\tHealth: {PlayerStats[0]}/{PlayerStats[7]}\n",
-                $"Attack: {DragonStats[6]}/{DragonStats[1]}\t\t\t\t\t\t\t\t\t\t\tAttack: {PlayerStats[8]}/{PlayerStats[1]}\n",
-                $"Defence: {DragonStats[7]}/{DragonStats[2]}\t\t\t\t\t\t\t\t\t\t\tDefence: {PlayerStats[9]}/{PlayerStats[2]}\n",
-                $"Stamina: {DragonStats[8]}/{DragonStats[3]}  \t\t\t\t\t\t\t\t\t\tStamina: {PlayerStats[10]}/{PlayerStats[3]}\n",
+                $"Health: {DragonStats[4]}/{DragonStats[0]}   \t\t\t\t\t\t\t\t\t\tHealth: {PlayerStats[4]}/{PlayerStats[0]}\n",
+                $"Attack: {DragonStats[5]}/{DragonStats[1]}\t\t\t\t\t\t\t\t\t\t\tAttack: {PlayerStats[5]}/{PlayerStats[1]}\n",
+                $"Defence: {DragonStats[6]}/{DragonStats[2]}\t\t\t\t\t\t\t\t\t\t\tDefence: {PlayerStats[6]}/{PlayerStats[2]}\n",
+                $"Stamina: {DragonStats[7]}/{DragonStats[3]}  \t\t\t\t\t\t\t\t\t\tStamina: {PlayerStats[7]}/{PlayerStats[3]}\n",
                 $"Location: {ShowLocationDragon()}\t\t\t\t\t\t\t\t\t\t\tLocation: {ShowLocationPlayer()}\n",
                 $"Stance: {ShowStance()}\t\t\t\t\t\t\t\t\t\t\tWeapon: {ShowWeapon()}\n" +
-                $"Fury: {DragonStats[4]}%\t\t\t\t\t\t\t\t\t\t\tPotions: {PlayerStats[4]}\n",
+                $"Fury: {DragonStats[10]}%\t\t\t\t\t\t\t\t\t\t\tPotions: {PlayerStats[10]}\n",
                 $"\n" +
                 $"Log:\n",
             };
@@ -211,34 +281,34 @@ namespace Rex_Regio
         // The Interface -- Player Stats
         public string ShowWeapon()
         {
-            if (PlayerStats[5] == 1) return "Longsword";
-            else if (PlayerStats[5] == 2) return "Battle-Axe";
-            else if (PlayerStats[5] == 3) return "Spears";
+            if (PlayerStats[8] == 1) return "Longsword";
+            else if (PlayerStats[8] == 2) return "Battle-Axe";
+            else if (PlayerStats[8] == 3) return "Spears";
             else throw new Exception("\n\n--Error!\nShow weapon in interface has invalid value!");
         }
 
         public string ShowLocationPlayer()
         {
-            if (PlayerStats[6] == 1) return "Rocks";
-            else if (PlayerStats[6] == 2) return "Huts";
-            else if (PlayerStats[6] == 3) return "Trees";
+            if (PlayerStats[9] == 1) return "Rocks";
+            else if (PlayerStats[9] == 2) return "Huts";
+            else if (PlayerStats[9] == 3) return "Trees";
             else throw new Exception("\n\n--Error!\nShow player location in interface has invalid value!");
         }
 
         // The Interface -- Dragon Stats
         public string ShowStance()
         {
-            if (DragonStats[9] == 1) return "Claws";
-            else if (DragonStats[9] == 2) return "Spear";
-            else if (DragonStats[9] == 3) return "Fire";
+            if (DragonStats[8] == 1) return "Claws";
+            else if (DragonStats[8] == 2) return "Spear";
+            else if (DragonStats[8] == 3) return "Fire";
             else throw new Exception("\n\n--Error!\nShow stance in interface has invalid value!");
         }
 
         public string ShowLocationDragon()
         {
-            if (DragonStats[10] == 1) return "Rocks";
-            else if (DragonStats[10] == 2) return "Huts";
-            else if (DragonStats[10] == 3) return "Trees";
+            if (DragonStats[9] == 1) return "Rocks";
+            else if (DragonStats[9] == 2) return "Huts";
+            else if (DragonStats[9] == 3) return "Trees";
             else throw new Exception("\n\n--Error!\nShow dragon location in interface has invalid value!");
         }
 

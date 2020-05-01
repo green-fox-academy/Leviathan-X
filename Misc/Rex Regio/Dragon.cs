@@ -196,8 +196,9 @@ namespace Rex_Regio
         // Send Statistics to Player Interface
         public int[] GetStatsInterface()
         {
-            int[] stats = { MaxHealth, BaseAttack, BaseDefence, BaseStamina, FuryPercent,
-            CurrentHealth, CurrentAttack, CurrentDefence, CurrentStamina, Stance, Location };
+            int[] stats = { MaxHealth, BaseAttack, BaseDefence, BaseStamina, 
+            CurrentHealth, CurrentAttack, CurrentDefence, CurrentStamina,
+            Stance, Location, FuryPercent };
             return stats;
         }
     }
