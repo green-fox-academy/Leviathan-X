@@ -17,7 +17,7 @@ Grab yourself some :coffee: and enjoy.
 | My Fun Projects:  | :suspect: |
 |------------|----|
 | Dice Set  | [Oink](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
-| Rex Regio | Coming soon |
+| Rex Regio | [Clank](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/Rex%20Regio) |
 | Pirate Wars | Coming soon |
 
 :point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams
