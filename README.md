@@ -10,14 +10,14 @@ Grab yourself some :coffee: and enjoy.
 |------------|----|
 | ToDo App |[Click!](https://github.com/Leviathan-X/todo-app)|
 | Wanderer |[Clickerino](https://github.com/Leviathan-X/wanderer-cs)|
-| Foundation Exam| [Toot](https://github.com/green-fox-academy/Leviathan-X/blob/master/Misc/_imgMisc/success.jpg) |
+| Foundation Exam| [Toot](https://github.com/green-fox-academy/Leviathan-X/blob/master/C%23%20Foundation/Misc/_imgMisc/success.jpg) |
 
 <br/>
 
 | My Fun Projects:  | :suspect: |
 |------------|----|
-| Dice Set  | [Oink](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/DiceSet)  |
-| Rex Regio | [Clank](https://github.com/green-fox-academy/Leviathan-X/tree/master/Misc/Rex%20Regio) |
+| Dice Set  | [Oink](https://github.com/green-fox-academy/Leviathan-X/tree/master/C%23%20Foundation/Misc/DiceSet)  |
+| Rex Regio | [Clank](https://github.com/green-fox-academy/Leviathan-X/tree/master/C%23%20Foundation/Misc/Rex%20Regio) |
 | Pirate Wars | In Progress |
 
 :point_right: Secret [cheat sheet](https://youtu.be/dQw4w9WgXcQ) for exams
