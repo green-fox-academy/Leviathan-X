@@ -1,5 +1,5 @@
 # Repository of Igor Immanuel Orlov
-<strong>Student of the esteemed Green Fox Academy.</strong> </br>
+<strong>Student of the esteemed Green Fox Academy.</strong> 
 - [Culpeus Aspire](https://github.com/green-fox-academy/aspire-syllabus) </br>
 - [PRG Roadie](https://github.com/green-fox-academy/pgr-roadie-syllabus)
 
