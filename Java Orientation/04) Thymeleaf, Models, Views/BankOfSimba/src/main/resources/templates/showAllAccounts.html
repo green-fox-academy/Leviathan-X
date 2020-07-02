@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show All Accounts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1><strong>Bank of Simba</strong></h1>
+    <h4><u>List of Accounts</u></h4>
+    <table class="table table-hover">
+        <thead>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Animal Type</th>
+        <th>Morality Status</th>
+        <th>Number</th>
+        </thead>
+        <tr th:each="account:${accounts}">
+            <div th:if="${account.kingStatus}">
+                <td th:utext="'<b><i>' + ${account.name} + '</b></i>'"></td>
+                <td th:utext="'<b><i>' + ${account.balance} + ' Zebra</b></i>'"></td>
+                <td th:utext="'<b><i>' + ${account.animalType} + ' king</b></i>'"></td>
+                <td th:switch="${account.moralStatus}">
+                    <span th:case="'GOOD'">Good guy</span>
+                    <span th:case="'BAD'">Bad guy</span>
+                </td>
+                <td th:utext="'<b><i>' + ${accountStat.count} + '</b></i>'"></td>
+            </div>
+            <div th:unless="${account.kingStatus}">
+                <td th:text="${account.name}"></td>
+                <td th:text="${account.balance} + ' Zebra'"></td>
+                <td th:text="${account.animalType}"></td>
+                <td th:switch="${account.moralStatus}">
+                    <span th:case="'GOOD'">Good guy</span>
+                    <span th:case="'BAD'">Bad guy</span>
+                </td>
+                <td th:text="${accountStat.count}"></td>
+            </div>
+        </tr>
+        <!--<form id="formTwo" th:method="POST" th:action="@{/createNewAccount}">
+            <tr>
+                <td>
+                    <input required type="text" id="inputName" name="inputName" placeholder="New Owner Name">
+                </td>
+                <td>
+                    <input required type="number" id="inputBalance" name="inputBalance" placeholder="New Balance">
+                </td>
+                <td>
+                    <input required type="text" id="inputType" name="inputType" placeholder="New Animal Type">
+                </td>
+                <td>
+                    <select id="inputMorality" name="inputMorality">
+                        <option value="GOOD">Good guy</option>
+                        <option valie="BAD">Bad guy</option>
+                    </select>
+                </td>
+                <td>
+                    <buttom type="submit" id="submitTwo" name="submitTwo" value="submit">Create</buttom>
+                </td>
+            </tr>
+        </form>-->
+    </table>
+    <br />
+    <form id="formOne" th:method="POST" th:action="@{/donate}">
+        <header><strong><u>Raise Account Balance</u></strong></header>
+        <label for="animal">Write the name of the account owner to donate to: </label>
+        <input required id="animal" name="animal" placeholder="Enter animal name">
+        <button type="submit" id="submitOne" name="submitOne" value="submit">Donate</button>
+    </form>
+
+    <br/>
+    <form id="formTwo" th:method="POST" th:action="@{/createNewAccount}">
+        <label for="inputName">New Name: </label>
+        <input required type="text" id="inputName" name="inputName" placeholder="New Owner Name">
+        <input required type="number" id="inputBalance" name="inputBalance" placeholder="New Balance">
+        <input required type="text" id="inputType" name="inputType" placeholder="New Animal Type">
+        <select id="inputMorality" name="inputMorality">
+             <option value="GOOD">Good guy</option>
+             <option valie="BAD">Bad guy</option>
+        </select>
+        <buttom type="submit" id="submitTwo" name="submitTwo" value="submit">Create</buttom>
+    </form>
+</body>
+</html>
