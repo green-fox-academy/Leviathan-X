@@ -39,7 +39,7 @@
                 <td th:text="${accountStat.count}"></td>
             </div>
         </tr>
-        <!--<form id="formTwo" th:method="POST" th:action="@{/createNewAccount}">
+        <form id="formTwo" th:method="POST" th:action="@{/createNewAccount}">
             <tr>
                 <td>
                     <input required type="text" id="inputName" name="inputName" placeholder="New Owner Name">
@@ -57,10 +57,10 @@
                     </select>
                 </td>
                 <td>
-                    <buttom type="submit" id="submitTwo" name="submitTwo" value="submit">Create</buttom>
+                    <button type="submit" id="submitTwo" name="submitTwo" value="submit">Donate</button>
                 </td>
             </tr>
-        </form>-->
+        </form>
     </table>
     <br />
     <form id="formOne" th:method="POST" th:action="@{/donate}">
@@ -68,19 +68,6 @@
         <label for="animal">Write the name of the account owner to donate to: </label>
         <input required id="animal" name="animal" placeholder="Enter animal name">
         <button type="submit" id="submitOne" name="submitOne" value="submit">Donate</button>
-    </form>
-
-    <br/>
-    <form id="formTwo" th:method="POST" th:action="@{/createNewAccount}">
-        <label for="inputName">New Name: </label>
-        <input required type="text" id="inputName" name="inputName" placeholder="New Owner Name">
-        <input required type="number" id="inputBalance" name="inputBalance" placeholder="New Balance">
-        <input required type="text" id="inputType" name="inputType" placeholder="New Animal Type">
-        <select id="inputMorality" name="inputMorality">
-             <option value="GOOD">Good guy</option>
-             <option valie="BAD">Bad guy</option>
-        </select>
-        <buttom type="submit" id="submitTwo" name="submitTwo" value="submit">Create</buttom>
     </form>
 </body>
 </html>
