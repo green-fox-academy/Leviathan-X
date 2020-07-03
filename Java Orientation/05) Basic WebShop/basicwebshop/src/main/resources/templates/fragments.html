@@ -7,7 +7,8 @@
 </head>
 <body>
     <div th:fragment="topSection">
-        <h1><strong>My WebShop</strong></h1>
+        <a href="/webshop" style="text-decoration:none; color:black"><h1><strong>My WebShop</strong></h1></a>
+        <a href="/more-filters" style="text-decoration:none; color:black"><h4>More>></h4></a>
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
                 <a th:href="@{/webshop/only-available}"> <button class="btn btn-outline-success" type="button">Only Available</button></a>
