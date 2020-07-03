@@ -5,6 +5,7 @@ public class ShopItem {
     private String description;
     private double price;
     private int quantityOfStock;
+    private String type;
 
     public ShopItem(String name) {
         this.name = name;
