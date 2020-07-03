@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fragments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div th:fragment="topSection">
+        <h1><strong>My WebShop</strong></h1>
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <a th:href="@{/webshop/only-available}"> <button class="btn btn-outline-success" type="button">Only Available</button></a>
+                <a th:href="@{/webshop/cheapest-first}"> <button class="btn btn-outline-success" type="button">Cheapest First</button></a>
+                <a th:href="@{/webshop/contains-nike}"> <button class="btn btn-outline-success" type="button">Contains Nike</button></a>
+                <a th:href="@{/webshop/average-stock}"> <button class="btn btn-outline-success" type="button">Average Stock</button></a>
+                <a th:href="@{/webshop/most-expensive}"> <button class="btn btn-outline-success" type="button">Most Expensive Available</button></a>
+            </form>
+        </nav>
+        <form method="POST" action="/webshop/search">
+            <label for="searchBar">Search for:</label><br />
+            <input type="text" id="searchBar" name="searchBar" placeholder="..something like nike">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>
