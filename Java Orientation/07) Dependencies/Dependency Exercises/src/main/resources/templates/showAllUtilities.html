@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show All Utilities</title>
+</head>
+<body>
+    <p><a href="/useful/colored">Random Colored Page</a></p>
+    <p><a th:style="'color:' + ${emailColor}" href="/useful/email?email=is@this.valid">Correct Email Validator</a></p>
+    <p><a th:style="'color:' + ${emailColor}" href="/useful/email?email=isthis.valid">Wrong Email Validator</a></p>
+
+    <p><a href="/useful/caesar/encode?text=example&&number=1">Caesar Encoder</a></p>
+    <p><a th:href="'/useful/caesar/decode?text=' + ${encode} + '&&number=-1'">Caesar Decoder</a></p>
+
+    <p th:text="'Encode: ' + ${encode}"></p>
+    <p th:text="'Decode: ' + ${decode}"></p>
+</body>
+</html>
