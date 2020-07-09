@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GFA Fragments</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div th:fragment="topSection">
+        <h1>Green Fox Academy Class</h1>
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <a th:href="@{/gfa}"> <button class="btn btn-outline-success" type="button">Home Page</button></a>
+                <a th:href="@{/gfa/list}"> <button class="btn btn-outline-success" type="button">List Students</button></a>
+                <a th:href="@{/gfa/add}"> <button class="btn btn-outline-success" type="button">Add Student</button></a>
+                <a th:href="@{/gfa/check}"> <button class="btn btn-outline-success" type="button">Check Student</button></a>
+            </form>
+        </nav>
+    </div>
+</body>
+</html>

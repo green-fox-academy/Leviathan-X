@@ -7,9 +7,15 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
-    <div th:replace="gfaFragments :: topSection"></div>
-    <br />
-    <h7>Welcome!<br /></h7>
-    <h7 th:text="'There are ' + ${count} + ' students in this class.'"></h7>
+<div th:replace="gfaFragments :: topSection"></div>
+
+<table class="table table-hover">
+    <thead>
+    <th>Student Names</th>
+    </thead>
+    <tr th:each="student:${students}">
+        <td th:utext="${student}"></td>
+    </tr>
+</table>
 </body>
 </html>
