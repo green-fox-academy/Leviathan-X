@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Index</title>
+</head>
+<body>
+    <ul>
+        <li><a href="">Information</a></li>
+    </ul>
+    <img src="greenfox.png" alt="Not found">
+    <p th:text="'This is ' + ${fox.name} + '. Currenlty living on '
+           + ${fox.food} + ' and ' + ${fox.drink} + '. He knows '
+           + ${tricksCount} + ' tricks.'">
+    </p>
+    <h1>Known tricks</h1>
+    <p th:if="${tricksCount} == 0">You know no tricks, yet. Go and learn some.</p>
+    <p th:if="${tricksCount} > 0">
+        <ul th:each="trick:${fox.tricks}">
+            <li th:utext="${trick}"></li>
+        </ul>
+    </p>
+</body>
+</html>
