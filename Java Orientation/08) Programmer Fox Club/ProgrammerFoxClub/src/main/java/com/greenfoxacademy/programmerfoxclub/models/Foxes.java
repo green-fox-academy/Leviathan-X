@@ -20,4 +20,15 @@ public class Foxes {
     public List<Fox> getList() {
         return foxes;
     }
+
+    public void addtoList(Fox fox) {
+        foxes.add(fox);
+    }
+
+    public boolean searchListForInput(String input) {
+        for (Fox fox : foxes) {
+            if (fox.getName().equals(input)) return true;
+        }
+        return false;
+    }
 }
