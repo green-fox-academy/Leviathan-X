@@ -12,7 +12,11 @@
     <p><a href="/useful/caesar/encode?text=example&&number=1">Caesar Encoder</a></p>
     <p><a th:href="'/useful/caesar/decode?text=' + ${encode} + '&&number=-1'">Caesar Decoder</a></p>
 
-    <p th:text="'Encode: ' + ${encode}"></p>
-    <p th:text="'Decode: ' + ${decode}"></p>
+    <div th:if ="${encode} != null">
+        <p th:text="'Encode: ' + ${encode}"></p>
+    </div>
+    <div th:if ="${decode} != null">
+        <p th:text="'Decode: ' + ${decode}"></p>
+    </div>
 </body>
 </html>
