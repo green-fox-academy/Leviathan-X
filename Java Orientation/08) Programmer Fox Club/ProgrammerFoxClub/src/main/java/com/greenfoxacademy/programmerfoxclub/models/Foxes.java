@@ -21,7 +21,7 @@ public class Foxes {
         return foxes;
     }
 
-    public void addtoList(Fox fox) {
+    public void addToList(Fox fox) {
         foxes.add(fox);
     }
 
@@ -30,5 +30,13 @@ public class Foxes {
             if (fox.getName().equals(input)) return true;
         }
         return false;
+    }
+
+    public Fox getFox(String name) {
+        Fox foxOutput = null;
+        for (Fox fox : foxes) {
+            if(fox.getName().equals(name)) foxOutput = fox;
+        }
+        return foxOutput;
     }
 }

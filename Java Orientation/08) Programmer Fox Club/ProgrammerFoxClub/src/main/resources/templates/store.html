@@ -2,9 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Store Page</title>
+        <title>Nutrition Store Page</title>
     </head>
     <body>
+        <div th:replace="fragments :: links"></div>
 
+        <form method="POST" th:action="'/nutritionStore?name=' + ${fox.name}">
+            <label for="foodInput">Food</label>
+            <select id="foodInput" name="food">
+                <option value="salad">salad</option>
+                <option value="pizza">pizza</option>
+                <option value="burger">burger</option>
+                <option value="romance novels">romance novels</option>
+            </select>
+            <label for="drinkInput">Drink</label>
+            <select id="drinkInput" name="drink">
+                <option value="water">water</option>
+                <option value="coke">coke</option>
+                <option value="orange juice">orange juice</option>
+                <option value="depressing music">depressing music</option>
+            </select>
+            <input type="submit" value="Change">
+        </form>
     </body>
 </html>
