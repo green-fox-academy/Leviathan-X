@@ -1,7 +1,8 @@
 package com.greenfoxacademy.programmerfoxclub.models;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,20 +45,22 @@ public class Fox {
     public void setFood(String food) {
         String oldfood = this.food;
         this.food = food;
-        actions.add(String.format("Food has been changed from: %s to: %s",
+        if (!oldfood.equals(food))
+        actions.add(String.format(getTime() + " : Food has been changed from: %s to: %s",
                 oldfood, food));
     }
 
     public void setDrink(String drink) {
         String olddrink = this.drink;
         this.drink = drink;
-        actions.add(String.format("Drink has been changed from: %s to: %s",
-                olddrink, drink));
+        if (!olddrink.equals(drink))
+            actions.add(String.format(getTime() + " : Drink has been changed from: %s to: %s",
+                    olddrink, drink));
     }
 
     public void addTrick(String trick) {
         tricks.add(trick);
-        actions.add(String.format("Learned to: %s", trick));
+        actions.add(String.format(getTime() + " : Learned to: %s", trick));
     }
 
     public boolean searchForTrick(String input) {
@@ -72,13 +75,24 @@ public class Fox {
     }
 
     public List<String> getActionsLastFive() {
-        List<String> lastFive = new ArrayList<>();
-        lastFive.addAll(actions);
-        
+        List<String> lastFive;
+        if (actions.size() > 5) {
+            lastFive = actions.stream()
+                    .skip(actions.size() - 5)
+                    .collect(Collectors.toList());
+        }
+        else {
+            lastFive = new ArrayList<>();
+            lastFive.addAll(actions);
+        }
         return lastFive;
     }
 
     public int getActionSize() {
         return actions.size();
+    }
+
+    public String getTime() {
+        return new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
     }
 }

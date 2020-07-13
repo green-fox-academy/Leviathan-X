@@ -23,11 +23,13 @@ public class MainController {
     public String indexPage(Model model, @RequestParam(required = false) String name) {
         if (name == null) return "redirect:/login";
         if (!foxes.searchListForInput(name)) return "redirect:/login";
+        if (name.equals("")) return "redirect:/login";
 
         Fox foxOutput = foxes.getFox(name);
 
         model.addAttribute("fox", foxOutput);
         model.addAttribute("tricksCount", foxOutput.getTricks().size());
+        model.addAttribute("lastFive", foxOutput.getActionsLastFive());
         return "index";
     }
 
