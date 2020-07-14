@@ -6,8 +6,20 @@
     </head>
     <body>
         <h1>ToDos for today:</h1>
-        <div th:each="todo:${todos}">
-            <p th:utext="${todo.id} + ' ' + ${todo.getTitle()}"></p>
-        </div>
+        <table>
+            <thead>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Urgent</th>
+            <th>Done</th>
+            </thead>
+            <tr th:each="todo:${todos}">
+                <td th:utext="${todo.id}"/>
+                <td th:utext="${todo.title}"/>
+                <td th:utext="${todo.urgent}"/>
+                <td th:utext="${todo.done}"/>
+            </tr>
+        </table>
+
     </body>
 </html>
