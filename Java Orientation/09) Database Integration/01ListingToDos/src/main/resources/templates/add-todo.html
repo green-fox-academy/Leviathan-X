@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add ToDo</title>
+</head>
+    <body>
+        <a href="/todos/">Back</a>
+        <h1>Add new ToDo</h1>
+        <form method="POST" th:action="@{add-todo}">
+            <input autfocus required name="title" placeholder="Enter the ToDo title">
+            <br/>
+            <label for="urgentStatus">Urgent</label>
+            <input type="checkbox" id="urgentStatus" name="urgent">
+            <br/>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
