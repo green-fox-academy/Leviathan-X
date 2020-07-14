@@ -7,7 +7,7 @@
 <body>
     <a href="/todos/">Back</a>
     <h1>Edit ToDo</h1>
-    <form method="POST" th:action="'/edit-todo?id='+${todo.id}">
+    <form method="POST" th:action="'/todos/edit-todo?id='+${todo.id}">
         <label for="description">ToDo Description</label>
         <input autofocus required id="description" name="title" th:value="${todo.title}">
 
@@ -16,7 +16,7 @@
         <input type="checkbox" id="urgentStatus" name="urgent" th:checked="${todo.urgent}">
 
         <br />
-        <label for="isDone">Finished</label>
+        <label for="isDone">Done</label>
         <input type="checkbox" id="isDone" name="done" th:checked="${todo.done}">
         <br />
         <button type="submit">Submit</button>

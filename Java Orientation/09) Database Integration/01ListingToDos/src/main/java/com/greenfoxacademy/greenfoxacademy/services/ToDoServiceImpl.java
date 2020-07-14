@@ -32,7 +32,7 @@ public class ToDoServiceImpl implements ToDoService {
     @Override
     public List<ToDo> getAllActive() {
         return this.toDoRepository.findAll().stream()
-                .filter(x -> x.isDone() == false)
+                .filter(toDo -> toDo.isDone() == false)
                 .collect(Collectors.toList());
     }
 
@@ -48,8 +48,8 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public void updateToDo(long id, String title, boolean urgent, boolean done) {
-        ToDo task = new ToDo(title, urgent, done);
-        task.setId(id);
-        this.toDoRepository.save(task);
+        ToDo toDo = new ToDo(title, urgent, done);
+        toDo.setId(id);
+        this.toDoRepository.save(toDo);
     }
 }

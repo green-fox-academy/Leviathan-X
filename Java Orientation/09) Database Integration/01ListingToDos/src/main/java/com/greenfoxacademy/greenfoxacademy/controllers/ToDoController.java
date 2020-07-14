@@ -76,9 +76,9 @@ public class ToDoController {
     }
 
     @PostMapping("/edit-todo")
-    public String editToDoPOST(@ModelAttribute("task") ToDo toDo,
+    public String editToDoPOST(@ModelAttribute("todo") ToDo toDo,
                                @RequestParam(value = "id") long id) {
-
+        toDoService.updateToDo(id, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
         return "redirect:/todos/";
     }
 }
