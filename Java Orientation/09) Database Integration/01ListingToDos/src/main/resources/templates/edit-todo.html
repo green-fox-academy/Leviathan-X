@@ -10,11 +10,9 @@
         <form method="POST" th:action="'/todos/edit-todo?id='+${todo.id}">
             <label for="description">ToDo Description</label>
             <input autofocus required id="description" name="title" th:value="${todo.title}">
-
             <br />
             <label for="urgentStatus">Urgent</label>
             <input type="checkbox" id="urgentStatus" name="urgent" th:checked="${todo.urgent}">
-
             <br />
             <label for="isDone">Done</label>
             <input type="checkbox" id="isDone" name="done" th:checked="${todo.done}">
