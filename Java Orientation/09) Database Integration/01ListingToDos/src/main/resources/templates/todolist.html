@@ -9,8 +9,8 @@
     <body>
         <br />
         <a href="/todos/add-todo">Add new ToDo</a>
-        <form th:action="@{/todo/search}">
-            <input type="text" id="search" name="title" placeholder="Search for a title">
+        <form method="GET" th:action="@{/todos/search}">
+            <input type="text" name="title" placeholder="Search for a title">
             <button type="submit">Search</button>
         </form>
         <h1>ToDos for today:</h1>

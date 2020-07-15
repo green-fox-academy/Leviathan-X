@@ -34,6 +34,7 @@ public class ToDoController {
         // toDoRepository.findAll().forEach(list::add);
         // List<ToDu> list = toDoRepository.findAll();
 
+        if (show == null) return "redirect:/todos/list?show=";  // if (show.equals(null)) doesn't work
         if (show.equals("undone")) {
             List<ToDo> unDoneList = toDoService.getAllUndone();
             model.addAttribute("todos", unDoneList);

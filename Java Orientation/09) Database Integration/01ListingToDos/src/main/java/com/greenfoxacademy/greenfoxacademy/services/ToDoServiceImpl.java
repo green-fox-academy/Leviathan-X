@@ -61,9 +61,8 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public List<ToDo> search(String title) {
-        List<ToDo> output = toDoRepository.findAll().stream()
-                .filter(toDo -> toDo.getTitle().contains(title))
+        return this.toDoRepository.findAll().stream()
+                .filter(toDo -> toDo.getTitle().toLowerCase().contains(title.toLowerCase()))
                 .collect(Collectors.toList());
-        return output;
     }
 }
