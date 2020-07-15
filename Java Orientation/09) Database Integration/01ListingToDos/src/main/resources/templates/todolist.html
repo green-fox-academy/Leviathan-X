@@ -7,13 +7,20 @@
               integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <br />
+        <a href="/assignees/">-> Go to Assignee List</a>
+        <br /><br />
         <a href="/todos/add-todo">Add new ToDo</a>
         <form method="GET" th:action="@{/todos/search}">
             <input type="text" name="title" placeholder="Search for a title">
             <button type="submit">Search</button>
         </form>
+        <br />
         <h1>ToDos for today:</h1>
+        <a href="/todos/list?show=done">Show done ToDos</a>
+        <br />
+        <a href="/todos/list?show=undone">Show undone ToDos</a>
+        <br />
+        <a href="/todos/list?show=">Show all ToDos</a>
         <table class="table table-hover">
             <thead>
             <th>ID</th>
@@ -34,10 +41,5 @@
                 </a></td>
             </tr>
         </table>
-        <a href="/todos/list?show=done">Show done ToDos</a>
-        <br />
-        <a href="/todos/list?show=undone">Show undone ToDos</a>
-        <br />
-        <a href="/todos/list?show=">Show all ToDos</a>
     </body>
 </html>
