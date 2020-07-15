@@ -9,6 +9,10 @@
     <body>
         <br />
         <a href="/todos/add-todo">Add new ToDo</a>
+        <form th:action="@{/todo/search}">
+            <input type="text" id="search" name="title" placeholder="Search for a title">
+            <button type="submit">Search</button>
+        </form>
         <h1>ToDos for today:</h1>
         <table class="table table-hover">
             <thead>
@@ -30,5 +34,10 @@
                 </a></td>
             </tr>
         </table>
+        <a href="/todos/list?show=done">Show done ToDos</a>
+        <br />
+        <a href="/todos/list?show=undone">Show undone ToDos</a>
+        <br />
+        <a href="/todos/list?show=">Show all ToDos</a>
     </body>
 </html>

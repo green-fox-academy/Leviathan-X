@@ -35,17 +35,11 @@ public class ToDoController {
         // List<ToDu> list = toDoRepository.findAll();
 
         if (show.equals("undone")) {
-            List<ToDo> input = toDoService.getAll();
-            List<ToDo> unDoneList = input.stream()
-                    .filter(todo -> todo.isDone() == false)
-                    .collect(Collectors.toList());
+            List<ToDo> unDoneList = toDoService.getAllUndone();
             model.addAttribute("todos", unDoneList);
         }
         else if (show.equals("done")) {
-            List<ToDo> input = toDoService.getAll();
-            List<ToDo> doneList = input.stream()
-                    .filter(todo -> todo.isDone() == true)
-                    .collect(Collectors.toList());
+            List<ToDo> doneList = toDoService.getAllDone();
             model.addAttribute("todos", doneList);
         }
         else model.addAttribute("todos", toDoService.getAll());
@@ -80,5 +74,14 @@ public class ToDoController {
                                @RequestParam(value = "id") long id) {
         toDoService.updateToDo(id, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
         return "redirect:/todos/";
+    }
+
+    @GetMapping("/search")
+    public String search(Model model, @RequestParam String title) {
+        if (title != null) {
+            model.addAttribute("todos", toDoService.search(title));
+            return "todolist";
+        }
+        else return "redirect:/todos/";
     }
 }

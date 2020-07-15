@@ -9,11 +9,15 @@ public interface ToDoService {
 
     void createToDo(String title, boolean urgent, boolean done);
 
-    List<ToDo> getAllActive();
+    List<ToDo> getAllUndone();
+
+    List<ToDo> getAllDone();
 
     void deleteToDo(long id);
 
     ToDo getTodo(long id);
 
     void updateToDo(long id, String title, boolean urgent, boolean done);
+
+    List<ToDo> search(String title);
 }
