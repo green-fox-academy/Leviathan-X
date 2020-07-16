@@ -70,4 +70,10 @@ public class AssController {
         }
         else return "redirect:/assignees/";
     }
+
+    @GetMapping("/{id}")
+    public String assignee(Model model, @PathVariable long id) {
+        model.addAttribute("assignee", assService.getAssignee(id));
+        return "asstodos";
+    }
 }

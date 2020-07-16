@@ -23,11 +23,13 @@
             <th>Email</th>
             <th> </th>
             <th> </th>
+            <th> </th>
             </thead>
             <tr th:each="assignee:${assignees}">
                 <td th:utext="${assignee.id}"/>
                 <td th:utext="${assignee.name}"/>
                 <td th:utext="${assignee.email}"/>
+                <td><a th:href="@{|/assignees/${assignee.id}/|}"><div th:utext="'ToDos'"/></a></td>
                 <td><a th:href="@{|/assignees/edit-assignee/${assignee.id}/|}">Edit</a></td>
                 <td><a th:href="@{|/assignees/delete-assignee/${assignee.id}|}">
                     <button type="button">Delete</button>

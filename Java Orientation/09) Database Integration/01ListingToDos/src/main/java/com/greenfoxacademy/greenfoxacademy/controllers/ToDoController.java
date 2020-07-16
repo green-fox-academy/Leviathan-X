@@ -79,7 +79,8 @@ public class ToDoController {
                                @RequestParam(value = "id") long id,
                                @RequestParam(required = false, value = "idAss") Long idAss) {
 
-        toDoService.updateToDo(id, idAss, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
+        if(idAss == null) toDoService.updateToDo(id, null, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
+        else toDoService.updateToDo(id, idAss, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
         return "redirect:/todos/";
     }
 

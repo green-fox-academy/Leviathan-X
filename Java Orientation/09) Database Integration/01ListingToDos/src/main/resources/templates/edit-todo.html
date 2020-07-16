@@ -19,7 +19,7 @@
             <br />
             <label for="ass">Assignee</label>
             <select id="ass" name="idAss">
-                <option th:value="${null}">empty</option>
+                <!--<option th:value="${null}">empty</option>--> <!-- DON'T KNOW HOW TO PASS NULL -->
                 <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:utext="${assignee.name}"/>
             </select>
             <br />
