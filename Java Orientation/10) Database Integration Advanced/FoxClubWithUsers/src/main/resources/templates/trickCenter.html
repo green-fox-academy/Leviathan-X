@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trick Center Page</title>
+    </head>
+    <body>
+    <div th:replace="fragments :: links"></div>
+
+    <form method="POST" th:action="'/trickCenter?name=' + ${fox.name}">
+        <label for="tricksInput">Trick</label>
+        <select id="tricksInput" name="trick">
+            <option value="write HTML">write HTML</option>
+            <option value="code in Java">code in Java</option>
+            <option value="create bugs">creating bugs</option>
+            <option value="trolling old ladies">trolling old ladies</option>
+        </select>
+        <input type="submit" value="Learn">
+    </form>
+    </body>
+</html>
