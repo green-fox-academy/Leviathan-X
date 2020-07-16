@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>FoxChan Submit Post</title>
+    </head>
+    <body>
+        <a href="/">Back</a>
+        <br /><br />
+        <form method="POST" th:action="@{add-post}">
+            <fieldset>
+                <legend>Submit new Post</legend>
+                <input autfocus required name="title" placeholder="Write Post Title here">
+                <br/>
+                <textarea required name="text" placeholder="Write text here"
+                rows="5" cols="80"></textarea>
+                <br/>
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

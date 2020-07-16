@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title th:utext="'FoxChan Post no. ' + ${post.id}"/>
+    </head>
+    <body>
+    <a href="/">Back</a>
+    <br /><br />
+    <fieldset>
+        <legend th:utext="'FoxChan Post no. ' + ${post.id}"/>
+        <label for="textOutput">Text:</label>
+        <br />
+        <p id="textOutput" th:utext="${post.text}"/>
+    </fieldset>
+    </body>
+</html>

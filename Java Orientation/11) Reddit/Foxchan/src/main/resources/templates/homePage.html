@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>FoxChan Home Page</title>
+    </head>
+    <body>
+        <a href="/submit">Submit new post</a>
+        <br /><br />
+        <h1>Trending posts</h1>
+        <br />
+        <table>
+            <thead>
+            <th>Upvotes</th>
+            <th></th>
+            <th></th>
+            </thead>
+            <tr th:each="post:${posts}">
+                <td th:utext="${post.votes}"/>
+                <td><a th:href="@{|/post/upvote/${post.id}/|}">+</a></td>
+                <td><a th:href="@{|/post/${post.id}/|}">
+                    <div th:utext="${post.title}"/></a></td>
+            </tr>
+        </table>
+    </body>
+</html>
