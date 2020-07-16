@@ -25,7 +25,7 @@ public class PostController {
 
     @GetMapping({"", "/"})
     public String homePage(Model model) {
-        model.addAttribute("posts", postService.getAll());
+        model.addAttribute("posts", postService.getAllSorted());
         return "homePage";
     }
 
@@ -52,7 +52,7 @@ public class PostController {
         return "redirect:/";
     }
 
-    @PostMapping("/post/downvote/{id}")
+    @GetMapping("/post/downvote/{id}")
     public String postDownvote(@PathVariable long id) {
         postService.downvote(id);
         return "redirect:/";

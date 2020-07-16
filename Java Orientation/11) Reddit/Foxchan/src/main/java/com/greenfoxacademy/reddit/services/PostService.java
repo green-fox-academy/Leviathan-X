@@ -7,6 +7,7 @@ import java.util.List;
 public interface PostService {
 
     List<Post> getAll();
+    List<Post> getAllSorted();
 
     Post getPost(Long id);
 

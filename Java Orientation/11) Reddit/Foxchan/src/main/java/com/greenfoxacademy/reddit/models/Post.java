@@ -1,9 +1,8 @@
 package com.greenfoxacademy.reddit.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 public class Post {
@@ -14,19 +13,22 @@ public class Post {
     private int votes;
     private String title;
     private String text;
+    private String date;
 
-    public Post() {}
+    public Post() { this.date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()); }
 
     public Post(String title, String text) {
         votes = 0;
         this.title = title;
         this.text = text;
+        this.date = new SimpleDateFormat("HH:mm:ss dd-MM-yyyy").format(new Date());
     }
     public Post(long id, String title, String text) {
         this.id = id;
         votes = 0;
         this.title = title;
         this.text = text;
+        this.date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
     }
 
     public Long getId() { return id; }
@@ -40,4 +42,6 @@ public class Post {
 
     public String getText() { return text; }
     public void setText(String text) { this.text = text; }
+
+    public String getDate() { return date; }
 }

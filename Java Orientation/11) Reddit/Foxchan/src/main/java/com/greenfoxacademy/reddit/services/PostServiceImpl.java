@@ -23,6 +23,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public List<Post> getAllSorted() {
+        return this.postRepository.findByOrderByVotesDesc();
+    }
+
+    @Override
     public Post getPost(Long id) {
         return this.postRepository.getOne(id);
     }
@@ -36,13 +41,13 @@ public class PostServiceImpl implements PostService {
     public void upvote(Long id) {
         Post post = this.getPost(id);
         post.setVotes(post.getVotes() + 1);
+        this.postRepository.save(post);
     }
 
     @Override
     public void downvote(Long id) {
         Post post = this.postRepository.getOne(id);
         post.setVotes(post.getVotes() - 1);
+        this.postRepository.save(post);
     }
-
-
 }
