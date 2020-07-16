@@ -1,19 +1,20 @@
 package com.greenfoxacademy.greenfoxacademy.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ToDo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String title;
     private boolean urgent;
     private boolean done;
+
+    @ManyToOne
+    @JoinColumn()
+    private Assignee assignee;
 
     public ToDo() {}
 
@@ -69,4 +70,7 @@ public class ToDo {
 
     public boolean isDone() { return done; }
     public void setDone(boolean done) { this.done = done; }
+
+    public Assignee getAssignee() { return assignee; }
+    public void setAssignee(Assignee assignee) { this.assignee = assignee; }
 }

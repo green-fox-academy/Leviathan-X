@@ -1,7 +1,6 @@
 package com.greenfoxacademy.greenfoxacademy.services;
 
 import com.greenfoxacademy.greenfoxacademy.models.Assignee;
-import com.greenfoxacademy.greenfoxacademy.models.ToDo;
 import com.greenfoxacademy.greenfoxacademy.repositories.AssRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

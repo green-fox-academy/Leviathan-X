@@ -18,6 +18,7 @@ public interface ToDoService {
     ToDo getTodo(long id);
 
     void updateToDo(long id, String title, boolean urgent, boolean done);
+    void updateToDo(long id, Long idAss, String title, boolean urgent, boolean done);
 
     List<ToDo> search(String title);
 }

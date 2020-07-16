@@ -27,6 +27,7 @@
             <th>Title</th>
             <th>Urgent</th>
             <th>Done</th>
+            <th>Assignee</th>
             <th> </th>
             <th> </th>
             </thead>
@@ -35,6 +36,12 @@
                 <td th:utext="${todo.title}"/>
                 <td th:utext="${todo.urgent}"/>
                 <td th:utext="${todo.done}"/>
+                <div th:if="${todo.assignee == null}">
+                    <td>empty</td>
+                </div>
+                <div th:unless="${todo.assignee == null}">
+                    <td th:utext="${todo.assignee.name}"/>
+                </div>
                 <td><a th:href="@{|/todos/edit-todo/${todo.id}/|}">Edit</a></td>
                 <td><a th:href="@{|/todos/delete-todo/${todo.id}|}">
                     <button type="button">Delete</button>

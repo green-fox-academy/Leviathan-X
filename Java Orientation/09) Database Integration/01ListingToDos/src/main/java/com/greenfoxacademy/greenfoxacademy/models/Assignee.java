@@ -1,9 +1,7 @@
 package com.greenfoxacademy.greenfoxacademy.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Assignee {
@@ -13,6 +11,9 @@ public class Assignee {
     private long id;
     private String name;
     private String email;
+
+    @OneToMany(mappedBy = "assignee")
+    private List<ToDo> todos;
 
     public Assignee() {}
 
@@ -43,4 +44,6 @@ public class Assignee {
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
+    public List<ToDo> getToDos() { return todos; }
+    public void setToDos(List<ToDo> todos) { this.todos = todos; }
 }

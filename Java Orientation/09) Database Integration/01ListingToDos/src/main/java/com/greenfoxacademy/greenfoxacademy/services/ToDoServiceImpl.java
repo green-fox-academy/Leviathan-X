@@ -1,6 +1,7 @@
 package com.greenfoxacademy.greenfoxacademy.services;
 
 import com.greenfoxacademy.greenfoxacademy.models.ToDo;
+import com.greenfoxacademy.greenfoxacademy.repositories.AssRepository;
 import com.greenfoxacademy.greenfoxacademy.repositories.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +13,12 @@ import java.util.stream.Collectors;
 public class ToDoServiceImpl implements ToDoService {
 
     ToDoRepository toDoRepository;
+    AssRepository assRepository;
 
     @Autowired
-    public ToDoServiceImpl(ToDoRepository toDoRepository) {
+    public ToDoServiceImpl(ToDoRepository toDoRepository, AssRepository assRepository) {
         this.toDoRepository = toDoRepository;
+        this.assRepository = assRepository;
     }
 
     @Override
@@ -56,6 +59,13 @@ public class ToDoServiceImpl implements ToDoService {
     public void updateToDo(long id, String title, boolean urgent, boolean done) {
         ToDo toDo = new ToDo(title, urgent, done);
         toDo.setId(id);
+        this.toDoRepository.save(toDo);
+    }
+
+    public void updateToDo(long id, Long idAss, String title, boolean urgent, boolean done) {
+        ToDo toDo = new ToDo(title, urgent, done);
+        toDo.setId(id);
+        toDo.setAssignee(this.assRepository.getOne(idAss));
         this.toDoRepository.save(toDo);
     }
 

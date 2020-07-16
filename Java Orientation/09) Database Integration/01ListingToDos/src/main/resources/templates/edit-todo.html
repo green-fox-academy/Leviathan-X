@@ -17,6 +17,12 @@
             <label for="isDone">Done</label>
             <input type="checkbox" id="isDone" name="done" th:checked="${todo.done}">
             <br />
+            <label for="ass">Assignee</label>
+            <select id="ass" name="idAss">
+                <option th:value="${null}">empty</option>
+                <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:utext="${assignee.name}"/>
+            </select>
+            <br />
             <button type="submit">Submit</button>
         </form>
     </body>

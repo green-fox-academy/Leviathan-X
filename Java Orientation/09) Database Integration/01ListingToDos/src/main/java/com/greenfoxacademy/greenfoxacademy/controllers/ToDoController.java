@@ -2,6 +2,7 @@ package com.greenfoxacademy.greenfoxacademy.controllers;
 
 import com.greenfoxacademy.greenfoxacademy.models.ToDo;
 import com.greenfoxacademy.greenfoxacademy.repositories.ToDoRepository;
+import com.greenfoxacademy.greenfoxacademy.services.AssService;
 import com.greenfoxacademy.greenfoxacademy.services.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,10 +18,12 @@ import java.util.stream.Collectors;
 public class ToDoController {
 
     private ToDoService toDoService;
+    private AssService assService;
 
     @Autowired
-    public ToDoController(ToDoService toDoService) {
+    public ToDoController(ToDoService toDoService, AssService assService) {
         this.toDoService = toDoService;
+        this.assService = assService;
     }
 
     @GetMapping({"/"})  // @GetMapping({"/", "/list"})
@@ -67,13 +70,16 @@ public class ToDoController {
     @GetMapping("/edit-todo/{id}")
     public String editToDoGET(Model model, @PathVariable long id) {
         model.addAttribute("todo", toDoService.getTodo(id));
+        model.addAttribute("assignees", assService.getAll());
         return "edit-todo";
     }
 
     @PostMapping("/edit-todo")
     public String editToDoPOST(@ModelAttribute("todo") ToDo toDo,
-                               @RequestParam(value = "id") long id) {
-        toDoService.updateToDo(id, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
+                               @RequestParam(value = "id") long id,
+                               @RequestParam(required = false, value = "idAss") Long idAss) {
+
+        toDoService.updateToDo(id, idAss, toDo.getTitle(), toDo.getUrgent(), toDo.isDone());
         return "redirect:/todos/";
     }
 
