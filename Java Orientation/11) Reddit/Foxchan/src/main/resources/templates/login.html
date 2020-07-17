@@ -18,11 +18,14 @@
             </fieldset>
         </form>
 
-        <div th:if="${loginAttempt} == 'failure'">
-            <p>Login failed!</p>
+        <div th:if="${loginAttempt} == 'userNameFail'">
+            <p>Login failed! Wrong username.</p>
+        </div>
+        <div th:if="${loginAttempt} == 'passwordFail'">
+            <p>Login failed! Wrong password.</p>
         </div>
         <div th:if="${loginAttempt} == ${null}">
-            <p>Test</p>
+            <p></p>
         </div>
     </body>
 </html>
