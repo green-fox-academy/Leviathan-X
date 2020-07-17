@@ -6,12 +6,10 @@ import com.greenfoxacademy.reddit.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping(value = "/foxchan")
 public class PostController {
 
     private PostService postService;
@@ -26,7 +24,7 @@ public class PostController {
     @GetMapping({"", "/"})
     public String homePage(Model model) {
         model.addAttribute("posts", postService.getAllSorted());
-        return "homePage";
+        return "index";
     }
 
     @GetMapping("/submit")
@@ -37,7 +35,7 @@ public class PostController {
     @PostMapping("/add-post")
     public String submitPostPOST(@ModelAttribute("post") Post post) {
         postService.createNew(post.getTitle(), post.getText());
-        return "redirect:/";
+        return "redirect:/foxchan/";
     }
 
     @GetMapping("/post/{id}")
@@ -49,12 +47,13 @@ public class PostController {
     @GetMapping("/post/upvote/{id}")
     public String postUpvote(@PathVariable long id) {
         postService.upvote(id);
-        return "redirect:/";
+        return "redirect:/foxchan/";
     }
 
     @GetMapping("/post/downvote/{id}")
     public String postDownvote(@PathVariable long id) {
         postService.downvote(id);
-        return "redirect:/";
+        return "redirect:/foxchan/";
     }
+
 }

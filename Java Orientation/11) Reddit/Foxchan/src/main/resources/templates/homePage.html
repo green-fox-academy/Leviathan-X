@@ -1,42 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>FoxChan Home Page</title>
-        <link href="style.css" rel="stylesheet">
+        <title>HomePage</title>
     </head>
     <body>
-        <a href="/submit">Submit new post</a>
-        <br /><br />
-        <h1>Trending posts</h1>
+        <h1>Welcome to Foxchan</h1>
+        <a href="">Login</a>
         <br />
-        <table>
-            <thead>
-            <th>Upvotes</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            </thead>
-            <tr th:each="post:${posts}">
-                <td th:utext="${post.votes}"/>
-                <td><a th:href="@{|/post/upvote/${post.id}/|}">+</a></td>
-                <td><a th:href="@{|/post/downvote/${post.id}/|}">-</a></td>
-                <td><a th:href="@{|/post/${post.id}/|}">
-                    <div th:utext="${post.title}"/></a></td>
-                <td th:utext="${post.date}"/>
-            </tr>
-        </table>
-
-        <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#">1</a>
-            <a class="active" href="#">2</a>
-            <a href="#">3</a>
-
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">&raquo;</a>
-        </div>
+        <a href="/register">Register</a>
     </body>
 </html>

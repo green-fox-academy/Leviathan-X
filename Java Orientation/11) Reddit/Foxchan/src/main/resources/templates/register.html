@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Foxchan Register New User</title>
+    </head>
+    <body>
+        <a href="/">Back</a>
+        <br /><br />
+        <form method="POST" th:action="@{register}">
+            <fieldset>
+                <legend>Register New User</legend>
+                <input autfocus required name="username" placeholder="User Name">
+                <br/>
+                <input required type="email" name="email" placeholder="Email">
+                <br/>
+                <input type="password" name="password" placeholder="Password">
+                <br/>
+                <input type="password" name="passwordCheck" placeholder="Check Password">
+                <br/>
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+        <div th:if="${match} == 'true'">
+            <p color="green">New User Created!</p>
+        </div>
+        <div th:if="${match} == 'false'">
+            <p color="red">Passwords do not match!</p>
+        </div>
+        <div th:if="${match} == ${null}">
+            <p></p>
+        </div>
+    </body>
+</html>
