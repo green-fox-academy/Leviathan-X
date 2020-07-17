@@ -10,6 +10,8 @@ public interface UserService {
 
     User getUser(Long id);
 
+    User getUserByUsername(String username);
+
     void createNew(String username, String email, String password);
 
     boolean checkMatch(String password, String passwordCheck);

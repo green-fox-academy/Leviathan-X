@@ -60,11 +60,11 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginPOST(Model model, @ModelAttribute("user") User user) {
-        if (userService.getUser(user.getId()) == null) {
+        if (userService.getUserByUsername(user.getUsername()) == null) {
             model.addAttribute("loginAttempt", "failure");
             return "redirect:/login";
         }
-        else if (!userService.getUser(user.getId()).getPassword().equals(user.getPassword())) {
+        else if (userService.getUserByUsername(user.getUsername()).getPassword().equals(user.getUsername())) {
             model.addAttribute("loginAttempt", "failure");
             return "redirect:/login";
         }
