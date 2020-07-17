@@ -9,8 +9,8 @@ public interface UserService {
     List<User> getAll();
 
     User getUser(Long id);
-
     User getUserByUsername(String username);
+    User getUserByEmail(String email);
 
     void createNew(String username, String email, String password);
 

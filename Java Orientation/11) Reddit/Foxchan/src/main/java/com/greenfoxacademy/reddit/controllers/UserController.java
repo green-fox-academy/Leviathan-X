@@ -48,23 +48,27 @@ public class UserController {
             model.addAttribute("match", "true");
             userService.createNew(user.getUsername(), user.getEmail(), user.getPassword());
         }
+        else if (userService.getUserByUsername(user.getUsername()).equals(user.getUsername())) {
+            model.addAttribute("match", "userNameExists");
+            userService.createNew(user.getUsername(), user.getEmail(), user.getPassword());
+        }
+        else if (userService.getUserByEmail(user.getEmail()).equals(user.getEmail())) {
+            model.addAttribute("match", "emailExists");
+        }
         else model.addAttribute("match", "false");
         return "register";
     }
 
     @GetMapping("/login")
-    public String loginGet(Model model, @RequestParam(required = false) String loginAttempt) {
+    public String loginGet(Model model, @RequestParam(required = false, value = "loginAttempt") String loginAttempt) {
         model.addAttribute("loginAttempt", loginAttempt);
         return "login";
     }
 
     @PostMapping("/login")
     public String loginPOST(Model model, @ModelAttribute("user") User user) {
-        if (userService.getUserByUsername(user.getUsername()) == null) {
-            model.addAttribute("loginAttempt", "failure");
-            return "redirect:/login";
-        }
-        else if (userService.getUserByUsername(user.getUsername()).getPassword().equals(user.getUsername())) {
+        if (userService.getUserByUsername(user.getUsername()) == null ||
+                !userService.getUserByUsername(user.getUsername()).getPassword().equals(user.getPassword())) {
             model.addAttribute("loginAttempt", "failure");
             return "redirect:/login";
         }

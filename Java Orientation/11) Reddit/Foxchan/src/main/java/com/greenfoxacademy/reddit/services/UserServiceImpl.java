@@ -26,11 +26,10 @@ public class UserServiceImpl implements UserService {
     public User getUser(Long id) {
         return userRepository.getOne(id);
     }
-
     @Override
-    public User getUserByUsername(String username) {
-        return userRepository.findUserByUsername(username);
-    }
+    public User getUserByUsername(String username) { return userRepository.findUserByUsername(username); }
+    @Override
+    public User getUserByEmail(String email) { return userRepository.findUserByEmail(email); }
 
     @Override
     public void createNew(String username, String email, String password) {
