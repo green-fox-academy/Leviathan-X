@@ -15,7 +15,7 @@ public class Post {
     private String text;
     private String date;
 
-    public Post() { this.date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()); }
+    public Post() { this.date = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(new Date()); }
 
     public Post(String title, String text) {
         votes = 0;

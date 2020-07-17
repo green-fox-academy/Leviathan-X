@@ -15,21 +15,22 @@
             <th>Upvotes</th>
             <th></th>
             <th></th>
-            <th>Post No.</th>
             <th></th>
+            <th>Post No.</th>
             <th></th>
             </thead>
             <tr th:each="post:${posts}">
                 <td th:utext="${post.votes}"/>
                 <td><a th:href="@{|/foxchan/post/upvote/${post.id}/|}">+</a></td>
                 <td><a th:href="@{|/foxchan/post/downvote/${post.id}/|}">-</a></td>
-                <td th:utext="${post.id}"/>
                 <td><a th:href="@{|/foxchan/post/${post.id}/|}">
                     <div th:utext="${post.title}"/></a></td>
+                <td th:utext="${post.id}"/>
                 <td th:utext="${post.date}"/>
             </tr>
         </table>
 
+        <br />
         <div class="pagination">
             <a href="#">&laquo;</a>
             <a class="active" href="#">1</a>

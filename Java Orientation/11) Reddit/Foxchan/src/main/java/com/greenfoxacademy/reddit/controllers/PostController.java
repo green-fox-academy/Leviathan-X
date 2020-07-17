@@ -3,6 +3,7 @@ package com.greenfoxacademy.reddit.controllers;
 import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.repositories.PostRepository;
 import com.greenfoxacademy.reddit.services.PostService;
+import com.greenfoxacademy.reddit.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,16 @@ public class PostController {
 
     private PostService postService;
     private PostRepository postRepository;
+    private UserController userController;
+    private UserService userService;
 
     @Autowired
-    public PostController(PostService postService, PostRepository postRepository) {
+    public PostController(PostService postService, PostRepository postRepository,
+                          UserController userController, UserService userService) {
         this.postService = postService;
         this.postRepository = postRepository;
+        this.userController = userController;
+        this.userService = userService;
     }
 
     @GetMapping({"", "/"})

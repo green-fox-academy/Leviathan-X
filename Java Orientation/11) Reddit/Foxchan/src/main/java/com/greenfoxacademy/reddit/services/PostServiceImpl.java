@@ -19,7 +19,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getAll() {
-        return this.postRepository.findAll();
+        return this.postRepository.findByOrderByVotesDesc();
     }
 
     @Override
@@ -29,7 +29,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post getPost(Long id) {
-        return this.postRepository.getOne(id);
+        return this.postRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void downvote(Long id) {
-        Post post = this.postRepository.getOne(id);
+        Post post = this.postRepository.findById(id).orElse(null);
         post.setVotes(post.getVotes() - 1);
         this.postRepository.save(post);
     }

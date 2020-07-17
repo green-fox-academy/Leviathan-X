@@ -51,4 +51,24 @@ public class UserController {
         else model.addAttribute("match", "false");
         return "register";
     }
+
+    @GetMapping("/login")
+    public String loginGet(Model model, @RequestParam(required = false) String loginAttempt) {
+        model.addAttribute("loginAttempt", loginAttempt);
+        return "login";
+    }
+
+    @PostMapping("/login")
+    public String loginPOST(Model model, @ModelAttribute("user") User user) {
+        if (userService.getUser(user.getId()) == null) {
+            model.addAttribute("loginAttempt", "failure");
+            return "redirect:/login";
+        }
+        else if (!userService.getUser(user.getId()).getPassword().equals(user.getPassword())) {
+            model.addAttribute("loginAttempt", "failure");
+            return "redirect:/login";
+        }
+        else model.addAttribute("user", user);
+        return "redirect:/foxchan/";
+    }
 }
