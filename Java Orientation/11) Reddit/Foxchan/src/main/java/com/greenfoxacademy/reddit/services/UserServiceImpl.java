@@ -50,15 +50,17 @@ public class UserServiceImpl implements UserService {
     public void upvotePost(Long id, String username) {
         User user = userRepository.findUserByUsername(username);
         Map<Long, Boolean> votes = user.getVotes();
+        //Map<Long, Boolean> votedStatus = user.getVotedStatus();
         if (votes.containsKey(id) && votes.get(id) == false) {
-            postService.upvote(id);
+            postService.upvote(id, true);
             votes.put(id, true);
         }
         if (!votes.containsKey(id)) {
             votes.put(id, true);
-            postService.upvote(id);
+            postService.upvote(id, false);
         }
         user.setVotes(votes);
+        //user.setVotedStatus(votedStatus);
         userRepository.save(user);
     }
 
@@ -67,12 +69,12 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findUserByUsername(username);
         Map<Long, Boolean> votes = user.getVotes();
         if (votes.containsKey(id) && votes.get(id) == true) {
-            postService.downvote(id);
+            postService.downvote(id, true);
             votes.put(id, false);
         }
         if (!votes.containsKey(id)) {
             votes.put(id, false);
-            postService.downvote(id);
+            postService.downvote(id, false);
         }
         user.setVotes(votes);
         userRepository.save(user);

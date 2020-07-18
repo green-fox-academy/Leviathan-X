@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String password;
     @ElementCollection
-    Map<Long, Boolean> votes;
+    private Map<Long, Boolean> votes;
 
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
@@ -46,5 +46,4 @@ public class User {
 
     public Map<Long, Boolean> getVotes() { return votes; }
     public void setVotes(Map<Long, Boolean> votes) { this.votes = votes; }
-
 }
