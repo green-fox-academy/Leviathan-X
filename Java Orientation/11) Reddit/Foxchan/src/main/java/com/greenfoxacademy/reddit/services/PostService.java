@@ -13,6 +13,6 @@ public interface PostService {
 
     void createNew(String title, String text, String username);
 
-    void upvote(Long id, boolean votedStatus);
-    void downvote(Long id, boolean votedStatus);
+    void upvote(Long id);
+    void downvote(Long id);
 }
