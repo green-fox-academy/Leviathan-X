@@ -15,4 +15,7 @@ public interface UserService {
     void createNew(String username, String email, String password);
 
     boolean checkMatch(String password, String passwordCheck);
+
+    void upvotePost(Long id, String username);
+    void downvotePost(Long id, String username);
 }

@@ -1,7 +1,9 @@
 package com.greenfoxacademy.reddit.models;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class User {
@@ -12,16 +14,21 @@ public class User {
     private String username;
     private String email;
     private String password;
+    @ElementCollection
+    Map<Long, Boolean> votes;
 
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
-    public User() { }
+    public User() {
+        votes = new HashMap<>();
+    }
 
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+        votes = new HashMap<>();
     }
 
     public Long getId() { return id; }
@@ -36,4 +43,8 @@ public class User {
     public void setEmail(String email) { this.email = email; }
 
     public List<Post> getPosts() { return posts; }
+
+    public Map<Long, Boolean> getVotes() { return votes; }
+    public void setVotes(Map<Long, Boolean> votes) { this.votes = votes; }
+
 }

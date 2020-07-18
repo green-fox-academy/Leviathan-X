@@ -64,13 +64,19 @@ public class PostController {
 
     @GetMapping("/{username}/post/upvote/{id}")
     public String postUpvote(@PathVariable long id, @PathVariable String username) {
-        postService.upvote(id);
+        if (username.equals(null)) return "redirect:/";
+        if (userService.getUserByUsername(username) == null) return "redirect:/";
+
+        userService.upvotePost(id, username);
         return "redirect:/foxchan/" + username + "/index";
     }
 
     @GetMapping("/{username}/post/downvote/{id}")
     public String postDownvote(@PathVariable long id, @PathVariable String username) {
-        postService.downvote(id);
+        if (username.equals(null)) return "redirect:/";
+        if (userService.getUserByUsername(username) == null) return "redirect:/";
+
+        userService.downvotePost(id, username);
         return "redirect:/foxchan/" + username + "/index";
     }
 }

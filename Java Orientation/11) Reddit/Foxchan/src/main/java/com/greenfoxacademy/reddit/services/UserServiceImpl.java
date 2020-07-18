@@ -1,20 +1,27 @@
 package com.greenfoxacademy.reddit.services;
 
 import com.greenfoxacademy.reddit.models.User;
+import com.greenfoxacademy.reddit.repositories.PostRepository;
 import com.greenfoxacademy.reddit.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
+    private PostRepository postRepository;
+    private PostService postService;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, PostRepository postRepository,
+                           PostService postService) {
         this.userRepository = userRepository;
+        this.postRepository = postRepository;
+        this.postService = postService;
     }
 
     @Override
@@ -40,5 +47,25 @@ public class UserServiceImpl implements UserService {
     public boolean checkMatch(String password, String passwordCheck) {
         if (password.equals(passwordCheck)) return true;
         else return false;
+    }
+
+    @Override
+    public void upvotePost(Long id, String username) {
+        User user = userRepository.findUserByUsername(username);
+        Map<Long, Boolean> votes = user.getVotes();
+        if (votes.containsKey(id) && votes.get(id) == false) postService.upvote(id);
+        if (!votes.containsKey(id)) votes.put(id, true);
+        user.setVotes(votes);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void downvotePost(Long id, String username) {
+        User user = userRepository.findUserByUsername(username);
+        Map<Long, Boolean> votes = user.getVotes();
+        if (votes.containsKey(id) && votes.get(id) == true) postService.upvote(id);
+        if (!votes.containsKey(id)) votes.put(id, false);
+        user.setVotes(votes);
+        userRepository.save(user);
     }
 }
