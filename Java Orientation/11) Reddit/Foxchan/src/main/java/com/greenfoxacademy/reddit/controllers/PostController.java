@@ -50,11 +50,14 @@ public class PostController {
     public String submitPostPOST(@ModelAttribute("post") Post post,
                                  @PathVariable String username) {
         postService.createNew(post.getTitle(), post.getText(), username);
-        return "redirect:/" + username + "/index";
+        return "redirect:/foxchan/" + username + "/index";
     }
 
-    @GetMapping("/post/{id}")
-    public String postDetails(Model model, @PathVariable long id) {
+    @GetMapping("/{username}/post/{id}")
+    public String postDetails(Model model, @PathVariable long id,
+                              @PathVariable String username) {
+        if (username.equals(null)) return "redirect:/";
+        if (userService.getUserByUsername(username) == null) return "redirect:/";
         model.addAttribute("post", postService.getPost(id));
         return "postDetails";
     }

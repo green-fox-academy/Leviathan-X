@@ -23,9 +23,9 @@
             </thead>
             <tr th:each="post:${posts}">
                 <td th:utext="${post.votes}"/>
-                <td><a th:href="@{|/foxchan/post/upvote/${post.id}/|}">+</a></td>
-                <td><a th:href="@{|/foxchan/post/downvote/${post.id}/|}">-</a></td>
-                <td><a th:href="@{|/foxchan/post/${post.id}/|}">
+                <td><a th:href="@{|/foxchan/${username}/post/upvote/${post.id}/|}">+</a></td>
+                <td><a th:href="@{|/foxchan/${username}/post/downvote/${post.id}/|}">-</a></td>
+                <td><a th:href="@{|/foxchan/${username}/post/${post.id}/|}">
                     <div th:utext="${post.title}"/></a></td>
                 <td th:utext="${post.id}"/>
                 <td th:utext="${post.date}"/>

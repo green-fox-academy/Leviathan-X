@@ -5,8 +5,16 @@
         <title th:utext="'FoxChan Post no. ' + ${post.id}"/>
     </head>
     <body>
-    <a href="/">Back</a>
+    <a th:href="@{|/foxchan/${username}/index/|}">Back</a>
     <br /><br />
+    <p th:utext="'Signed in as: ' + ${username}"/>
+    <div th:if="${username} == ${post.user.username}">
+        <p>You are the owner of this post.</p>
+        <a href="">Edit Post</a>
+        <br />
+        <a href="">Delete Post</a>
+        <br /><br />
+    </div>
     <fieldset>
         <legend th:utext="'FoxChan Post no. ' + ${post.id}"/>
         <label for="textOutput">Text:</label>
