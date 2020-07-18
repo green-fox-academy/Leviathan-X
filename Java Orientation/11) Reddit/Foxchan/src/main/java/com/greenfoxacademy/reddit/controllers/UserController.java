@@ -42,16 +42,17 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String registerPOST(Model model, @ModelAttribute("user") User user,
-                               @RequestParam(value = "passwordCheck") String passwordCheck) {
-        if (userService.getUserByUsername(user.getUsername()).getUsername().equals(user.getUsername())) {
+    public String registerPOST(Model model, @RequestParam(value = "passwordCheck") String passwordCheck,
+                               @ModelAttribute("user") User user) {
+        if (userService.getUserByUsername(user.getUsername()) != null) {
             model.addAttribute("match", "userNameExists");
             return "register";
         }
-        if (userService.getUserByEmail(user.getEmail()).getEmail().equals(user.getEmail())) {
+        else if (userService.getUserByEmail(user.getEmail()) != null) {
             model.addAttribute("match", "emailExists");
             return "register";
         }
+
         if (userService.checkMatch(user.getPassword(), passwordCheck)) {
             model.addAttribute("match", "true");
             userService.createNew(user.getUsername(), user.getEmail(), user.getPassword());
