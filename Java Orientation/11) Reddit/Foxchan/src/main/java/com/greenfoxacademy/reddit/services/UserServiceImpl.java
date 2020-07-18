@@ -13,14 +13,11 @@ import java.util.Map;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-    private PostRepository postRepository;
     private PostService postService;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, PostRepository postRepository,
-                           PostService postService) {
+    public UserServiceImpl(UserRepository userRepository, PostService postService) {
         this.userRepository = userRepository;
-        this.postRepository = postRepository;
         this.postService = postService;
     }
 
