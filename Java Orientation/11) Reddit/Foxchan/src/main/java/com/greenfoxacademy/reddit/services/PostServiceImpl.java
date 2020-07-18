@@ -44,7 +44,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void upvote(Long id) {
-        Post post = this.getPost(id);
+        Post post = this.postRepository.findById(id).orElse(null);
         post.setVotes(post.getVotes() + 1);
         this.postRepository.save(post);
     }
