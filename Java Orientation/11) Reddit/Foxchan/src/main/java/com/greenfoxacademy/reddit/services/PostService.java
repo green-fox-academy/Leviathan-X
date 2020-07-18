@@ -11,7 +11,7 @@ public interface PostService {
 
     Post getPost(Long id);
 
-    void createNew(String title, String text);
+    void createNew(String title, String text, String username);
 
     void upvote(Long id);
     void downvote(Long id);

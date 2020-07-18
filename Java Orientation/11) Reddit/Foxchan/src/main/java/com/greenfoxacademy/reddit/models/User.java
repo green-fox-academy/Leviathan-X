@@ -1,9 +1,7 @@
 package com.greenfoxacademy.reddit.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -14,6 +12,9 @@ public class User {
     private String username;
     private String email;
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
 
     public User() { }
 
@@ -34,4 +35,6 @@ public class User {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+
+    public List<Post> getPosts() { return posts; }
 }

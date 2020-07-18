@@ -1,7 +1,9 @@
 package com.greenfoxacademy.reddit.services;
 
 import com.greenfoxacademy.reddit.models.Post;
+import com.greenfoxacademy.reddit.models.User;
 import com.greenfoxacademy.reddit.repositories.PostRepository;
+import com.greenfoxacademy.reddit.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,10 +13,12 @@ import java.util.List;
 public class PostServiceImpl implements PostService {
 
     private PostRepository postRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    public PostServiceImpl(PostRepository postRepository) {
+    public PostServiceImpl(PostRepository postRepository, UserRepository userRepository) {
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -33,8 +37,9 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void createNew(String title, String text) {
-        this.postRepository.save(new Post(title, text));
+    public void createNew(String title, String text, String username) {
+        User user = userRepository.findUserByUsername(username);
+        this.postRepository.save(new Post(title, text, user));
     }
 
     @Override
