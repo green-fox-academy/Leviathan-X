@@ -70,7 +70,7 @@ public class UserController {
     @PostMapping("/login")
     public String loginPOST(Model model, @ModelAttribute("user") User user) {
         if (userService.getUserByUsername(user.getUsername()) == null) {
-            model.addAttribute("loginAttempt", "userNameFail");
+            model.addAttribute("loginAttempt", "usernameFail");
             return "login";
         }
         else if (!userService.getUserByUsername(user.getUsername()).getPassword().equals(user.getPassword())) {
