@@ -1,6 +1,7 @@
 package com.greenfoxacademy.reddit.controllers;
 
 import com.greenfoxacademy.reddit.models.Post;
+import com.greenfoxacademy.reddit.models.User;
 import com.greenfoxacademy.reddit.repositories.PostRepository;
 import com.greenfoxacademy.reddit.services.PostService;
 import com.greenfoxacademy.reddit.services.UserService;
@@ -27,19 +28,27 @@ public class PostController {
         this.userService = userService;
     }
 
-    @GetMapping({"", "/"})
-    public String homePage(Model model) {
+    @GetMapping("/{username}/index")
+    public String indexPage(Model model, @PathVariable String username) {
+        if (username.equals(null)) return "redirect:/";
+        if (userService.getUserByUsername(username) == null) return "redirect:/";
+
         model.addAttribute("posts", postService.getAllSorted());
+        model.addAttribute("username", username);
         return "index";
     }
 
-    @GetMapping("/submit")
-    public String submitPostGET() {
+    @GetMapping("/{username}/submit")
+    public String submitPostGET(Model model, @PathVariable String username) {
+        if (username.equals(null)) return "redirect:/";
+        if (userService.getUserByUsername(username) == null) return "redirect:/";
+
         return "add-post";
     }
 
-    @PostMapping("/add-post")
-    public String submitPostPOST(@ModelAttribute("post") Post post) {
+    @PostMapping("/{username}/add-post")
+    public String submitPostPOST(@ModelAttribute("post") Post post,
+                                 @PathVariable String username) {
         postService.createNew(post.getTitle(), post.getText());
         return "redirect:/foxchan/";
     }

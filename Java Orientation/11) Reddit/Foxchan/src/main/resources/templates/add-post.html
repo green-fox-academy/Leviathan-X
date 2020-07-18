@@ -5,8 +5,9 @@
         <title>FoxChan Submit Post</title>
     </head>
     <body>
-        <a href="/foxchan/">Back</a>
+        <a th:href="@{|/foxchan/${username}/index/|}">Back</a>
         <br /><br />
+        <p th:utext="'Signed in as: ' + ${username}"/>
         <form method="POST" th:action="@{add-post}">
             <fieldset>
                 <legend>Submit new Post</legend>

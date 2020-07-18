@@ -6,8 +6,9 @@
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
-        <a href="/foxchan/submit">Submit new post</a>
+        <a th:href="@{|/foxchan/${username}/submit/|}">Submit new post</a>
         <br /><br />
+        <p th:utext="'Signed in as ' + ${username}"/>
         <h1>Trending posts</h1>
         <br />
         <table>

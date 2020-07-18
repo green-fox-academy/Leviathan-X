@@ -75,7 +75,7 @@ public class UserController {
             model.addAttribute("loginAttempt", "passwordFail");
             return "login";
         }
-        else model.addAttribute("user", user);
-        return "redirect:/foxchan/";
+        else model.addAttribute("username", user.getUsername());
+        return "redirect:/foxchan/" + user.getUsername() + "/index";
     }
 }
