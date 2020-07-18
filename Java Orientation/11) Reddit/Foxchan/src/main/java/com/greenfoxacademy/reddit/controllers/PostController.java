@@ -62,16 +62,15 @@ public class PostController {
         return "postDetails";
     }
 
-    @GetMapping("/post/upvote/{id}")
-    public String postUpvote(@PathVariable long id) {
+    @GetMapping("/{username}/post/upvote/{id}")
+    public String postUpvote(@PathVariable long id, @PathVariable String username) {
         postService.upvote(id);
-        return "redirect:/foxchan/";
+        return "redirect:/foxchan/" + username + "/index";
     }
 
-    @GetMapping("/post/downvote/{id}")
-    public String postDownvote(@PathVariable long id) {
+    @GetMapping("/{username}/post/downvote/{id}")
+    public String postDownvote(@PathVariable long id, @PathVariable String username) {
         postService.downvote(id);
-        return "redirect:/foxchan/";
+        return "redirect:/foxchan/" + username + "/index";
     }
-
 }
