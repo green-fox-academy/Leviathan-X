@@ -13,7 +13,7 @@ public class Greeter {
         this.title = title;
     }
 
-    public Map<String, String> getOutput(HttpServletResponse response) {
+    public Map<String, String> run(HttpServletResponse response) {
         Map<String, String> output = new HashMap<>();
 
         if (name == null && title == null) {

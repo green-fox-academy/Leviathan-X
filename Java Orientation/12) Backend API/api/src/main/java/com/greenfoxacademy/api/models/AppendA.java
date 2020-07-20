@@ -11,7 +11,7 @@ public class AppendA {
         this.appendable = appendable;
     }
 
-    public Map<String, String> getOutput(HttpServletResponse response) {
+    public Map<String, String> run(HttpServletResponse response) {
         Map<String, String> output = new HashMap<>();
 
         if (appendable == null) {
