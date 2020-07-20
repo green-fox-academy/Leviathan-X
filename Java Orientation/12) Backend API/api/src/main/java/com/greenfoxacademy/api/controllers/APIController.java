@@ -1,12 +1,15 @@
 package com.greenfoxacademy.api.controllers;
 
+import com.greenfoxacademy.api.models.AppendA;
 import com.greenfoxacademy.api.models.Doubling;
 import com.greenfoxacademy.api.models.Greeter;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -36,6 +39,23 @@ public class APIController {
         else {
             response.setStatus(HttpServletResponse.SC_OK);
             return new Greeter(name, title).getOutput();
+        }
+    }
+
+    @GetMapping("/appenda/{appendable}")
+    public Map<String, String> appendARequest(@PathVariable(value = "appendable") String appendable,
+                                              HttpServletResponse response) {
+        Map<String, String> output = new HashMap<>();
+
+        if (appendable == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            output.put("error", "fuck!");
+            return output;
+        }
+        else {
+            response.setStatus(HttpServletResponse.SC_OK);
+            output.put("appended", new AppendA(appendable).run());
+            return output;
         }
     }
 }
