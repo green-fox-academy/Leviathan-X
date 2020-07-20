@@ -41,7 +41,7 @@ public class APIController {
 
     @PostMapping("/dountil/{action}")
     public Map<String, Object> doUntilRequest(@PathVariable(value = "action") String action,
-                                               @RequestBody(required = false) DoUntil doUntil,
+                                               @RequestBody DoUntil doUntil,
                                                HttpServletResponse response) {
         return actionServiceImpl.runDoUntil(action, doUntil, response);
     }
