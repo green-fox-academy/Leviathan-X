@@ -3,10 +3,10 @@ package com.greenfoxacademy.api.models;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RequestDouble {
+public class Doubling {
     private Integer input;
 
-    public RequestDouble(Integer input) {
+    public Doubling(Integer input) {
         this.input = input;
     }
 
@@ -20,8 +20,7 @@ public class RequestDouble {
         }
         else {
             output.put("received", input);
-            input = input * 2;
-            output.put("result", new RequestDouble(input).getInput());
+            output.put("result", input * 2);
         }
         return output;
     }
