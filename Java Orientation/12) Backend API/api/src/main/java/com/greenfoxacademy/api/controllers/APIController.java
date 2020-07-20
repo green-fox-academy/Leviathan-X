@@ -24,18 +24,7 @@ public class APIController {
     public Map<String, String> greeterRequest(@RequestParam(value = "name", required = false) String name,
                                               @RequestParam(value = "title", required = false) String title,
                                               HttpServletResponse response) {
-        if (name == null && title == null) {
-            return new Greeter(null, null).getOutput(response);
-        }
-        else if (name == null) {
-            return new Greeter(null, title).getOutput(response);
-        }
-        else if (title == null) {
-            return new Greeter(name, null).getOutput(response);
-        }
-        else {
-            return new Greeter(name, title).getOutput(response);
-        }
+        return new Greeter(name, title).getOutput(response);
     }
 
     @GetMapping("/appenda/{appendable}")
