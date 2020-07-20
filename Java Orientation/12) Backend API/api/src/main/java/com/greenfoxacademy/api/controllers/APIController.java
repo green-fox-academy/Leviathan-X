@@ -5,22 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 public class APIController {
     @GetMapping("/doubling")
     public Map<String, Object> doublingPage(@RequestParam(value = "input", required = false) Integer input) {
-        Map<String, Object> output = new HashMap<>();
-
-        if (input == null) {
-            output.put("error", "Please provide an input!");
-        }
-        else {
-            output.put("received", input);
-            output.put("result", new RequestDouble(input).getInput());
-        }
-        return output;
+        return new RequestDouble(input).getOutput();
     }
 }

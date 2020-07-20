@@ -1,11 +1,28 @@
 package com.greenfoxacademy.api.models;
 
-public class RequestDouble {
-    private final int input;
+import java.util.HashMap;
+import java.util.Map;
 
-    public RequestDouble(int input) {
-        this.input = input*2;
+public class RequestDouble {
+    private Integer input;
+
+    public RequestDouble(Integer input) {
+        this.input = input;
     }
 
     public int getInput() { return input; }
+
+    public Map<String, Object> getOutput() {
+        Map<String, Object> output = new HashMap<>();
+
+        if (input == null) {
+            output.put("error", "Please provide an input!");
+        }
+        else {
+            output.put("received", input);
+            input = input * 2;
+            output.put("result", new RequestDouble(input).getInput());
+        }
+        return output;
+    }
 }
