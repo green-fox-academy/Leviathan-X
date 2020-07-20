@@ -25,20 +25,16 @@ public class APIController {
                                               @RequestParam(value = "title", required = false) String title,
                                               HttpServletResponse response) {
         if (name == null && title == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            return new Greeter(null, null).getOutput();
+            return new Greeter(null, null).getOutput(response);
         }
         else if (name == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            return new Greeter(null, title).getOutput();
+            return new Greeter(null, title).getOutput(response);
         }
         else if (title == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            return new Greeter(name, null).getOutput();
+            return new Greeter(name, null).getOutput(response);
         }
         else {
-            response.setStatus(HttpServletResponse.SC_OK);
-            return new Greeter(name, title).getOutput();
+            return new Greeter(name, title).getOutput(response);
         }
     }
 

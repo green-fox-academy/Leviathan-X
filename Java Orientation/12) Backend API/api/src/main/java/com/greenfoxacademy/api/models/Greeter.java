@@ -1,5 +1,6 @@
 package com.greenfoxacademy.api.models;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,19 +13,23 @@ public class Greeter {
         this.title = title;
     }
 
-    public Map<String, String> getOutput() {
+    public Map<String, String> getOutput(HttpServletResponse response) {
         Map<String, String> output = new HashMap<>();
 
         if (name == null && title == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             output.put("error", "Please provide a name and a title!");
         }
         else if (name == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             output.put("error", "Please provide a name!");
         }
         else if (title == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             output.put("error", "Please provide a title!");
         }
         else {
+            response.setStatus(HttpServletResponse.SC_OK);
             output.put("welcome_message", String.format("Oh, hi there %s, my dear %s!", name, title));
         }
         return output;
