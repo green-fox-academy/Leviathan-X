@@ -4,14 +4,22 @@ import com.greenfoxacademy.api.models.AppendA;
 import com.greenfoxacademy.api.models.DoUntil;
 import com.greenfoxacademy.api.models.Doubling;
 import com.greenfoxacademy.api.models.Greeter;
+import com.greenfoxacademy.api.services.ActionServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.HashMap;
 import java.util.Map;
 
 @RestController
 public class APIController {
+
+    ActionServiceImpl actionServiceImpl;
+
+    @Autowired
+    public APIController(ActionServiceImpl actionServiceImpl) {
+        this.actionServiceImpl = actionServiceImpl;
+    }
 
     @GetMapping("/doubling")
     public Map<String, Object> doublingRequest(@RequestParam(value = "input", required = false) Integer input) {
@@ -35,24 +43,6 @@ public class APIController {
     public Map<String, Object> doUntilRequest(@PathVariable(value = "action") String action,
                                                @RequestBody(required = false) DoUntil doUntil,
                                                HttpServletResponse response) {
-        Map<String, Object> output = new HashMap<>();
-        int result;
-        if (action.equals("sum")) {
-            response.setStatus(HttpServletResponse.SC_OK);
-            result = doUntil.sum();
-            output.put("result", result);
-            return output;
-        }
-        else if (action.equals("factor")) {
-            response.setStatus(HttpServletResponse.SC_OK);
-            result = doUntil.factor();
-            output.put("result", result);
-            return output;
-        }
-        else {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            output.put("error", "Please provide a number!");
-            return output;
-        }
+        return actionServiceImpl.runDoUntil(action, doUntil, response);
     }
 }
