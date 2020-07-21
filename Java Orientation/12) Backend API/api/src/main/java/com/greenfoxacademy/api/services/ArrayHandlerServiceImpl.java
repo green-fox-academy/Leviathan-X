@@ -14,8 +14,8 @@ public class ArrayHandlerServiceImpl implements ArrayHandlerService{
                 sum += number;
             }
             arrayHandler.setResult(sum);
-            arrayHandler.setNumbers(null);
             arrayHandler.setWhat(null);
+            arrayHandler.setNumbers(null);
             return arrayHandler;
         }
         else if (arrayHandler.getWhat().equals("multiply")) {
@@ -24,8 +24,8 @@ public class ArrayHandlerServiceImpl implements ArrayHandlerService{
                 sum *= number;
             }
             arrayHandler.setResult(sum);
-            arrayHandler.setNumbers(null);
             arrayHandler.setWhat(null);
+            arrayHandler.setNumbers(null);
             return arrayHandler;
         }
         else if (arrayHandler.getWhat().equals("double")) {
@@ -33,10 +33,10 @@ public class ArrayHandlerServiceImpl implements ArrayHandlerService{
             for (int i = 0; i < output.length; i++) {
                 output[i] *= 2;
             }
-            arrayHandler.setResults(output);
-            arrayHandler.setResult(null);
-            arrayHandler.setNumbers(null);
+            // arrayHandler.setResults(null);
+            arrayHandler.setResult(output);
             arrayHandler.setWhat(null);
+            arrayHandler.setNumbers(null);
             return arrayHandler;
         }
         return arrayHandler;

@@ -7,8 +7,8 @@ public class ArrayHandler {
 
     private String what;
     private int[] numbers;
-    private Integer result;
-    private int[] results;
+    private Object result;
+    // private int[] results;
 
     public ArrayHandler() { }
 
@@ -23,11 +23,11 @@ public class ArrayHandler {
     public int[] getNumbers() { return numbers; }
     public void setNumbers(int[] numbers) { this.numbers = numbers; }
 
-    public Integer getResult() { return result; }
-    public void setResult(Integer result) { this.result = result; }
+    public Object getResult() { return result; }
+    public void setResult(Object result) { this.result = result; }
 
-    public int[] getResults() { return results; }
-    public void setResults(int[] results) { this.results = results; }
+    // public int[] getResults() { return results; }
+    // public void setResults(int[] results) { this.results = results; }
 
     // public class ResultArray {
     //     private int[] result;
