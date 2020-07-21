@@ -17,19 +17,19 @@ public class ActionServiceImpl implements ActionService {
         Map<String, Object> output = new HashMap<>();
         int result;
         if (action.equals("sum")) {
-            response.setStatus(HttpServletResponse.SC_OK);
+            response.setStatus(200);
             result = doUntil.sum();
             output.put("result", result);
             return output;
         }
         else if (action.equals("factor")) {
-            response.setStatus(HttpServletResponse.SC_OK);
+            response.setStatus(200);
             result = doUntil.factor();
             output.put("result", result);
             return output;
         }
         else {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            response.setStatus(400);
             output.put("error", "Please provide a number!");
             return output;
         }

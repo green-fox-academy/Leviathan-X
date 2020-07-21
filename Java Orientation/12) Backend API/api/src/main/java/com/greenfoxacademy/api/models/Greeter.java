@@ -17,19 +17,19 @@ public class Greeter {
         Map<String, String> output = new HashMap<>();
 
         if (name == null && title == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.setStatus(400);    // HttpServletResponse.SC_BAD_REQUEST
             output.put("error", "Please provide a name and a title!");
         }
         else if (name == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.setStatus(400);
             output.put("error", "Please provide a name!");
         }
         else if (title == null) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.setStatus(400);
             output.put("error", "Please provide a title!");
         }
         else {
-            response.setStatus(HttpServletResponse.SC_OK);
+            response.setStatus(200); // HttpServletResponse.SC_OK
             output.put("welcome_message", String.format("Oh, hi there %s, my dear %s!", name, title));
         }
         return output;
