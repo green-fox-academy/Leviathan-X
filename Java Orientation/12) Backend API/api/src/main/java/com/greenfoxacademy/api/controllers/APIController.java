@@ -76,7 +76,7 @@ public class APIController {
     @GetMapping("/log")
     public ResponseEntity<?> logRequest() {
         if (this.logService.findAll().size() == 0)
-            return new ResponseEntity<>(new ErrorMessage("No log entries!"), HttpStatus.OK);
+            return new ResponseEntity<>(new ErrorMessage("No log entries!"), HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(this.logService.findAll(), HttpStatus.OK);
     }
 }
