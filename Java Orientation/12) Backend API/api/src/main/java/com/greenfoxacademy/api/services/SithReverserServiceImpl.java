@@ -21,7 +21,8 @@ public class SithReverserServiceImpl {
             output += words[i] + " ";
             i++;
         }
-        output += "Arrgh. Uhmmm.";
+        output = output.substring(0, 1).toUpperCase() + output.substring(1);
+        output = output.substring(0, output.length() -1) + ". Arrgh. Uhmm.";
 
         sithReverser.setSithText(output);
         return sithReverser;
