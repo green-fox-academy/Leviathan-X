@@ -1,10 +1,10 @@
 package com.greenfoxacademy.api.controllers;
 
 import com.greenfoxacademy.api.models.*;
-import com.greenfoxacademy.api.repositories.LogRepository;
 import com.greenfoxacademy.api.services.ActionServiceImpl;
 import com.greenfoxacademy.api.services.ArrayHandlerService;
 import com.greenfoxacademy.api.services.LogService;
+import com.greenfoxacademy.api.services.SithReverserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +20,15 @@ public class APIController {
     private ActionServiceImpl actionServiceImpl;
     private ArrayHandlerService arrayHandlerService;
     private LogService logService;
+    private SithReverserServiceImpl sithReverserService;
 
     @Autowired
     public APIController(ActionServiceImpl actionServiceImpl, ArrayHandlerService arrayHandlerService,
-                         LogService logService) {
+                         LogService logService, SithReverserServiceImpl sithReverserService) {
         this.actionServiceImpl = actionServiceImpl;
         this.arrayHandlerService = arrayHandlerService;
         this.logService = logService;
+        this.sithReverserService = sithReverserService;
     }
 
     @GetMapping("/doubling")
@@ -78,5 +80,12 @@ public class APIController {
         if (this.logService.findAll().size() == 0)
             return new ResponseEntity<>(new ErrorMessage("No log entries!"), HttpStatus.BAD_REQUEST);
         return new ResponseEntity<>(this.logService.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping("/sith")
+    public ResponseEntity<?> sithRequest(@RequestBody SithReverser sithReverser) {
+        if (sithReverser.getText() == null) return new ResponseEntity<>(
+                new ErrorMessage("Feed me some text you have to, padawan young you are. Hmmm."), HttpStatus.BAD_REQUEST);
+        else return new ResponseEntity<>(sithReverserService.run(sithReverser), HttpStatus.OK);
     }
 }
