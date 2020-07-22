@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit ToDo</title>
+    </head>
+    <body>
+        <a href="/todos/">Back</a>
+        <h1>Edit ToDo</h1>
+        <form method="POST" th:action="'/todos/edit-todo?id='+${todo.id}">
+            <label for="description">ToDo Description</label>
+            <input autofocus required id="description" name="title" th:value="${todo.title}">
+            <br />
+            <label for="urgentStatus">Urgent</label>
+            <input type="checkbox" id="urgentStatus" name="urgent" th:checked="${todo.urgent}">
+            <br />
+            <label for="isDone">Done</label>
+            <input type="checkbox" id="isDone" name="done" th:checked="${todo.done}">
+            <br />
+            <label for="ass">Assignee</label>
+            <select id="ass" name="idAss">
+                <!--<option th:value="${null}">empty</option>--> <!-- DON'T KNOW HOW TO PASS NULL -->
+                <option th:each="assignee : ${assignees}" th:value="${assignee.id}" th:utext="${assignee.name}"/>
+            </select>
+            <br />
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

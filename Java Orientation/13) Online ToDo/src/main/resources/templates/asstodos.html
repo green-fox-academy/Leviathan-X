@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Assignee and their ToDos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+              integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <a href="/assignees/">-> Go to Assignee List</a>
+        <br /><br />
+        <h1 th:utext="${assignee.name} + ' and the linked ToDos'"/>
+        <h7 th:utext="'Email: ' + ${assignee.email}"/>
+        <table class="table table-hover">
+            <thead>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Urgent</th>
+            <th>Done</th>
+            <th> </th>
+            <th> </th>
+            </thead>
+            <tr th:each="todo:${assignee.toDos}">
+                <td th:utext="${todo.id}"/>
+                <td th:utext="${todo.title}"/>
+                <td th:utext="${todo.urgent}"/>
+                <td th:utext="${todo.done}"/>
+                <td><a th:href="@{|/todos/edit-todo/${todo.id}/|}">Edit</a></td>
+                <td><a th:href="@{|/todos/delete-todo/${todo.id}|}">
+                    <button type="button">Delete</button>
+                </a></td>
+            </tr>
+        </table>
+    </body>
+</html>

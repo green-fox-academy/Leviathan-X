@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Assignee</title>
+    </head>
+    <body>
+        <a href="/assignees/">Back</a>
+        <h1>Edit Assignee</h1>
+        <form method="POST" th:action="'/assignees/edit-assignee?id='+${assignee.id}">
+            <label for="description">Assignee Name</label>
+            <input autofocus required id="description" name="name" th:value="${assignee.name}">
+            <br />
+            <label for="description2">Assignee Email</label>
+            <input required id="description2" name="email" th:value="${assignee.email}">
+            <br />
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
