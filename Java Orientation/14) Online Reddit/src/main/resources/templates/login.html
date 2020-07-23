@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Foxchan Login</title>
+    </head>
+    <body>
+        <a href="/">Back</a>
+        <br /><br />
+        <form method="POST" th:action="@{login}">
+            <fieldset>
+                <legend>Login</legend>
+                <input autofocus required name="username" placeholder="User Name">
+                <br />
+                <input required type="password" name="password" placeholder="Password">
+                <br />
+                <button type="submit">Login</button>
+            </fieldset>
+        </form>
+
+        <div th:if="${loginAttempt} == 'usernameFail'">
+            <p>Login failed! Wrong username.</p>
+        </div>
+        <div th:if="${loginAttempt} == 'passwordFail'">
+            <p>Login failed! Wrong password.</p>
+        </div>
+        <div th:if="${loginAttempt} == ${null}">
+            <p></p>
+        </div>
+    </body>
+</html>

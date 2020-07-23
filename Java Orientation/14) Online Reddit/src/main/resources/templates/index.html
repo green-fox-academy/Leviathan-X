@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>FoxChan Home Page</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <a th:href="@{|/foxchan/${username}/submit/|}">Submit new post</a>
+        <br /><br />
+        <p th:utext="'Signed in as ' + ${username}"/>
+        <a href="/">Logout</a>
+        <h1>Trending posts</h1>
+        <br />
+        <table>
+            <thead>
+            <th>Upvotes</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Post No.</th>
+            <th></th>
+            <th>Poster</th>
+            </thead>
+            <tr th:each="post:${posts}">
+                <td th:utext="${post.votes}"/>
+                <td><a th:href="@{|/foxchan/${username}/post/upvote/${post.id}/|}">+</a></td>
+                <td><a th:href="@{|/foxchan/${username}/post/downvote/${post.id}/|}">-</a></td>
+                <td><a th:href="@{|/foxchan/${username}/post/${post.id}/|}">
+                    <div th:utext="${post.title}"/></a></td>
+                <td th:utext="${post.id}"/>
+                <td th:utext="${post.date}"/>
+                <td th:utext="${post.user.username}"/>
+            </tr>
+        </table>
+
+        <br />
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
+        </div>
+    </body>
+</html>

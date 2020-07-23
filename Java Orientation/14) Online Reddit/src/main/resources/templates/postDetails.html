@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title th:utext="'FoxChan Post no. ' + ${post.id}"/>
+    </head>
+    <body>
+    <a th:href="@{|/foxchan/${username}/index/|}">Back</a>
+    <br /><br />
+    <p th:utext="'Signed in as: ' + ${username}"/>
+    <div th:if="${username} == ${post.user.username}">
+        <p>You are the owner of this post.</p>
+        <a href="">Edit Post</a>
+        <br />
+        <a href="">Delete Post</a>
+        <br /><br />
+    </div>
+    <fieldset>
+        <legend th:utext="'FoxChan Post no. ' + ${post.id}"/>
+        <label for="textOutput">Text:</label>
+        <br />
+        <p id="textOutput" th:utext="${post.text}"/>
+    </fieldset>
+    </body>
+</html>
