@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GuardianController {
 
     @GetMapping("/groot")
-    public ResponseEntity<?> grootMessageGET(@RequestParam String message) {
+    public ResponseEntity<?> grootMessageGET(@RequestParam(required = false) String message) {
         if (message == null) {
             return ResponseEntity.badRequest().body(new Groot(null));
         }
