@@ -25,10 +25,6 @@ public class GuardianControllerTest {
 
     @Test
     public void grootMessageGET_withParameter() throws Exception {
-        mockMvc.perform(get("/groot?message=Yoyoyo"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.received", is("Yoyoyo")))
-                .andExpect(jsonPath("$.translated", is("I am Groot!")))
-                .andReturn();
+        
     }
 }
