@@ -34,7 +34,8 @@ public class APIController {
     @GetMapping("/doubling")
     public ResponseEntity<?> doublingRequest(@RequestParam(value = "input", required = false) Integer input) {
         if (input != null) logService.saveLog(new Log("/doubling", "input=" + input.toString()));
-        return new ResponseEntity<>(new Doubling(input).getOutput(), HttpStatus.OK);
+        //return new ResponseEntity<>(new Doubling(input).getOutput(), HttpStatus.OK);
+        return ResponseEntity.ok().body(new Doubling(input).getOutput());
     }
 
     @GetMapping("/greeter")

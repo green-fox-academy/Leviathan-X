@@ -1,9 +1,12 @@
 package com.greenfoxacademy.api.models;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Greeter {
     private String name;
     private String title;
@@ -34,4 +37,10 @@ public class Greeter {
         }
         return output;
     }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 }
