@@ -17,7 +17,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
 
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(GuardianController.class)
 public class GuardianControllerTest {
@@ -41,6 +40,37 @@ public class GuardianControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.error", is("I am Groot!")))
+                .andReturn();
+    }
+
+    @Test
+    public void yonduArrowGET_withParameters() throws Exception {
+        mockMvc.perform(get("/yondu?distance=100.0&time=10.0")
+                .content(String.valueOf(MediaType.APPLICATION_JSON)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.distance", is(100.0)))
+                .andExpect(jsonPath("$.time", is(10.0)))
+                .andExpect(jsonPath("$.speed", is(10.0)))
+                .andReturn();
+    }
+
+    @Test
+    public void yonduArrowGET_withParametersWithTimeAsZero() throws Exception {
+        mockMvc.perform(get("/yondu?distance=100.0&time=0.0")
+                .content(String.valueOf(MediaType.APPLICATION_JSON)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.distance", is(100.0)))
+                .andExpect(jsonPath("$.time", is(0.0)))
+                .andExpect(jsonPath("$.speed", is("Infinity")))
+                .andReturn();
+    }
+
+    @Test
+    public void yonduArrowGET_withoutParameters() throws Exception {
+        mockMvc.perform(get("/yondu")
+                .content(String.valueOf(MediaType.APPLICATION_JSON)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error", is("Fuck!")))
                 .andReturn();
     }
 }
