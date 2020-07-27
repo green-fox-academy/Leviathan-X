@@ -76,13 +76,13 @@ public class LinkServiceImpl implements LinkService{
 
     @Override
     public void deleteById(Long id) {
-        // this.linkRepository.deleteById(id);
-        List<Link> links = this.linkRepository.findAll();
-        Link target = null;
-        for (Link link : links) {
-            if (link.getId() == id)
-                target = link;
-        }
-        this.linkRepository.delete(target);
+        this.linkRepository.deleteById(id);
+        // List<Link> links = this.linkRepository.findAll();
+        // Link target = null;
+        // for (Link link : links) {
+        //     if (link.getId() == id)
+        //         target = link;
+        // }
+        // this.linkRepository.delete(target);
     }
 }

@@ -71,15 +71,19 @@ public class MainController {
         if (this.linkService.getLink(id) == null) {
             return new ResponseEntity<>(new String("Not found!"), HttpStatus.NOT_FOUND);
         }
-        else if (this.linkService.getLink(id) == null &&
+        else if (this.linkService.getLink(id) != null &&
                 !this.linkService.getLink(id).getCode().equals(link.getCode())) {
             return new ResponseEntity<>("Forbidden!", HttpStatus.FORBIDDEN);
         }
-        else if (this.linkService.getLink(id) == null &&
+        else if (this.linkService.getLink(id) != null &&
                 this.linkService.getLink(id).getCode().equals(link.getCode())) {
             this.linkService.deleteById(id);
             return new ResponseEntity<>("Done", HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>("Error!", HttpStatus.BAD_REQUEST);
     }
+
+    // SELECT * FROM applicants
+    // ORDER BY age
+    // LIMIT 5;
 }
