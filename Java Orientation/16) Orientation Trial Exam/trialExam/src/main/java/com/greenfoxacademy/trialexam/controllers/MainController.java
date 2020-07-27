@@ -83,7 +83,7 @@ public class MainController {
         return new ResponseEntity<>("Error!", HttpStatus.BAD_REQUEST);
     }
 
-    // SELECT * FROM applicants
+    // SELECT name FROM applicants
     // WHERE country = 'Czech Republic'
     // ORDER BY age
     // LIMIT 5;
