@@ -52,7 +52,7 @@ public class MainController {
                                       HttpServletResponse httpServletResponse) {
         if (linkService.getLinkByAlias(alias) != null) {
             linkService.hitCountUp(alias);
-            return new ModelAndView("redirect:" + linkService.getLinkByAlias(alias).getUrl());
+            return new ModelAndView("redirect:https://" + linkService.getLinkByAlias(alias).getUrl());
         }
         else {
             httpServletResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
