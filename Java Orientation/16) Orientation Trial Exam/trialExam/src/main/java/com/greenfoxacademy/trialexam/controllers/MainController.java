@@ -84,6 +84,7 @@ public class MainController {
     }
 
     // SELECT * FROM applicants
+    // WHERE country = 'Czech Republic'
     // ORDER BY age
     // LIMIT 5;
 }
