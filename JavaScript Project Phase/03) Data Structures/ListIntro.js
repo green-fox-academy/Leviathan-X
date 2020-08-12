@@ -13,6 +13,7 @@ console.log(names.length);
 names.push('William');
 
 // Print out whether the list is empty or not
+console.log('');
 console.log(names[0] !== undefined);
 
 // Add John to the list
@@ -21,9 +22,11 @@ names.push('John');
 names.push('Amanda');
 
 // Print out the number of elements in the list
+console.log('');
 console.log(names.length);
 
 // Print out the 3rd element
+console.log('');
 console.log(names[2]);
 
 // Iterate through the list and print out each name
