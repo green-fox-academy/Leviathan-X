@@ -17,6 +17,7 @@ button.onclick = () => {
         div.appendChild(gif);
     }
     else {
-        div.removeChild(gif);   // Doesn't work for some reason - "The node to be removed is not a child of this node." WHUT?
+        const existingGif = document.getElementsByTagName('img');
+        div.removeChild(existingGif);  
     }
 };
