@@ -12,7 +12,9 @@ Grab yourself some :coffee: and enjoy.
 |------------|----|
 | ToDo App |[Click!](https://github.com/Leviathan-X/todo-app)|
 | Wanderer |[Clickerino](https://github.com/Leviathan-X/wanderer-cs)|
-| Foundation Exam| [Toot](https://github.com/green-fox-academy/Leviathan-X/blob/master/C%23%20Foundation/Misc/_imgMisc/success.jpg) |
+| Foundation Exam | [Toot](https://github.com/green-fox-academy/Leviathan-X/blob/master/C%23%20Foundation/Misc/_imgMisc/success.jpg) |
+| Orientation Exam | Passed |
+| ToDo Vue App | https://github.com/Leviathan-X/VueTodoX |
 
 <br/>
 
